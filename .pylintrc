@@ -2,4 +2,4 @@
 load-plugins=pylint_report
 disable=E1120,W0622,E1101,R0902,C0114,C0115,C0116,W0613,C0103
 [REPORTS]
-; output-format=pylint_report.CustomJsonReporter
+output-format=pylint_report.CustomJsonReporter

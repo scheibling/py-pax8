@@ -26,7 +26,7 @@ jobs:
           pip install -r requirements-ci.txt -r requirements.txt
       - name: Run tests
         run: |
-          "pylint src/ | pylint_report.py > report.html"
+          "pylint src/pax8 | pylint_report.py > report.html"
       - name: Upload report
         uses: actions/upload-artifact@v1
         with:
