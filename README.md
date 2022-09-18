@@ -12,6 +12,9 @@ There are some differences between the API implementation and the official docum
 * <strike>Encrypted Access Token Caching</strike> (To Do)
 * <strike>Automatic rate limiting</strike> (To Do)
 
+### API Token Caching
+The API token received from Pax8 in exchange for the client_id and secret is a relatively long-lived token, so the option for caching it to disk exists (and in the future also to redis and memcache). This is not done by default for security reasons, but can be enabled by setting the cache_token parameter to true and setting the cache_location parameter to where you want the file to be saved. The token is currently **not** encrypted, so it is recommended to only use this option if you are the only user of the machine. The default save location is in the users home folder.
+
 ### API Resources
 Struck resources are not yet implemented. Resources marked Experimental are a part of the undocumented Pax8 API, see more information below.
 * <b> ```client.Company ```</b>
@@ -50,9 +53,9 @@ Struck resources are not yet implemented. Resources marked Experimental are a pa
     * ```.list_items(id: uuid, filter: filters.InvoiceItemFilter)```
 
 * <b>```client.UsageSummary```</b>
-    * ```.list(subscription_id: uuid, filter: filters.UsageSummaryFilter)```
+    * ```.list_for_subscription(id: uuid, filter: filters.UsageSummaryFilter)```
     * ```.get(id: uuid)```
-    * ```.get_usage_lines(id: uuid, filter: filters.UsageSummaryLineFilter)```
+    * ```.list_usage_lines(id: uuid, filter: filters.UsageSummaryLineFilter)```
 
 ### V3 API Resources (Undocumented APIs)
 There are several undocumented APIs used to implement the functionality of the Pax8 Partner Portal (https://app.pax8.com) that have been implemented into this library, marked Experimental above due to their undocumented nature. These APIs are not guaranteed to be stable, and may change at any time. Use at your own risk.

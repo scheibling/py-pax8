@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.10.0" />
-<title>pytemplate.main API documentation</title>
-<meta name="description" content="The main part of the pytemplate-package." />
+<title>pax8.exceptions API documentation</title>
+<meta name="description" content="" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
 <link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
@@ -19,37 +19,23 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>pytemplate.main</code></h1>
+<h1 class="title">Module <code>pax8.exceptions</code></h1>
 </header>
 <section id="section-intro">
-<p>The main part of the pytemplate-package.</p>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">&#34;&#34;&#34;The main part of the pytemplate-package.&#34;&#34;&#34;
-class PythonTemplate:
-    &#34;&#34;&#34;
-    The PythonTemplate class does something.
-    &#34;&#34;&#34;
-    def __init__(self, some_key: str):
-        self.some_key = some_key
-        self.some_key_list = [some_key]
+<pre><code class="python">class Pax8Exception(Exception):
+    pass
 
-    def __str__(self):
-        return self.some_key
 
-    def get_x_times(self, x: int):
-        &#34;&#34;&#34;
-        Returns the class value X times.
+class UnexpectedResponseException(Pax8Exception):
+    pass
 
-        Args:
-            x (int): How many times to return
 
-        Returns:
-            str: The class value some_key X times
-        &#34;&#34;&#34;
-        return &#34;&#34;.join([self.some_key for _ in range(x)])</code></pre>
+class UnableToCacheException(Pax8Exception):
+    pass</code></pre>
 </details>
 </section>
 <section>
@@ -61,74 +47,69 @@ class PythonTemplate:
 <section>
 <h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
-<dt id="pytemplate.main.PythonTemplate"><code class="flex name class">
-<span>class <span class="ident">PythonTemplate</span></span>
-<span>(</span><span>some_key: str)</span>
+<dt id="pax8.exceptions.Pax8Exception"><code class="flex name class">
+<span>class <span class="ident">Pax8Exception</span></span>
+<span>(</span><span>*args, **kwargs)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>The PythonTemplate class does something.</p></div>
+<div class="desc"><p>Common base class for all non-exit exceptions.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class PythonTemplate:
-    &#34;&#34;&#34;
-    The PythonTemplate class does something.
-    &#34;&#34;&#34;
-    def __init__(self, some_key: str):
-        self.some_key = some_key
-        self.some_key_list = [some_key]
-
-    def __str__(self):
-        return self.some_key
-
-    def get_x_times(self, x: int):
-        &#34;&#34;&#34;
-        Returns the class value X times.
-
-        Args:
-            x (int): How many times to return
-
-        Returns:
-            str: The class value some_key X times
-        &#34;&#34;&#34;
-        return &#34;&#34;.join([self.some_key for _ in range(x)])</code></pre>
+<pre><code class="python">class Pax8Exception(Exception):
+    pass</code></pre>
 </details>
-<h3>Methods</h3>
-<dl>
-<dt id="pytemplate.main.PythonTemplate.get_x_times"><code class="name flex">
-<span>def <span class="ident">get_x_times</span></span>(<span>self, x: int)</span>
-</code></dt>
-<dd>
-<div class="desc"><p>Returns the class value X times.</p>
-<h2 id="args">Args</h2>
-<dl>
-<dt><strong><code>x</code></strong> :&ensp;<code>int</code></dt>
-<dd>How many times to return</dd>
-</dl>
-<h2 id="returns">Returns</h2>
-<dl>
-<dt><code>str</code></dt>
-<dd>The class value some_key X times</dd>
-</dl></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def get_x_times(self, x: int):
-    &#34;&#34;&#34;
-    Returns the class value X times.
-
-    Args:
-        x (int): How many times to return
-
-    Returns:
-        str: The class value some_key X times
-    &#34;&#34;&#34;
-    return &#34;&#34;.join([self.some_key for _ in range(x)])</code></pre>
-</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="pax8.exceptions.UnableToCacheException" href="#pax8.exceptions.UnableToCacheException">UnableToCacheException</a></li>
+<li><a title="pax8.exceptions.UnexpectedResponseException" href="#pax8.exceptions.UnexpectedResponseException">UnexpectedResponseException</a></li>
+</ul>
 </dd>
-</dl>
+<dt id="pax8.exceptions.UnableToCacheException"><code class="flex name class">
+<span>class <span class="ident">UnableToCacheException</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Common base class for all non-exit exceptions.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class UnableToCacheException(Pax8Exception):
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pax8.exceptions.Pax8Exception" href="#pax8.exceptions.Pax8Exception">Pax8Exception</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pax8.exceptions.UnexpectedResponseException"><code class="flex name class">
+<span>class <span class="ident">UnexpectedResponseException</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Common base class for all non-exit exceptions.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class UnexpectedResponseException(Pax8Exception):
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pax8.exceptions.Pax8Exception" href="#pax8.exceptions.Pax8Exception">Pax8Exception</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
 </dd>
 </dl>
 </section>
@@ -141,16 +122,19 @@ class PythonTemplate:
 <ul id="index">
 <li><h3>Super-module</h3>
 <ul>
-<li><code><a title="pytemplate" href="index.html">pytemplate</a></code></li>
+<li><code><a title="pax8" href="index.html">pax8</a></code></li>
 </ul>
 </li>
 <li><h3><a href="#header-classes">Classes</a></h3>
 <ul>
 <li>
-<h4><code><a title="pytemplate.main.PythonTemplate" href="#pytemplate.main.PythonTemplate">PythonTemplate</a></code></h4>
-<ul class="">
-<li><code><a title="pytemplate.main.PythonTemplate.get_x_times" href="#pytemplate.main.PythonTemplate.get_x_times">get_x_times</a></code></li>
-</ul>
+<h4><code><a title="pax8.exceptions.Pax8Exception" href="#pax8.exceptions.Pax8Exception">Pax8Exception</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pax8.exceptions.UnableToCacheException" href="#pax8.exceptions.UnableToCacheException">UnableToCacheException</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pax8.exceptions.UnexpectedResponseException" href="#pax8.exceptions.UnexpectedResponseException">UnexpectedResponseException</a></code></h4>
 </li>
 </ul>
 </li>

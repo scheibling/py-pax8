@@ -31,6 +31,6 @@ jobs:
 
     - name: Rebuild documentation
       run: |
-        pdoc --html src/pytemplate/ --force --output-dir docs
-        mv docs/pytemplate/* docs/
-        rm -r docs/pytemplate
+        pdoc --html src/pax8/ --force --output-dir docs
+        mv docs/pax8/* docs/
+        rm -r docs/pax8

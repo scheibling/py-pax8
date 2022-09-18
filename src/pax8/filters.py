@@ -1,7 +1,8 @@
 from json import dumps as jsdump_str
-from datetime import datetime, date
+from datetime import date
 from dataclasses import dataclass
 from . import enums as pe
+
 
 @dataclass
 class ListFilter:
@@ -10,24 +11,28 @@ class ListFilter:
 
     def serialize(self) -> str:
         return jsdump_str(dict(self), sort_keys=True)
-    
+
     def __post_init__(self):
         self.get_qs = self.__get_qs
-    
+
+    # pylint: disable=method-hidden
     @staticmethod
     def get_qs(*args, **kwargs) -> dict:
         return {}
-    
+
     def __get_qs(self) -> dict:
         return dict(self)
-    
+
     def __iter__(self) -> dict:
         self_dict = {}
         for key, value in self.__dict__.items():
             if value is not None:
+                if isinstance(value, pe.Enum):
+                    value = value.value
                 self_dict[key] = value
-        
+
         yield from self_dict.items()
+
 
 @dataclass
 class CompanyFilter(ListFilter):
@@ -42,15 +47,18 @@ class CompanyFilter(ListFilter):
     orderApprovalRequired: bool = None
     status: pe.CompanyStatus = None
 
+
 @dataclass
 class ProductFilter(ListFilter):
     sort: pe.ProductSortBy = None
     sortDirection: pe.SortDirection = None
     vendorName: str = None
 
+
 @dataclass
 class OrderFilter(ListFilter):
     companyId: str = None
+
 
 @dataclass
 class SubscriptionFilter(ListFilter):
@@ -61,9 +69,11 @@ class SubscriptionFilter(ListFilter):
     companyId: str = None
     productId: str = None
 
+
 @dataclass
 class ContactFilter(ListFilter):
     pass
+
 
 @dataclass
 class InvoiceFilter(ListFilter):
@@ -79,9 +89,11 @@ class InvoiceFilter(ListFilter):
     carriedBalance: float = None
     companyId: str = None
 
+
 @dataclass
 class InvoiceItemFilter(ListFilter):
     pass
+
 
 @dataclass
 class UsageSummaryFilter(ListFilter):
@@ -89,6 +101,7 @@ class UsageSummaryFilter(ListFilter):
     sort_direction: pe.SortDirection = None
     resourceGroup: str = None
     companyId: str = None
+
 
 @dataclass
 class UsageSummaryLineFilter(ListFilter):

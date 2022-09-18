@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.10.0" />
-<title>pytemplate API documentation</title>
+<title>pax8 API documentation</title>
 <meta name="description" content="This is some module information …" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
@@ -19,46 +19,164 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Package <code>pytemplate</code></h1>
+<h1 class="title">Package <code>pax8</code></h1>
 </header>
 <section id="section-intro">
 <p>This is some module information</p>
-<h1 id="pytemplate">pytemplate</h1>
-<p>Python application/plugin template repository</p>
-<p>[toc]: # Table of Contents</p>
-<h1 id="usage">Usage</h1>
-<h2 id="requirementstxt">requirements.txt</h2>
-<p>Requirements for compiling/installing the application itself</p>
-<h2 id="requirements-citxt">requirements-ci.txt</h2>
-<p>Additional requirements for the CI/CD flows</p>
-<h2 id="setuppy">setup.py</h2>
-<p>Configuration file for the application, installation and CLI entry point</p>
-<h2 id="pyprojecttoml">pyproject.toml</h2>
-<p>Additional build instructions</p>
-<h2 id="gitpodyml">.gitpod.yml</h2>
-<p>Instructions for building development container @gitpod.io</p>
-<h2 id="tplgithub">tpl.github</h2>
-<p>Rename this dir to .github to activate the Github Actions</p>
-<h3 id="linting">Linting</h3>
-<p>Scans the code for errors/formatting, outputs a HTML report uploaded to Github</p>
-<h3 id="matrix_testing">Matrix_testing</h3>
-<p>Testing on several OSes with several python versions</p>
-<h3 id="testing">Testing</h3>
-<p>Regular testing on a single OS/version</p>
-<h3 id="publish">Publish</h3>
-<p>Publish the package to pypi and the documentation to github pages (/docs)</p>
-<h2 id="srcpytemplate">src/pytemplate</h2>
-<p>The source code of the application</p>
-<h3 id="initpy"><strong>init</strong>.py</h3>
-<p>The entry point, can be empty but needs to be present</p>
-<h3 id="versionpy"><strong>version</strong>.py</h3>
-<p>The version information for the package/module</p>
-<h3 id="clipy">cli.py</h3>
-<p>The CLI entry point, if usage via the command line is desired</p>
-<h3 id="mainpy">main.py</h3>
-<p>The main entry point, example class. No need for using the name main.py</p>
-<h2 id="tests">tests</h2>
-<p>The tests for the application. With inclusion like src.pytemplate.xyz, the tests need to be run from the project root folder (python3 -m unittest discover tests/)</p>
+<h1 id="pax8-partner-api-library">Pax8 Partner API Library</h1>
+<p>This is a python implementation of the Pax8 Partner API. It is still somewhat a work in progress, but is usable. Please report any errors you come along under Issues, or submit a pull request, and I'll get it fixed.</p>
+<h2 id="functionality">Functionality</h2>
+<p>The following section gives an overview of the implemented functionality up to this point, and a roadmap of what's still to be implemented.
+There are some differences between the API implementation and the official documentation, see the section Pax8 API Errors for more information.</p>
+<h3 id="general">General</h3>
+<ul>
+<li>Get Access Token</li>
+<li>Access Token Caching (To Disk)</li>
+<li><strike>Access Token Caching (To Redis/Memcache)</strike> (To Do)</li>
+<li><strike>Encrypted Access Token Caching</strike> (To Do)</li>
+<li><strike>Automatic rate limiting</strike> (To Do)</li>
+</ul>
+<h3 id="api-token-caching">API Token Caching</h3>
+<p>The API token received from Pax8 in exchange for the client_id and secret is a relatively long-lived token, so the option for caching it to disk exists (and in the future also to redis and memcache). This is not done by default for security reasons, but can be enabled by setting the cache_token parameter to true and setting the cache_location parameter to where you want the file to be saved. The token is currently <strong>not</strong> encrypted, so it is recommended to only use this option if you are the only user of the machine. The default save location is in the users home folder.</p>
+<h3 id="api-resources">API Resources</h3>
+<p>Struck resources are not yet implemented. Resources marked Experimental are a part of the undocumented Pax8 API, see more information below.
+* <b> <code>client.Company</code></b>
+* <code>.list(filter=filters.CompanyFilter)</code>
+* <code>.get(id: uuid)</code>
+* <strike><code>.create(company: types.Company)</code></strike>
+* <code>.get_ms_tenant_id(id: uuid)</code> <strong>EXPERIMENTAL</strong>
+* <code>.list_contacts(id: uuid)</code>
+* <code>.get_contact(id: uuid, contact_id: uuid)</code>
+* <strike><code>.create_contact(contact: types.Contact)</code></strike>
+* <strike><code>.update_contact(contact: types.Contact)</code></strike>
+<br>
+* <strike><code>.delete_contact(id: uuid, contact_id: uuid)</code></strike></p>
+<ul>
+<li><b> <code>client.Product</code></b><ul>
+<li><code>.list(filter: filters.ProductFilter)</code></li>
+<li><code>.get(id: uuid)</code></li>
+<li><code>.list_provisioning_details(id: uuid)</code></li>
+<li><code>.list_dependencies(id: uuid)</code></li>
+<li><code>.list_pricing(id: uuid)</code></li>
+</ul>
+</li>
+<li>
+<p><b><code>client.Order</code></b></p>
+<ul>
+<li><code>.list(filter: filters.OrderFilter)</code></li>
+<li><code>.get(id: uuid)</code></li>
+<li><strike><code>.create(order: types.Order)</code></strike></li>
+</ul>
+</li>
+<li>
+<p><b><code>client.Subscription</code></b></p>
+<ul>
+<li><code>.list(filter: filters.SubscriptionFilter)</code></li>
+<li><code>.get(id: uuid)</code></li>
+<li><code>.get_history(id: uuid)</code></li>
+<li><strike><code>.update(subscription: types.Subscription)</code></strike></li>
+<li><strike><code>.delete(id: uuid)</code></strike></li>
+<li><code>.list_usage_summaries(id: uuid, filter: filters.UsageSummaryFilter)</code></li>
+</ul>
+</li>
+<li>
+<p><b><code>client.Invoice</code></b></p>
+<ul>
+<li><code>.list(filter: filters.InvoiceFilter)</code></li>
+<li><code>.get(id: uuid)</code></li>
+<li><code>.list_items(id: uuid, filter: filters.InvoiceItemFilter)</code></li>
+</ul>
+</li>
+<li>
+<p><b><code>client.UsageSummary</code></b></p>
+<ul>
+<li><code>.list_for_subscription(id: uuid, filter: filters.UsageSummaryFilter)</code></li>
+<li><code>.get(id: uuid)</code></li>
+<li><code>.list_usage_lines(id: uuid, filter: filters.UsageSummaryLineFilter)</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="v3-api-resources-undocumented-apis">V3 API Resources (Undocumented APIs)</h3>
+<p>There are several undocumented APIs used to implement the functionality of the Pax8 Partner Portal (<a href="https://app.pax8.com">https://app.pax8.com</a>) that have been implemented into this library, marked Experimental above due to their undocumented nature. These APIs are not guaranteed to be stable, and may change at any time. Use at your own risk.</p>
+<p>If there are any undocumented APIs you would like to see implemented, please open an issue and I'll get to it as soon as I can. You can find the full list of available endpoints here: <a href="https://app.pax8.com/p8p/api/v3/">https://app.pax8.com/p8p/api/v3/</a></p>
+<h2 id="installation">Installation</h2>
+<h3 id="from-pypi">From PyPi</h3>
+<pre><code class="language-bash">pip3 install pax8
+</code></pre>
+<h3 id="from-source">From Source</h3>
+<pre><code class="language-bash">git clone https://github.com/scheibling/py-pax8.git
+cd py-pax8
+python3 setup.py install
+</code></pre>
+<h2 id="usage">Usage</h2>
+<h3 id="creating-an-api-token">Creating an API token</h3>
+<p>To be able to use the API, you must first create a token in the Pax8 Partner Application (<a href="https://app.pax8.com">https://app.pax8.com</a>). to be able to see the option for doing this, you must first register a partner shell under Tools -&gt; Partner Shells -&gt; Pax8 Partner API Partner Shell. Once this is done, you can create a new client ID and secret under Profile Picture -&gt; Edit Profile -&gt; Developer Apps -&gt; Create.</p>
+<h3 id="usage-examples">Usage Examples</h3>
+<h4 id="importing-the-library-and-retrieving-resources">Importing the library and retrieving resources</h4>
+<pre><code class="language-python">from pax8 import Pax8Client
+from pax8 import filters
+from pax8 import enums
+
+client = Pax8Client(
+    client_id='your_client_id',
+    client_secret='your_client_secret',
+    cache_token=True,
+    cache_location='~/pax8_token.json'
+)
+
+# List all customers (companies)
+client.Company.list()
+
+# List all customers (companies) with pagination and the following options
+# First Page
+# Page Size 10
+# Sort by Name (Ascending)
+# Filter by city = 'New York'
+companies = client.Company.list(
+    filters.CompanyFilter(
+        page=0,
+        size=10,
+        sort=enums.CompanySortBy.NAME,
+        sort_direction=enums.SortDirection.ASCENDING,
+        city='New York'
+    )
+)
+
+# Recursively get all contacts and the MS Partner ID for the companies retrieved above
+for company in companies:
+    print(f'Company: {company.name}')
+    print(f'MS Partner ID: {client.Company.get_ms_tenant_id(company.id)}')
+    print('Contacts:')
+    for contact in client.Company.list_contacts(company.id):
+        print(f'\t{contact.first_name} {contact.last_name} ({contact.phoneNumber})')
+</code></pre>
+<h2 id="pax8-api-errors">Pax8 API Errors</h2>
+<h3 id="subscriptions">Subscriptions</h3>
+<ul>
+<li>Subscriptions does not contain a "commitmentTerm" field as stated in the documentation, but instead contains a "commitment" field</li>
+</ul>
+<h3 id="orders">Orders</h3>
+<ul>
+<li>When an order retrieved from the API and order is placed by the partner, the API returns "Pax8Partner" instead of "Pax8 Partner". When creating a new order, the required value is "Pax8 Partner".</li>
+</ul>
+<h3 id="contacts">Contacts</h3>
+<ul>
+<li>Contacts contains an undocumented field "phoneNumber" in addition to the field called "phone".</li>
+<li>Contacts contains an undocumented field "phoneCountryCode"</li>
+<li>Contacts contains an undocumented field "phoneCountryCallingcode"</li>
+</ul>
+<h3 id="invoice">Invoice</h3>
+<ul>
+<li>InvoiceItem.rateType values are documented as lowercase, but are first-letter-uppercase in the API (at least for Flat, not been able to verify the others)</li>
+</ul>
+<h3 id="usage-summaries">Usage Summaries</h3>
+<ul>
+<li>List Usage Summary Lines does not specify any pagination options for the API call, but the API does support pagination.</li>
+</ul>
+<h2 id="acknowledgements">Acknowledgements</h2>
+<ul>
+<li><a href="https://github.com/dkschruteBeets">dkschruteBeets</a> for the <a href="https://github.com/dkschruteBeets/Pax8-API">Powershell implementation of the API</a>, which was a great reference for this (especially for the undocumented APIs)</li>
+</ul>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -67,19 +185,206 @@
 This is some module information
 
 .. include:: ../../README.md
-&#34;&#34;&#34;</code></pre>
+&#34;&#34;&#34;
+from abc import abstractmethod, ABC
+from typing import List
+from .rest import RestClient
+from . import types as t
+from . import filters as fi
+
+# pylint: disable=abstract-class-instantiated,too-few-public-methods
+class Pax8Client:
+    def __init__(
+        self,
+        client_id: str,
+        client_secret: str,
+        cache_token: bool = True,
+        cache_location: str = &#34;~/pax8_token.json&#34;,
+    ):
+        self.conn = RestClient(client_id, client_secret, cache_token, cache_location)
+
+        self.Company = self.CompanyClient(self.conn)
+        self.Invoice = self.InvoiceClient(self.conn)
+        self.Product = self.ProductClient(self.conn)
+        self.Order = self.OrderClient(self.conn)
+        self.Subscription = self.SubscriptionClient(self.conn)
+        self.UsageSummary = self.UsageSummaryClient(self.conn)
+
+    # pylint: disable=unused-private-member
+    class ResourceClient(ABC):
+        conn: RestClient
+        resource: type = t.Pax8Resource
+
+        def __init__(self, conn):
+            self.conn = conn
+
+        @abstractmethod
+        def list(self, filter: fi.ListFilter = fi.ListFilter) -&gt; List[t.Pax8Resource]:
+            return [
+                self.resource.objectify(item)
+                for item in self.conn.list_resource(
+                    self.resource.RESOURCE, filter.get_qs()
+                )
+            ]
+
+        @abstractmethod
+        def get(self, id: str) -&gt; t.Pax8Resource:
+            return self.resource.objectify(
+                self.conn.get_resource(self.resource.RESOURCE, id)
+            )
+
+        def _list_nested(
+            self, id: str, resource: type, filter: fi.ListFilter = fi.ListFilter
+        ):
+            return [
+                resource.objectify(item)
+                for item in self.conn.list_nested_resource(
+                    self.resource.RESOURCE, id, resource.RESOURCE, filter.get_qs()
+                )
+            ]
+
+        def _get_nested(self, id: str, resource: type, resource_id: str):
+            return resource.objectify(
+                self.conn.get_nested_resource(
+                    self.resource.RESOURCE, id, resource.RESOURCE, resource_id
+                )
+            )
+
+    class CompanyClient(ResourceClient):
+        resource: type = t.Company
+
+        def list(self, filter: fi.CompanyFilter = fi.CompanyFilter) -&gt; List[t.Company]:
+            return super().list(filter)
+
+        def get(self, id: str) -&gt; t.Company:
+            return super().get(id)
+
+        def get_ms_tenant_id(self, id: str) -&gt; t.CompanyMSTenantID:
+            return t.CompanyMSTenantID.objectify(self.conn.get_tenant_id(id))
+
+        def list_contacts(
+            self, id: str, filter: fi.ContactFilter = fi.ContactFilter
+        ) -&gt; List[t.Contact]:
+            return super()._list_nested(id, t.Contact, filter)
+
+        def get_contact(self, id: str, contact_id: str) -&gt; t.Contact:
+            return super()._get_nested(id, t.Contact, contact_id)
+
+    class ProductClient(ResourceClient):
+        resource: type = t.Product
+
+        def list(self, filter: fi.ProductFilter = fi.ProductFilter) -&gt; List[t.Product]:
+            return super().list(filter)
+
+        def get(self, id: str) -&gt; t.Product:
+            return super().get(id)
+
+        def list_provisioning_details(self, id: str) -&gt; List[t.ProvisioningDetail]:
+            return super()._list_nested(id, t.ProvisioningDetail)
+
+        def list_dependencies(self, id: str) -&gt; t.Dependencies:
+            return t.Dependencies.objectify(
+                self.conn.list_nested_resource(
+                    &#34;products&#34;, id, &#34;dependencies&#34;, content_only=False
+                )
+            )
+
+        def list_pricing(self, id: str) -&gt; List[t.ProductPricing]:
+            return super()._list_nested(id, t.ProductPricing)
+
+    class OrderClient(ResourceClient):
+        resource: type = t.Order
+
+        def list(self, filter: fi.OrderFilter = fi.OrderFilter) -&gt; List[t.Order]:
+            return super().list(filter)
+
+        def get(self, id: str) -&gt; t.Order:
+            return super().get(id)
+
+    class SubscriptionClient(ResourceClient):
+        resource: type = t.Subscription
+
+        def list(
+            self, filter: fi.SubscriptionFilter = fi.SubscriptionFilter
+        ) -&gt; List[t.Subscription]:
+            return super().list(filter)
+
+        def get(self, id: str) -&gt; t.Subscription:
+            return super().get(id)
+
+        def get_history(self, id: str) -&gt; t.SubscriptionHistory:
+            return t.SubscriptionHistory.objectify(
+                self.conn.list_nested_resource(
+                    &#34;subscriptions&#34;, id, &#34;history&#34;, content_only=False
+                )
+            )
+
+        def list_usage_summaries(self, id: str) -&gt; List[t.UsageSummary]:
+            return super()._list_nested(id, t.UsageSummary)
+
+    class InvoiceClient(ResourceClient):
+        resource: type = t.Invoice
+
+        def list(self, filter: fi.InvoiceFilter = fi.InvoiceFilter) -&gt; List[t.Invoice]:
+            return super().list(filter)
+
+        def get(self, id: str) -&gt; t.Invoice:
+            return super().get(id)
+
+        def list_items(
+            self, id: str, filter: fi.InvoiceItemFilter = fi.InvoiceItemFilter
+        ):
+            return super()._list_nested(id, t.InvoiceItem, filter)
+
+    class UsageSummaryClient(ResourceClient):
+        resource: type = t.UsageSummary
+
+        def list(self, *args, **kwargs) -&gt; None:
+            pass
+
+        def list_for_subscription(
+            self,
+            subscription_id: str,
+            filter: fi.UsageSummaryFilter = fi.UsageSummaryFilter,
+        ) -&gt; List[t.UsageSummary]:
+            return [
+                self.resource.objectify(item)
+                for item in self.conn.list_nested_resource(
+                    &#34;subscriptions&#34;, subscription_id, &#34;usage_summaries&#34;, filter.get_qs()
+                )
+            ]
+
+        def get(self, id: str) -&gt; t.UsageSummary:
+            return super().get(id)
+
+        def list_usage_lines(
+            self, id: str, filter: fi.UsageSummaryLineFilter = fi.UsageSummaryLineFilter
+        ) -&gt; List[t.UsageSummaryLine]:
+            return super()._get_nested(id, t.UsageSummaryLine, filter)</code></pre>
 </details>
 </section>
 <section>
 <h2 class="section-title" id="header-submodules">Sub-modules</h2>
 <dl>
-<dt><code class="name"><a title="pytemplate.cli" href="cli.html">pytemplate.cli</a></code></dt>
+<dt><code class="name"><a title="pax8.enums" href="enums.html">pax8.enums</a></code></dt>
 <dd>
-<div class="desc"><p>The file contains the CLI interface for the pytemplate package.</p></div>
+<div class="desc"></div>
 </dd>
-<dt><code class="name"><a title="pytemplate.main" href="main.html">pytemplate.main</a></code></dt>
+<dt><code class="name"><a title="pax8.exceptions" href="exceptions.html">pax8.exceptions</a></code></dt>
 <dd>
-<div class="desc"><p>The main part of the pytemplate-package.</p></div>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="pax8.filters" href="filters.html">pax8.filters</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="pax8.rest" href="rest.html">pax8.rest</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="pax8.types" href="types.html">pax8.types</a></code></dt>
+<dd>
+<div class="desc"></div>
 </dd>
 </dl>
 </section>
@@ -88,34 +393,263 @@ This is some module information
 <section>
 </section>
 <section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pax8.Pax8Client"><code class="flex name class">
+<span>class <span class="ident">Pax8Client</span></span>
+<span>(</span><span>client_id: str, client_secret: str, cache_token: bool = True, cache_location: str = '~/pax8_token.json')</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Pax8Client:
+    def __init__(
+        self,
+        client_id: str,
+        client_secret: str,
+        cache_token: bool = True,
+        cache_location: str = &#34;~/pax8_token.json&#34;,
+    ):
+        self.conn = RestClient(client_id, client_secret, cache_token, cache_location)
+
+        self.Company = self.CompanyClient(self.conn)
+        self.Invoice = self.InvoiceClient(self.conn)
+        self.Product = self.ProductClient(self.conn)
+        self.Order = self.OrderClient(self.conn)
+        self.Subscription = self.SubscriptionClient(self.conn)
+        self.UsageSummary = self.UsageSummaryClient(self.conn)
+
+    # pylint: disable=unused-private-member
+    class ResourceClient(ABC):
+        conn: RestClient
+        resource: type = t.Pax8Resource
+
+        def __init__(self, conn):
+            self.conn = conn
+
+        @abstractmethod
+        def list(self, filter: fi.ListFilter = fi.ListFilter) -&gt; List[t.Pax8Resource]:
+            return [
+                self.resource.objectify(item)
+                for item in self.conn.list_resource(
+                    self.resource.RESOURCE, filter.get_qs()
+                )
+            ]
+
+        @abstractmethod
+        def get(self, id: str) -&gt; t.Pax8Resource:
+            return self.resource.objectify(
+                self.conn.get_resource(self.resource.RESOURCE, id)
+            )
+
+        def _list_nested(
+            self, id: str, resource: type, filter: fi.ListFilter = fi.ListFilter
+        ):
+            return [
+                resource.objectify(item)
+                for item in self.conn.list_nested_resource(
+                    self.resource.RESOURCE, id, resource.RESOURCE, filter.get_qs()
+                )
+            ]
+
+        def _get_nested(self, id: str, resource: type, resource_id: str):
+            return resource.objectify(
+                self.conn.get_nested_resource(
+                    self.resource.RESOURCE, id, resource.RESOURCE, resource_id
+                )
+            )
+
+    class CompanyClient(ResourceClient):
+        resource: type = t.Company
+
+        def list(self, filter: fi.CompanyFilter = fi.CompanyFilter) -&gt; List[t.Company]:
+            return super().list(filter)
+
+        def get(self, id: str) -&gt; t.Company:
+            return super().get(id)
+
+        def get_ms_tenant_id(self, id: str) -&gt; t.CompanyMSTenantID:
+            return t.CompanyMSTenantID.objectify(self.conn.get_tenant_id(id))
+
+        def list_contacts(
+            self, id: str, filter: fi.ContactFilter = fi.ContactFilter
+        ) -&gt; List[t.Contact]:
+            return super()._list_nested(id, t.Contact, filter)
+
+        def get_contact(self, id: str, contact_id: str) -&gt; t.Contact:
+            return super()._get_nested(id, t.Contact, contact_id)
+
+    class ProductClient(ResourceClient):
+        resource: type = t.Product
+
+        def list(self, filter: fi.ProductFilter = fi.ProductFilter) -&gt; List[t.Product]:
+            return super().list(filter)
+
+        def get(self, id: str) -&gt; t.Product:
+            return super().get(id)
+
+        def list_provisioning_details(self, id: str) -&gt; List[t.ProvisioningDetail]:
+            return super()._list_nested(id, t.ProvisioningDetail)
+
+        def list_dependencies(self, id: str) -&gt; t.Dependencies:
+            return t.Dependencies.objectify(
+                self.conn.list_nested_resource(
+                    &#34;products&#34;, id, &#34;dependencies&#34;, content_only=False
+                )
+            )
+
+        def list_pricing(self, id: str) -&gt; List[t.ProductPricing]:
+            return super()._list_nested(id, t.ProductPricing)
+
+    class OrderClient(ResourceClient):
+        resource: type = t.Order
+
+        def list(self, filter: fi.OrderFilter = fi.OrderFilter) -&gt; List[t.Order]:
+            return super().list(filter)
+
+        def get(self, id: str) -&gt; t.Order:
+            return super().get(id)
+
+    class SubscriptionClient(ResourceClient):
+        resource: type = t.Subscription
+
+        def list(
+            self, filter: fi.SubscriptionFilter = fi.SubscriptionFilter
+        ) -&gt; List[t.Subscription]:
+            return super().list(filter)
+
+        def get(self, id: str) -&gt; t.Subscription:
+            return super().get(id)
+
+        def get_history(self, id: str) -&gt; t.SubscriptionHistory:
+            return t.SubscriptionHistory.objectify(
+                self.conn.list_nested_resource(
+                    &#34;subscriptions&#34;, id, &#34;history&#34;, content_only=False
+                )
+            )
+
+        def list_usage_summaries(self, id: str) -&gt; List[t.UsageSummary]:
+            return super()._list_nested(id, t.UsageSummary)
+
+    class InvoiceClient(ResourceClient):
+        resource: type = t.Invoice
+
+        def list(self, filter: fi.InvoiceFilter = fi.InvoiceFilter) -&gt; List[t.Invoice]:
+            return super().list(filter)
+
+        def get(self, id: str) -&gt; t.Invoice:
+            return super().get(id)
+
+        def list_items(
+            self, id: str, filter: fi.InvoiceItemFilter = fi.InvoiceItemFilter
+        ):
+            return super()._list_nested(id, t.InvoiceItem, filter)
+
+    class UsageSummaryClient(ResourceClient):
+        resource: type = t.UsageSummary
+
+        def list(self, *args, **kwargs) -&gt; None:
+            pass
+
+        def list_for_subscription(
+            self,
+            subscription_id: str,
+            filter: fi.UsageSummaryFilter = fi.UsageSummaryFilter,
+        ) -&gt; List[t.UsageSummary]:
+            return [
+                self.resource.objectify(item)
+                for item in self.conn.list_nested_resource(
+                    &#34;subscriptions&#34;, subscription_id, &#34;usage_summaries&#34;, filter.get_qs()
+                )
+            ]
+
+        def get(self, id: str) -&gt; t.UsageSummary:
+            return super().get(id)
+
+        def list_usage_lines(
+            self, id: str, filter: fi.UsageSummaryLineFilter = fi.UsageSummaryLineFilter
+        ) -&gt; List[t.UsageSummaryLine]:
+            return super()._get_nested(id, t.UsageSummaryLine, filter)</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.Pax8Client.CompanyClient"><code class="name">var <span class="ident">CompanyClient</span></code></dt>
+<dd>
+<div class="desc"><p>Helper class that provides a standard way to create an ABC using
+inheritance.</p></div>
+</dd>
+<dt id="pax8.Pax8Client.InvoiceClient"><code class="name">var <span class="ident">InvoiceClient</span></code></dt>
+<dd>
+<div class="desc"><p>Helper class that provides a standard way to create an ABC using
+inheritance.</p></div>
+</dd>
+<dt id="pax8.Pax8Client.OrderClient"><code class="name">var <span class="ident">OrderClient</span></code></dt>
+<dd>
+<div class="desc"><p>Helper class that provides a standard way to create an ABC using
+inheritance.</p></div>
+</dd>
+<dt id="pax8.Pax8Client.ProductClient"><code class="name">var <span class="ident">ProductClient</span></code></dt>
+<dd>
+<div class="desc"><p>Helper class that provides a standard way to create an ABC using
+inheritance.</p></div>
+</dd>
+<dt id="pax8.Pax8Client.ResourceClient"><code class="name">var <span class="ident">ResourceClient</span></code></dt>
+<dd>
+<div class="desc"><p>Helper class that provides a standard way to create an ABC using
+inheritance.</p></div>
+</dd>
+<dt id="pax8.Pax8Client.SubscriptionClient"><code class="name">var <span class="ident">SubscriptionClient</span></code></dt>
+<dd>
+<div class="desc"><p>Helper class that provides a standard way to create an ABC using
+inheritance.</p></div>
+</dd>
+<dt id="pax8.Pax8Client.UsageSummaryClient"><code class="name">var <span class="ident">UsageSummaryClient</span></code></dt>
+<dd>
+<div class="desc"><p>Helper class that provides a standard way to create an ABC using
+inheritance.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
 </section>
 </article>
 <nav id="sidebar">
 <h1>Index</h1>
 <div class="toc">
 <ul>
-<li><a href="#pytemplate">pytemplate</a></li>
+<li><a href="#pax8-partner-api-library">Pax8 Partner API Library</a><ul>
+<li><a href="#functionality">Functionality</a><ul>
+<li><a href="#general">General</a></li>
+<li><a href="#api-token-caching">API Token Caching</a></li>
+<li><a href="#api-resources">API Resources</a></li>
+<li><a href="#v3-api-resources-undocumented-apis">V3 API Resources (Undocumented APIs)</a></li>
+</ul>
+</li>
+<li><a href="#installation">Installation</a><ul>
+<li><a href="#from-pypi">From PyPi</a></li>
+<li><a href="#from-source">From Source</a></li>
+</ul>
+</li>
 <li><a href="#usage">Usage</a><ul>
-<li><a href="#requirementstxt">requirements.txt</a></li>
-<li><a href="#requirements-citxt">requirements-ci.txt</a></li>
-<li><a href="#setuppy">setup.py</a></li>
-<li><a href="#pyprojecttoml">pyproject.toml</a></li>
-<li><a href="#gitpodyml">.gitpod.yml</a></li>
-<li><a href="#tplgithub">tpl.github</a><ul>
-<li><a href="#linting">Linting</a></li>
-<li><a href="#matrix_testing">Matrix_testing</a></li>
-<li><a href="#testing">Testing</a></li>
-<li><a href="#publish">Publish</a></li>
+<li><a href="#creating-an-api-token">Creating an API token</a></li>
+<li><a href="#usage-examples">Usage Examples</a><ul>
+<li><a href="#importing-the-library-and-retrieving-resources">Importing the library and retrieving resources</a></li>
 </ul>
 </li>
-<li><a href="#srcpytemplate">src/pytemplate</a><ul>
-<li><a href="#initpy">init.py</a></li>
-<li><a href="#versionpy">version.py</a></li>
-<li><a href="#clipy">cli.py</a></li>
-<li><a href="#mainpy">main.py</a></li>
 </ul>
 </li>
-<li><a href="#tests">tests</a></li>
+<li><a href="#pax8-api-errors">Pax8 API Errors</a><ul>
+<li><a href="#subscriptions">Subscriptions</a></li>
+<li><a href="#orders">Orders</a></li>
+<li><a href="#contacts">Contacts</a></li>
+<li><a href="#invoice">Invoice</a></li>
+<li><a href="#usage-summaries">Usage Summaries</a></li>
+</ul>
+</li>
+<li><a href="#acknowledgements">Acknowledgements</a></li>
 </ul>
 </li>
 </ul>
@@ -123,8 +657,27 @@ This is some module information
 <ul id="index">
 <li><h3><a href="#header-submodules">Sub-modules</a></h3>
 <ul>
-<li><code><a title="pytemplate.cli" href="cli.html">pytemplate.cli</a></code></li>
-<li><code><a title="pytemplate.main" href="main.html">pytemplate.main</a></code></li>
+<li><code><a title="pax8.enums" href="enums.html">pax8.enums</a></code></li>
+<li><code><a title="pax8.exceptions" href="exceptions.html">pax8.exceptions</a></code></li>
+<li><code><a title="pax8.filters" href="filters.html">pax8.filters</a></code></li>
+<li><code><a title="pax8.rest" href="rest.html">pax8.rest</a></code></li>
+<li><code><a title="pax8.types" href="types.html">pax8.types</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pax8.Pax8Client" href="#pax8.Pax8Client">Pax8Client</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pax8.Pax8Client.CompanyClient" href="#pax8.Pax8Client.CompanyClient">CompanyClient</a></code></li>
+<li><code><a title="pax8.Pax8Client.InvoiceClient" href="#pax8.Pax8Client.InvoiceClient">InvoiceClient</a></code></li>
+<li><code><a title="pax8.Pax8Client.OrderClient" href="#pax8.Pax8Client.OrderClient">OrderClient</a></code></li>
+<li><code><a title="pax8.Pax8Client.ProductClient" href="#pax8.Pax8Client.ProductClient">ProductClient</a></code></li>
+<li><code><a title="pax8.Pax8Client.ResourceClient" href="#pax8.Pax8Client.ResourceClient">ResourceClient</a></code></li>
+<li><code><a title="pax8.Pax8Client.SubscriptionClient" href="#pax8.Pax8Client.SubscriptionClient">SubscriptionClient</a></code></li>
+<li><code><a title="pax8.Pax8Client.UsageSummaryClient" href="#pax8.Pax8Client.UsageSummaryClient">UsageSummaryClient</a></code></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

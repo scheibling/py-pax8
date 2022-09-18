@@ -1,0 +1,2721 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>pax8.types API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pax8.types</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from dataclasses import dataclass
+from enum import Enum, EnumMeta
+import json
+from typing import List
+from datetime import datetime
+from datetime import date
+from . import enums as en
+
+
+@dataclass
+class Pax8Resource:
+    IGNORE_EMPTY = []
+    NESTED_TYPES = {}
+    RESOURCE = None
+
+    class JsonDecoder(json.JSONDecoder):
+        pass
+
+    class JsonEncoder(json.JSONEncoder):
+        pass
+
+    @classmethod
+    def objectify(cls, jdict: dict) -&gt; &#34;Pax8Resource&#34;:
+        for key, typ in cls.NESTED_TYPES.items():
+            if key in jdict and jdict[key] is not None:
+                if isinstance(typ, type) and issubclass(typ, Pax8Resource):
+                    jdict[key] = typ(**jdict[key])
+                elif isinstance(typ, EnumMeta):
+                    jdict[key] = typ(jdict[key])
+                elif typ.__name__ == &#34;List&#34; and issubclass(
+                    typ.__args__[0], Pax8Resource
+                ):
+                    jdict[key] = [typ.__args__[0](**item) for item in jdict[key]]
+
+        return cls(**jdict)
+
+    @classmethod
+    def deserialize(cls, jstr: str) -&gt; &#34;Pax8Resource&#34;:
+        jsdata = json.loads(jstr, cls=cls.JsonDecoder)
+        return cls.objectify(jsdata)
+
+    def __iter__(self) -&gt; str:
+        self_dict = self.__dict__
+        for key in getattr(self, &#34;IGNORE_EMPTY&#34;, []):
+            if self_dict.get(key, False) is None:
+                del self_dict[key]
+
+        for key, value in self_dict.items():
+            if isinstance(value, Pax8Resource):
+                self_dict[key] = value.serialize()
+            if isinstance(value, Enum):
+                self_dict[key] = value.value
+
+        yield from self_dict.items()
+
+    def serialize(self) -&gt; str:
+        return json.dumps(dict(self), cls=self.JsonEncoder, sort_keys=True)
+
+
+@dataclass
+class Pax8Page(Pax8Resource):
+    size: int
+    totalElements: int
+    totalPages: int
+    number: int
+
+
+@dataclass
+class CompanyAddress(Pax8Resource):
+    IGNORE_EMPTY = [&#34;street2&#34;, &#34;stateOrProvince&#34;]
+    street: str
+    city: str
+    postalCode: str
+    country: str
+    street2: str = None
+    stateOrProvince: str = None
+
+
+@dataclass
+class Company(Pax8Resource):
+    IGNORE_EMPTY = [&#34;id&#34;, &#34;externalId&#34;, &#34;status&#34;]
+    NESTED_TYPES = {&#34;address&#34;: CompanyAddress, &#34;status&#34;: en.CompanyStatus}
+    RESOURCE = &#34;companies&#34;
+    name: str
+    address: CompanyAddress
+    website: str
+    billOnBehalfOfEnabled: bool
+    orderApprovalRequired: bool
+    selfServiceAllowed: bool = None
+    phone: str = None
+    id: str = None
+    externalId: str = None
+    status: en.CompanyStatus = None
+
+
+@dataclass
+class CompanyMSTenantID(Pax8Resource):
+    clientId: str
+    tenantId: str
+
+
+@dataclass
+class ContactType(Pax8Resource):
+    NESTED_TYPES = {&#34;type&#34;: en.ContactTypes}
+    type: en.ContactTypes
+    primary: bool
+
+
+@dataclass
+class Contact(Pax8Resource):
+    RESOURCE = &#34;contacts&#34;
+    NESTED_TYPES = {&#34;types&#34;: List[ContactType]}
+    firstName: str
+    lastName: str
+    email: str
+    types: List[ContactType] = None
+    phone: str = None
+    phoneNumber: str = None
+    phoneCountryCode: str = None
+    phoneCountryCallingCode: str = None
+    id: str = None
+    createdDate: date = None
+
+
+@dataclass
+class Product(Pax8Resource):
+    RESOURCE = &#34;products&#34;
+    id: str
+    name: str
+    vendorName: str
+    shortDescription: str
+    sku: str
+    vendorSku: str
+
+
+@dataclass
+class ProvisioningDetail(Pax8Resource):
+    IGNORE_EMPTY = [&#34;description&#34;, &#34;possibleValues&#34;, &#34;partnerShellTemplateId&#34;]
+    NESTED_TYPES = {&#34;type&#34;: en.ProvisioningDetailTypes}
+    RESOURCE = &#34;provision-details&#34;
+    label: str
+    key: str
+    valueType: en.ProvisioningDetailTypes = None
+    description: str = None
+    possibleValues: list = None
+    partnerShellTemplateId: int = None
+
+
+@dataclass
+class CommitmentDependency(Pax8Resource):
+    id: str
+    term: str
+    autoRenew: bool
+    renewalWindowDaysBeforeTermEnd: int
+    renewalWindowDaysAfterTermEnd: int
+    allowForQuantityIncrease: int
+    allowForQuantityDecrease: int
+    allowForEarlyCancellation: bool
+    cancellationFeeApplied: bool
+    isTransferable: bool
+
+
+@dataclass
+class ProductDependency(Pax8Resource):
+    NESTED_TYPES = {&#34;products&#34;: Product}
+    name: str
+    products: List[Product]
+
+
+@dataclass
+class Dependencies(Pax8Resource):
+    RESOURCE = &#34;dependencies&#34;
+    NESTED_TYPES = {
+        &#34;commitmentDependencies&#34;: List[CommitmentDependency],
+        &#34;productDependencies&#34;: List[ProductDependency],
+    }
+    productDependencies: List[ProductDependency]
+    commitmentDependencies: List[CommitmentDependency]
+
+
+@dataclass
+class ProductRate(Pax8Resource):
+    NESTED_TYPES = {&#34;chargeType&#34;, en.ChargeType}
+    partnerBuyRate: float
+    suggestedRetailPrice: float
+    startQuantityRange: int = None
+    endQuantityRange: int = None
+    chargeType: en.ChargeType = None
+
+
+@dataclass
+class ProductPricing(Pax8Resource):
+    RESOURCE = &#34;pricing&#34;
+    NESTED_TYPES = {
+        &#34;billingTerm&#34;: en.BillingTerm,
+        &#34;type&#34;: en.PricingType,
+        &#34;rates&#34;: List[ProductRate],
+    }
+    billingTerm: en.BillingTerm
+    commitmentTerm: str = None
+    commitmentTermInMonths: int = None
+    type: en.PricingType = None
+    unitOfMeasurement: str = None
+    rates: List[ProductRate] = None
+
+
+@dataclass
+class ProvisioningSetting(Pax8Resource):
+    key: str
+    value: List[str]
+
+
+@dataclass
+class OrderLineItem(Pax8Resource):
+    NESTED_TYPES = {&#34;provisioningDetails&#34;: List[ProvisioningDetail]}
+    id: str
+    productId: str
+    subscriptionId: str
+    provisionStartDate: datetime
+    billingTerm: en.BillingTerm
+    quantity: int
+    commitmentTermId: str = None
+    lineItemNumber: int = None
+    parentSubscriptionId: str = None
+    parentLineItemNumber: int = None
+    provisioningDetails: List[ProvisioningDetail] = None
+
+
+@dataclass
+class Order(Pax8Resource):
+    NESTED_TYPES = {&#34;lineItems&#34;: List[OrderLineItem], &#34;orderedBy&#34;: en.OrderedBy}
+    RESOURCE = &#34;orders&#34;
+    companyId: str
+    createdDate: str
+    lineItems: List[OrderLineItem]
+    id: str = None
+    orderedBy: en.OrderedBy = None
+    orderedByUserId: str = None
+    orderedByUserEmail: str = None
+
+    &#34;&#34;&#34;
+    Added due to inconsistencies in Pax8 API, where creation requires &#34;Pax8 Partner&#34;
+    and retrieval returns &#34;Pax8Partner&#34;
+    &#34;&#34;&#34;
+
+    @classmethod
+    def objectify(cls, jdict: dict):
+        if &#34;orderedBy&#34; in jdict and jdict[&#34;orderedBy&#34;] == &#34;Pax8Partner&#34;:
+            jdict[&#34;orderedBy&#34;] = &#34;Pax8 Partner&#34;
+
+        return super().objectify(jdict)
+
+
+@dataclass
+class CommitmentTerm(Pax8Resource):
+    id: str
+    term: str
+    endDate: date
+
+
+@dataclass
+class Subscription(Pax8Resource):
+    RESOURCE = &#34;subscriptions&#34;
+    NESTED_TYPES = {
+        &#34;status&#34;: en.SubscriptionStatus,
+        &#34;billingTerm&#34;: en.BillingTerm,
+        &#34;commitment&#34;: CommitmentTerm,
+    }
+    companyId: str
+    productId: str
+    quantity: str
+    startDate: date
+    createdDate: date
+    billingStart: date
+    status: en.SubscriptionStatus
+    price: int
+    billingTerm: en.BillingTerm
+    commitment: CommitmentTerm = None
+    endDate: date = None
+    updatedDate: date = None
+    id: str = None
+
+@dataclass
+class SubscriptionHistory(Pax8Resource):
+    RESOURCE = &#34;history&#34;
+    NESTED_TYPES = {&#34;content&#34;: List[Subscription]}
+    content: List[Subscription]
+
+
+@dataclass
+class InvoiceItem(Pax8Resource):
+    RESOURCE = &#34;items&#34;
+    NESTED_TYPES = {
+        &#34;rateType&#34;: en.InvoiceItemRateTypes,
+        &#34;chargeType&#34;: en.InvoiceItemChargeTypes,
+    }
+    id: str
+    purchaseOrderNumber: str
+    type: en.InvoiceItemType
+    companyId: str
+    externalId: str
+    companyName: str
+    startPeriod: date
+    endPeriod: date
+    quantity: int
+    unitOfMeasure: str
+    term: en.InvoiceItemTerm
+    sku: str
+    description: str
+    rateType: en.InvoiceItemRateTypes
+    chargeType: en.InvoiceItemChargeTypes
+    price: float
+    subTotal: float
+    cost: float
+    costTotal: float
+    offeredBy: str
+    billedByPax8: bool
+    total: float
+    productId: str
+    productName: str
+    billingFee: float
+    billingFeeRate: float
+    amountDue: float
+    currencyCode: str
+    details: str = None
+
+
+@dataclass
+class Invoice(Pax8Resource):
+    RESOURCE = &#34;invoices&#34;
+    NESTED_TYPES = {&#34;status&#34;: en.InvoiceStatus}
+    id: str
+    status: en.InvoiceStatus
+    invoiceDate: date
+    dueDate: date
+    balance: float
+    carriedBalance: float
+    total: float
+    partnerName: str
+    companyId: str
+    externalId: str
+
+
+@dataclass
+class UsageSummary(Pax8Resource):
+    RESOURCE = &#34;usage-summaries&#34;
+    id: str
+    companyId: str
+    productId: str
+    resourceGroup: str
+    vendorName: str
+    currentCharges: float
+    partnerTotal: float
+    isTrial: bool
+
+
+@dataclass
+class UsageSummaryLine(Pax8Resource):
+    RESOURCE = &#34;usage-lines&#34;
+    usageSummaryId: str
+    usageDate: date
+    productName: str
+    productId: str
+    unitOfMeasure: str
+    quantity: int
+    currentCharges: float
+    currentProfit: float
+    partnerTotal: float
+    unitPrice: float
+    isTrial: bool</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pax8.types.CommitmentDependency"><code class="flex name class">
+<span>class <span class="ident">CommitmentDependency</span></span>
+<span>(</span><span>id: str, term: str, autoRenew: bool, renewalWindowDaysBeforeTermEnd: int, renewalWindowDaysAfterTermEnd: int, allowForQuantityIncrease: int, allowForQuantityDecrease: int, allowForEarlyCancellation: bool, cancellationFeeApplied: bool, isTransferable: bool)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>CommitmentDependency(id: str, term: str, autoRenew: bool, renewalWindowDaysBeforeTermEnd: int, renewalWindowDaysAfterTermEnd: int, allowForQuantityIncrease: int, allowForQuantityDecrease: int, allowForEarlyCancellation: bool, cancellationFeeApplied: bool, isTransferable: bool)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class CommitmentDependency(Pax8Resource):
+    id: str
+    term: str
+    autoRenew: bool
+    renewalWindowDaysBeforeTermEnd: int
+    renewalWindowDaysAfterTermEnd: int
+    allowForQuantityIncrease: int
+    allowForQuantityDecrease: int
+    allowForEarlyCancellation: bool
+    cancellationFeeApplied: bool
+    isTransferable: bool</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.types.CommitmentDependency.allowForEarlyCancellation"><code class="name">var <span class="ident">allowForEarlyCancellation</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.CommitmentDependency.allowForQuantityDecrease"><code class="name">var <span class="ident">allowForQuantityDecrease</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.CommitmentDependency.allowForQuantityIncrease"><code class="name">var <span class="ident">allowForQuantityIncrease</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.CommitmentDependency.autoRenew"><code class="name">var <span class="ident">autoRenew</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.CommitmentDependency.cancellationFeeApplied"><code class="name">var <span class="ident">cancellationFeeApplied</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.CommitmentDependency.id"><code class="name">var <span class="ident">id</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.CommitmentDependency.isTransferable"><code class="name">var <span class="ident">isTransferable</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.CommitmentDependency.renewalWindowDaysAfterTermEnd"><code class="name">var <span class="ident">renewalWindowDaysAfterTermEnd</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.CommitmentDependency.renewalWindowDaysBeforeTermEnd"><code class="name">var <span class="ident">renewalWindowDaysBeforeTermEnd</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.CommitmentDependency.term"><code class="name">var <span class="ident">term</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pax8.types.Pax8Resource.JsonDecoder" href="#pax8.types.Pax8Resource.JsonDecoder">JsonDecoder</a></code></li>
+<li><code><a title="pax8.types.Pax8Resource.JsonEncoder" href="#pax8.types.Pax8Resource.JsonEncoder">JsonEncoder</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pax8.types.CommitmentTerm"><code class="flex name class">
+<span>class <span class="ident">CommitmentTerm</span></span>
+<span>(</span><span>id: str, term: str, endDate: datetime.date)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>CommitmentTerm(id: str, term: str, endDate: datetime.date)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class CommitmentTerm(Pax8Resource):
+    id: str
+    term: str
+    endDate: date</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.types.CommitmentTerm.endDate"><code class="name">var <span class="ident">endDate</span> : datetime.date</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.CommitmentTerm.id"><code class="name">var <span class="ident">id</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.CommitmentTerm.term"><code class="name">var <span class="ident">term</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pax8.types.Pax8Resource.JsonDecoder" href="#pax8.types.Pax8Resource.JsonDecoder">JsonDecoder</a></code></li>
+<li><code><a title="pax8.types.Pax8Resource.JsonEncoder" href="#pax8.types.Pax8Resource.JsonEncoder">JsonEncoder</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pax8.types.Company"><code class="flex name class">
+<span>class <span class="ident">Company</span></span>
+<span>(</span><span>name: str, address: <a title="pax8.types.CompanyAddress" href="#pax8.types.CompanyAddress">CompanyAddress</a>, website: str, billOnBehalfOfEnabled: bool, orderApprovalRequired: bool, selfServiceAllowed: bool = None, phone: str = None, id: str = None, externalId: str = None, status: <a title="pax8.enums.CompanyStatus" href="enums.html#pax8.enums.CompanyStatus">CompanyStatus</a> = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Company(name: str, address: pax8.types.CompanyAddress, website: str, billOnBehalfOfEnabled: bool, orderApprovalRequired: bool, selfServiceAllowed: bool = None, phone: str = None, id: str = None, externalId: str = None, status: pax8.enums.CompanyStatus = None)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class Company(Pax8Resource):
+    IGNORE_EMPTY = [&#34;id&#34;, &#34;externalId&#34;, &#34;status&#34;]
+    NESTED_TYPES = {&#34;address&#34;: CompanyAddress, &#34;status&#34;: en.CompanyStatus}
+    RESOURCE = &#34;companies&#34;
+    name: str
+    address: CompanyAddress
+    website: str
+    billOnBehalfOfEnabled: bool
+    orderApprovalRequired: bool
+    selfServiceAllowed: bool = None
+    phone: str = None
+    id: str = None
+    externalId: str = None
+    status: en.CompanyStatus = None</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.types.Company.IGNORE_EMPTY"><code class="name">var <span class="ident">IGNORE_EMPTY</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Company.NESTED_TYPES"><code class="name">var <span class="ident">NESTED_TYPES</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Company.RESOURCE"><code class="name">var <span class="ident">RESOURCE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Company.address"><code class="name">var <span class="ident">address</span> : <a title="pax8.types.CompanyAddress" href="#pax8.types.CompanyAddress">CompanyAddress</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Company.billOnBehalfOfEnabled"><code class="name">var <span class="ident">billOnBehalfOfEnabled</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Company.externalId"><code class="name">var <span class="ident">externalId</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Company.id"><code class="name">var <span class="ident">id</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Company.name"><code class="name">var <span class="ident">name</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Company.orderApprovalRequired"><code class="name">var <span class="ident">orderApprovalRequired</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Company.phone"><code class="name">var <span class="ident">phone</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Company.selfServiceAllowed"><code class="name">var <span class="ident">selfServiceAllowed</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Company.status"><code class="name">var <span class="ident">status</span> : <a title="pax8.enums.CompanyStatus" href="enums.html#pax8.enums.CompanyStatus">CompanyStatus</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Company.website"><code class="name">var <span class="ident">website</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pax8.types.Pax8Resource.JsonDecoder" href="#pax8.types.Pax8Resource.JsonDecoder">JsonDecoder</a></code></li>
+<li><code><a title="pax8.types.Pax8Resource.JsonEncoder" href="#pax8.types.Pax8Resource.JsonEncoder">JsonEncoder</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pax8.types.CompanyAddress"><code class="flex name class">
+<span>class <span class="ident">CompanyAddress</span></span>
+<span>(</span><span>street: str, city: str, postalCode: str, country: str, street2: str = None, stateOrProvince: str = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>CompanyAddress(street: str, city: str, postalCode: str, country: str, street2: str = None, stateOrProvince: str = None)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class CompanyAddress(Pax8Resource):
+    IGNORE_EMPTY = [&#34;street2&#34;, &#34;stateOrProvince&#34;]
+    street: str
+    city: str
+    postalCode: str
+    country: str
+    street2: str = None
+    stateOrProvince: str = None</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.types.CompanyAddress.IGNORE_EMPTY"><code class="name">var <span class="ident">IGNORE_EMPTY</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.CompanyAddress.city"><code class="name">var <span class="ident">city</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.CompanyAddress.country"><code class="name">var <span class="ident">country</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.CompanyAddress.postalCode"><code class="name">var <span class="ident">postalCode</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.CompanyAddress.stateOrProvince"><code class="name">var <span class="ident">stateOrProvince</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.CompanyAddress.street"><code class="name">var <span class="ident">street</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.CompanyAddress.street2"><code class="name">var <span class="ident">street2</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pax8.types.Pax8Resource.JsonDecoder" href="#pax8.types.Pax8Resource.JsonDecoder">JsonDecoder</a></code></li>
+<li><code><a title="pax8.types.Pax8Resource.JsonEncoder" href="#pax8.types.Pax8Resource.JsonEncoder">JsonEncoder</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pax8.types.CompanyMSTenantID"><code class="flex name class">
+<span>class <span class="ident">CompanyMSTenantID</span></span>
+<span>(</span><span>clientId: str, tenantId: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>CompanyMSTenantID(clientId: str, tenantId: str)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class CompanyMSTenantID(Pax8Resource):
+    clientId: str
+    tenantId: str</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.types.CompanyMSTenantID.clientId"><code class="name">var <span class="ident">clientId</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.CompanyMSTenantID.tenantId"><code class="name">var <span class="ident">tenantId</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pax8.types.Pax8Resource.JsonDecoder" href="#pax8.types.Pax8Resource.JsonDecoder">JsonDecoder</a></code></li>
+<li><code><a title="pax8.types.Pax8Resource.JsonEncoder" href="#pax8.types.Pax8Resource.JsonEncoder">JsonEncoder</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pax8.types.Contact"><code class="flex name class">
+<span>class <span class="ident">Contact</span></span>
+<span>(</span><span>firstName: str, lastName: str, email: str, types: List[<a title="pax8.types.ContactType" href="#pax8.types.ContactType">ContactType</a>] = None, phone: str = None, phoneNumber: str = None, phoneCountryCode: str = None, phoneCountryCallingCode: str = None, id: str = None, createdDate: datetime.date = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Contact(firstName: str, lastName: str, email: str, types: List[pax8.types.ContactType] = None, phone: str = None, phoneNumber: str = None, phoneCountryCode: str = None, phoneCountryCallingCode: str = None, id: str = None, createdDate: datetime.date = None)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class Contact(Pax8Resource):
+    RESOURCE = &#34;contacts&#34;
+    NESTED_TYPES = {&#34;types&#34;: List[ContactType]}
+    firstName: str
+    lastName: str
+    email: str
+    types: List[ContactType] = None
+    phone: str = None
+    phoneNumber: str = None
+    phoneCountryCode: str = None
+    phoneCountryCallingCode: str = None
+    id: str = None
+    createdDate: date = None</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.types.Contact.NESTED_TYPES"><code class="name">var <span class="ident">NESTED_TYPES</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Contact.RESOURCE"><code class="name">var <span class="ident">RESOURCE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Contact.createdDate"><code class="name">var <span class="ident">createdDate</span> : datetime.date</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Contact.email"><code class="name">var <span class="ident">email</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Contact.firstName"><code class="name">var <span class="ident">firstName</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Contact.id"><code class="name">var <span class="ident">id</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Contact.lastName"><code class="name">var <span class="ident">lastName</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Contact.phone"><code class="name">var <span class="ident">phone</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Contact.phoneCountryCallingCode"><code class="name">var <span class="ident">phoneCountryCallingCode</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Contact.phoneCountryCode"><code class="name">var <span class="ident">phoneCountryCode</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Contact.phoneNumber"><code class="name">var <span class="ident">phoneNumber</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Contact.types"><code class="name">var <span class="ident">types</span> : List[<a title="pax8.types.ContactType" href="#pax8.types.ContactType">ContactType</a>]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pax8.types.Pax8Resource.JsonDecoder" href="#pax8.types.Pax8Resource.JsonDecoder">JsonDecoder</a></code></li>
+<li><code><a title="pax8.types.Pax8Resource.JsonEncoder" href="#pax8.types.Pax8Resource.JsonEncoder">JsonEncoder</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pax8.types.ContactType"><code class="flex name class">
+<span>class <span class="ident">ContactType</span></span>
+<span>(</span><span>type: <a title="pax8.enums.ContactTypes" href="enums.html#pax8.enums.ContactTypes">ContactTypes</a>, primary: bool)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>ContactType(type: pax8.enums.ContactTypes, primary: bool)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class ContactType(Pax8Resource):
+    NESTED_TYPES = {&#34;type&#34;: en.ContactTypes}
+    type: en.ContactTypes
+    primary: bool</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.types.ContactType.NESTED_TYPES"><code class="name">var <span class="ident">NESTED_TYPES</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.ContactType.primary"><code class="name">var <span class="ident">primary</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.ContactType.type"><code class="name">var <span class="ident">type</span> : <a title="pax8.enums.ContactTypes" href="enums.html#pax8.enums.ContactTypes">ContactTypes</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pax8.types.Pax8Resource.JsonDecoder" href="#pax8.types.Pax8Resource.JsonDecoder">JsonDecoder</a></code></li>
+<li><code><a title="pax8.types.Pax8Resource.JsonEncoder" href="#pax8.types.Pax8Resource.JsonEncoder">JsonEncoder</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pax8.types.Dependencies"><code class="flex name class">
+<span>class <span class="ident">Dependencies</span></span>
+<span>(</span><span>productDependencies: List[<a title="pax8.types.ProductDependency" href="#pax8.types.ProductDependency">ProductDependency</a>], commitmentDependencies: List[<a title="pax8.types.CommitmentDependency" href="#pax8.types.CommitmentDependency">CommitmentDependency</a>])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Dependencies(productDependencies: List[pax8.types.ProductDependency], commitmentDependencies: List[pax8.types.CommitmentDependency])</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class Dependencies(Pax8Resource):
+    RESOURCE = &#34;dependencies&#34;
+    NESTED_TYPES = {
+        &#34;commitmentDependencies&#34;: List[CommitmentDependency],
+        &#34;productDependencies&#34;: List[ProductDependency],
+    }
+    productDependencies: List[ProductDependency]
+    commitmentDependencies: List[CommitmentDependency]</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.types.Dependencies.NESTED_TYPES"><code class="name">var <span class="ident">NESTED_TYPES</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Dependencies.RESOURCE"><code class="name">var <span class="ident">RESOURCE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Dependencies.commitmentDependencies"><code class="name">var <span class="ident">commitmentDependencies</span> : List[<a title="pax8.types.CommitmentDependency" href="#pax8.types.CommitmentDependency">CommitmentDependency</a>]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Dependencies.productDependencies"><code class="name">var <span class="ident">productDependencies</span> : List[<a title="pax8.types.ProductDependency" href="#pax8.types.ProductDependency">ProductDependency</a>]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pax8.types.Pax8Resource.JsonDecoder" href="#pax8.types.Pax8Resource.JsonDecoder">JsonDecoder</a></code></li>
+<li><code><a title="pax8.types.Pax8Resource.JsonEncoder" href="#pax8.types.Pax8Resource.JsonEncoder">JsonEncoder</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pax8.types.Invoice"><code class="flex name class">
+<span>class <span class="ident">Invoice</span></span>
+<span>(</span><span>id: str, status: <a title="pax8.enums.InvoiceStatus" href="enums.html#pax8.enums.InvoiceStatus">InvoiceStatus</a>, invoiceDate: datetime.date, dueDate: datetime.date, balance: float, carriedBalance: float, total: float, partnerName: str, companyId: str, externalId: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Invoice(id: str, status: pax8.enums.InvoiceStatus, invoiceDate: datetime.date, dueDate: datetime.date, balance: float, carriedBalance: float, total: float, partnerName: str, companyId: str, externalId: str)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class Invoice(Pax8Resource):
+    RESOURCE = &#34;invoices&#34;
+    NESTED_TYPES = {&#34;status&#34;: en.InvoiceStatus}
+    id: str
+    status: en.InvoiceStatus
+    invoiceDate: date
+    dueDate: date
+    balance: float
+    carriedBalance: float
+    total: float
+    partnerName: str
+    companyId: str
+    externalId: str</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.types.Invoice.NESTED_TYPES"><code class="name">var <span class="ident">NESTED_TYPES</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Invoice.RESOURCE"><code class="name">var <span class="ident">RESOURCE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Invoice.balance"><code class="name">var <span class="ident">balance</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Invoice.carriedBalance"><code class="name">var <span class="ident">carriedBalance</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Invoice.companyId"><code class="name">var <span class="ident">companyId</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Invoice.dueDate"><code class="name">var <span class="ident">dueDate</span> : datetime.date</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Invoice.externalId"><code class="name">var <span class="ident">externalId</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Invoice.id"><code class="name">var <span class="ident">id</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Invoice.invoiceDate"><code class="name">var <span class="ident">invoiceDate</span> : datetime.date</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Invoice.partnerName"><code class="name">var <span class="ident">partnerName</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Invoice.status"><code class="name">var <span class="ident">status</span> : <a title="pax8.enums.InvoiceStatus" href="enums.html#pax8.enums.InvoiceStatus">InvoiceStatus</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Invoice.total"><code class="name">var <span class="ident">total</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pax8.types.Pax8Resource.JsonDecoder" href="#pax8.types.Pax8Resource.JsonDecoder">JsonDecoder</a></code></li>
+<li><code><a title="pax8.types.Pax8Resource.JsonEncoder" href="#pax8.types.Pax8Resource.JsonEncoder">JsonEncoder</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pax8.types.InvoiceItem"><code class="flex name class">
+<span>class <span class="ident">InvoiceItem</span></span>
+<span>(</span><span>id: str, purchaseOrderNumber: str, type: <a title="pax8.enums.InvoiceItemType" href="enums.html#pax8.enums.InvoiceItemType">InvoiceItemType</a>, companyId: str, externalId: str, companyName: str, startPeriod: datetime.date, endPeriod: datetime.date, quantity: int, unitOfMeasure: str, term: <a title="pax8.enums.InvoiceItemTerm" href="enums.html#pax8.enums.InvoiceItemTerm">InvoiceItemTerm</a>, sku: str, description: str, rateType: <a title="pax8.enums.InvoiceItemRateTypes" href="enums.html#pax8.enums.InvoiceItemRateTypes">InvoiceItemRateTypes</a>, chargeType: <a title="pax8.enums.InvoiceItemChargeTypes" href="enums.html#pax8.enums.InvoiceItemChargeTypes">InvoiceItemChargeTypes</a>, price: float, subTotal: float, cost: float, costTotal: float, offeredBy: str, billedByPax8: bool, total: float, productId: str, productName: str, billingFee: float, billingFeeRate: float, amountDue: float, currencyCode: str, details: str = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>InvoiceItem(id: str, purchaseOrderNumber: str, type: pax8.enums.InvoiceItemType, companyId: str, externalId: str, companyName: str, startPeriod: datetime.date, endPeriod: datetime.date, quantity: int, unitOfMeasure: str, term: pax8.enums.InvoiceItemTerm, sku: str, description: str, rateType: pax8.enums.InvoiceItemRateTypes, chargeType: pax8.enums.InvoiceItemChargeTypes, price: float, subTotal: float, cost: float, costTotal: float, offeredBy: str, billedByPax8: bool, total: float, productId: str, productName: str, billingFee: float, billingFeeRate: float, amountDue: float, currencyCode: str, details: str = None)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class InvoiceItem(Pax8Resource):
+    RESOURCE = &#34;items&#34;
+    NESTED_TYPES = {
+        &#34;rateType&#34;: en.InvoiceItemRateTypes,
+        &#34;chargeType&#34;: en.InvoiceItemChargeTypes,
+    }
+    id: str
+    purchaseOrderNumber: str
+    type: en.InvoiceItemType
+    companyId: str
+    externalId: str
+    companyName: str
+    startPeriod: date
+    endPeriod: date
+    quantity: int
+    unitOfMeasure: str
+    term: en.InvoiceItemTerm
+    sku: str
+    description: str
+    rateType: en.InvoiceItemRateTypes
+    chargeType: en.InvoiceItemChargeTypes
+    price: float
+    subTotal: float
+    cost: float
+    costTotal: float
+    offeredBy: str
+    billedByPax8: bool
+    total: float
+    productId: str
+    productName: str
+    billingFee: float
+    billingFeeRate: float
+    amountDue: float
+    currencyCode: str
+    details: str = None</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.types.InvoiceItem.NESTED_TYPES"><code class="name">var <span class="ident">NESTED_TYPES</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.InvoiceItem.RESOURCE"><code class="name">var <span class="ident">RESOURCE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.InvoiceItem.amountDue"><code class="name">var <span class="ident">amountDue</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.InvoiceItem.billedByPax8"><code class="name">var <span class="ident">billedByPax8</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.InvoiceItem.billingFee"><code class="name">var <span class="ident">billingFee</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.InvoiceItem.billingFeeRate"><code class="name">var <span class="ident">billingFeeRate</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.InvoiceItem.chargeType"><code class="name">var <span class="ident">chargeType</span> : <a title="pax8.enums.InvoiceItemChargeTypes" href="enums.html#pax8.enums.InvoiceItemChargeTypes">InvoiceItemChargeTypes</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.InvoiceItem.companyId"><code class="name">var <span class="ident">companyId</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.InvoiceItem.companyName"><code class="name">var <span class="ident">companyName</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.InvoiceItem.cost"><code class="name">var <span class="ident">cost</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.InvoiceItem.costTotal"><code class="name">var <span class="ident">costTotal</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.InvoiceItem.currencyCode"><code class="name">var <span class="ident">currencyCode</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.InvoiceItem.description"><code class="name">var <span class="ident">description</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.InvoiceItem.details"><code class="name">var <span class="ident">details</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.InvoiceItem.endPeriod"><code class="name">var <span class="ident">endPeriod</span> : datetime.date</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.InvoiceItem.externalId"><code class="name">var <span class="ident">externalId</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.InvoiceItem.id"><code class="name">var <span class="ident">id</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.InvoiceItem.offeredBy"><code class="name">var <span class="ident">offeredBy</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.InvoiceItem.price"><code class="name">var <span class="ident">price</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.InvoiceItem.productId"><code class="name">var <span class="ident">productId</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.InvoiceItem.productName"><code class="name">var <span class="ident">productName</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.InvoiceItem.purchaseOrderNumber"><code class="name">var <span class="ident">purchaseOrderNumber</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.InvoiceItem.quantity"><code class="name">var <span class="ident">quantity</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.InvoiceItem.rateType"><code class="name">var <span class="ident">rateType</span> : <a title="pax8.enums.InvoiceItemRateTypes" href="enums.html#pax8.enums.InvoiceItemRateTypes">InvoiceItemRateTypes</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.InvoiceItem.sku"><code class="name">var <span class="ident">sku</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.InvoiceItem.startPeriod"><code class="name">var <span class="ident">startPeriod</span> : datetime.date</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.InvoiceItem.subTotal"><code class="name">var <span class="ident">subTotal</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.InvoiceItem.term"><code class="name">var <span class="ident">term</span> : <a title="pax8.enums.InvoiceItemTerm" href="enums.html#pax8.enums.InvoiceItemTerm">InvoiceItemTerm</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.InvoiceItem.total"><code class="name">var <span class="ident">total</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.InvoiceItem.type"><code class="name">var <span class="ident">type</span> : <a title="pax8.enums.InvoiceItemType" href="enums.html#pax8.enums.InvoiceItemType">InvoiceItemType</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.InvoiceItem.unitOfMeasure"><code class="name">var <span class="ident">unitOfMeasure</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pax8.types.Pax8Resource.JsonDecoder" href="#pax8.types.Pax8Resource.JsonDecoder">JsonDecoder</a></code></li>
+<li><code><a title="pax8.types.Pax8Resource.JsonEncoder" href="#pax8.types.Pax8Resource.JsonEncoder">JsonEncoder</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pax8.types.Order"><code class="flex name class">
+<span>class <span class="ident">Order</span></span>
+<span>(</span><span>companyId: str, createdDate: str, lineItems: List[<a title="pax8.types.OrderLineItem" href="#pax8.types.OrderLineItem">OrderLineItem</a>], id: str = None, orderedBy: <a title="pax8.enums.OrderedBy" href="enums.html#pax8.enums.OrderedBy">OrderedBy</a> = None, orderedByUserId: str = None, orderedByUserEmail: str = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Order(companyId: str, createdDate: str, lineItems: List[pax8.types.OrderLineItem], id: str = None, orderedBy: pax8.enums.OrderedBy = None, orderedByUserId: str = None, orderedByUserEmail: str = None)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class Order(Pax8Resource):
+    NESTED_TYPES = {&#34;lineItems&#34;: List[OrderLineItem], &#34;orderedBy&#34;: en.OrderedBy}
+    RESOURCE = &#34;orders&#34;
+    companyId: str
+    createdDate: str
+    lineItems: List[OrderLineItem]
+    id: str = None
+    orderedBy: en.OrderedBy = None
+    orderedByUserId: str = None
+    orderedByUserEmail: str = None
+
+    &#34;&#34;&#34;
+    Added due to inconsistencies in Pax8 API, where creation requires &#34;Pax8 Partner&#34;
+    and retrieval returns &#34;Pax8Partner&#34;
+    &#34;&#34;&#34;
+
+    @classmethod
+    def objectify(cls, jdict: dict):
+        if &#34;orderedBy&#34; in jdict and jdict[&#34;orderedBy&#34;] == &#34;Pax8Partner&#34;:
+            jdict[&#34;orderedBy&#34;] = &#34;Pax8 Partner&#34;
+
+        return super().objectify(jdict)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.types.Order.NESTED_TYPES"><code class="name">var <span class="ident">NESTED_TYPES</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Order.RESOURCE"><code class="name">var <span class="ident">RESOURCE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Order.companyId"><code class="name">var <span class="ident">companyId</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Order.createdDate"><code class="name">var <span class="ident">createdDate</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Order.id"><code class="name">var <span class="ident">id</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Order.lineItems"><code class="name">var <span class="ident">lineItems</span> : List[<a title="pax8.types.OrderLineItem" href="#pax8.types.OrderLineItem">OrderLineItem</a>]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Order.orderedBy"><code class="name">var <span class="ident">orderedBy</span> : <a title="pax8.enums.OrderedBy" href="enums.html#pax8.enums.OrderedBy">OrderedBy</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Order.orderedByUserEmail"><code class="name">var <span class="ident">orderedByUserEmail</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Added due to inconsistencies in Pax8 API, where creation requires "Pax8 Partner"
+and retrieval returns "Pax8Partner"</p></div>
+</dd>
+<dt id="pax8.types.Order.orderedByUserId"><code class="name">var <span class="ident">orderedByUserId</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="pax8.types.Order.objectify"><code class="name flex">
+<span>def <span class="ident">objectify</span></span>(<span>jdict: dict)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@classmethod
+def objectify(cls, jdict: dict):
+    if &#34;orderedBy&#34; in jdict and jdict[&#34;orderedBy&#34;] == &#34;Pax8Partner&#34;:
+        jdict[&#34;orderedBy&#34;] = &#34;Pax8 Partner&#34;
+
+    return super().objectify(jdict)</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pax8.types.Pax8Resource.JsonDecoder" href="#pax8.types.Pax8Resource.JsonDecoder">JsonDecoder</a></code></li>
+<li><code><a title="pax8.types.Pax8Resource.JsonEncoder" href="#pax8.types.Pax8Resource.JsonEncoder">JsonEncoder</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pax8.types.OrderLineItem"><code class="flex name class">
+<span>class <span class="ident">OrderLineItem</span></span>
+<span>(</span><span>id: str, productId: str, subscriptionId: str, provisionStartDate: datetime.datetime, billingTerm: <a title="pax8.enums.BillingTerm" href="enums.html#pax8.enums.BillingTerm">BillingTerm</a>, quantity: int, commitmentTermId: str = None, lineItemNumber: int = None, parentSubscriptionId: str = None, parentLineItemNumber: int = None, provisioningDetails: List[<a title="pax8.types.ProvisioningDetail" href="#pax8.types.ProvisioningDetail">ProvisioningDetail</a>] = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>OrderLineItem(id: str, productId: str, subscriptionId: str, provisionStartDate: datetime.datetime, billingTerm: pax8.enums.BillingTerm, quantity: int, commitmentTermId: str = None, lineItemNumber: int = None, parentSubscriptionId: str = None, parentLineItemNumber: int = None, provisioningDetails: List[pax8.types.ProvisioningDetail] = None)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class OrderLineItem(Pax8Resource):
+    NESTED_TYPES = {&#34;provisioningDetails&#34;: List[ProvisioningDetail]}
+    id: str
+    productId: str
+    subscriptionId: str
+    provisionStartDate: datetime
+    billingTerm: en.BillingTerm
+    quantity: int
+    commitmentTermId: str = None
+    lineItemNumber: int = None
+    parentSubscriptionId: str = None
+    parentLineItemNumber: int = None
+    provisioningDetails: List[ProvisioningDetail] = None</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.types.OrderLineItem.NESTED_TYPES"><code class="name">var <span class="ident">NESTED_TYPES</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.OrderLineItem.billingTerm"><code class="name">var <span class="ident">billingTerm</span> : <a title="pax8.enums.BillingTerm" href="enums.html#pax8.enums.BillingTerm">BillingTerm</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.OrderLineItem.commitmentTermId"><code class="name">var <span class="ident">commitmentTermId</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.OrderLineItem.id"><code class="name">var <span class="ident">id</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.OrderLineItem.lineItemNumber"><code class="name">var <span class="ident">lineItemNumber</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.OrderLineItem.parentLineItemNumber"><code class="name">var <span class="ident">parentLineItemNumber</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.OrderLineItem.parentSubscriptionId"><code class="name">var <span class="ident">parentSubscriptionId</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.OrderLineItem.productId"><code class="name">var <span class="ident">productId</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.OrderLineItem.provisionStartDate"><code class="name">var <span class="ident">provisionStartDate</span> : datetime.datetime</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.OrderLineItem.provisioningDetails"><code class="name">var <span class="ident">provisioningDetails</span> : List[<a title="pax8.types.ProvisioningDetail" href="#pax8.types.ProvisioningDetail">ProvisioningDetail</a>]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.OrderLineItem.quantity"><code class="name">var <span class="ident">quantity</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.OrderLineItem.subscriptionId"><code class="name">var <span class="ident">subscriptionId</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pax8.types.Pax8Resource.JsonDecoder" href="#pax8.types.Pax8Resource.JsonDecoder">JsonDecoder</a></code></li>
+<li><code><a title="pax8.types.Pax8Resource.JsonEncoder" href="#pax8.types.Pax8Resource.JsonEncoder">JsonEncoder</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pax8.types.Pax8Page"><code class="flex name class">
+<span>class <span class="ident">Pax8Page</span></span>
+<span>(</span><span>size: int, totalElements: int, totalPages: int, number: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Pax8Page(size: int, totalElements: int, totalPages: int, number: int)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class Pax8Page(Pax8Resource):
+    size: int
+    totalElements: int
+    totalPages: int
+    number: int</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.types.Pax8Page.number"><code class="name">var <span class="ident">number</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Pax8Page.size"><code class="name">var <span class="ident">size</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Pax8Page.totalElements"><code class="name">var <span class="ident">totalElements</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Pax8Page.totalPages"><code class="name">var <span class="ident">totalPages</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pax8.types.Pax8Resource.JsonDecoder" href="#pax8.types.Pax8Resource.JsonDecoder">JsonDecoder</a></code></li>
+<li><code><a title="pax8.types.Pax8Resource.JsonEncoder" href="#pax8.types.Pax8Resource.JsonEncoder">JsonEncoder</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pax8.types.Pax8Resource"><code class="flex name class">
+<span>class <span class="ident">Pax8Resource</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Pax8Resource()</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class Pax8Resource:
+    IGNORE_EMPTY = []
+    NESTED_TYPES = {}
+    RESOURCE = None
+
+    class JsonDecoder(json.JSONDecoder):
+        pass
+
+    class JsonEncoder(json.JSONEncoder):
+        pass
+
+    @classmethod
+    def objectify(cls, jdict: dict) -&gt; &#34;Pax8Resource&#34;:
+        for key, typ in cls.NESTED_TYPES.items():
+            if key in jdict and jdict[key] is not None:
+                if isinstance(typ, type) and issubclass(typ, Pax8Resource):
+                    jdict[key] = typ(**jdict[key])
+                elif isinstance(typ, EnumMeta):
+                    jdict[key] = typ(jdict[key])
+                elif typ.__name__ == &#34;List&#34; and issubclass(
+                    typ.__args__[0], Pax8Resource
+                ):
+                    jdict[key] = [typ.__args__[0](**item) for item in jdict[key]]
+
+        return cls(**jdict)
+
+    @classmethod
+    def deserialize(cls, jstr: str) -&gt; &#34;Pax8Resource&#34;:
+        jsdata = json.loads(jstr, cls=cls.JsonDecoder)
+        return cls.objectify(jsdata)
+
+    def __iter__(self) -&gt; str:
+        self_dict = self.__dict__
+        for key in getattr(self, &#34;IGNORE_EMPTY&#34;, []):
+            if self_dict.get(key, False) is None:
+                del self_dict[key]
+
+        for key, value in self_dict.items():
+            if isinstance(value, Pax8Resource):
+                self_dict[key] = value.serialize()
+            if isinstance(value, Enum):
+                self_dict[key] = value.value
+
+        yield from self_dict.items()
+
+    def serialize(self) -&gt; str:
+        return json.dumps(dict(self), cls=self.JsonEncoder, sort_keys=True)</code></pre>
+</details>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="pax8.types.CommitmentDependency" href="#pax8.types.CommitmentDependency">CommitmentDependency</a></li>
+<li><a title="pax8.types.CommitmentTerm" href="#pax8.types.CommitmentTerm">CommitmentTerm</a></li>
+<li><a title="pax8.types.Company" href="#pax8.types.Company">Company</a></li>
+<li><a title="pax8.types.CompanyAddress" href="#pax8.types.CompanyAddress">CompanyAddress</a></li>
+<li><a title="pax8.types.CompanyMSTenantID" href="#pax8.types.CompanyMSTenantID">CompanyMSTenantID</a></li>
+<li><a title="pax8.types.Contact" href="#pax8.types.Contact">Contact</a></li>
+<li><a title="pax8.types.ContactType" href="#pax8.types.ContactType">ContactType</a></li>
+<li><a title="pax8.types.Dependencies" href="#pax8.types.Dependencies">Dependencies</a></li>
+<li><a title="pax8.types.Invoice" href="#pax8.types.Invoice">Invoice</a></li>
+<li><a title="pax8.types.InvoiceItem" href="#pax8.types.InvoiceItem">InvoiceItem</a></li>
+<li><a title="pax8.types.Order" href="#pax8.types.Order">Order</a></li>
+<li><a title="pax8.types.OrderLineItem" href="#pax8.types.OrderLineItem">OrderLineItem</a></li>
+<li><a title="pax8.types.Pax8Page" href="#pax8.types.Pax8Page">Pax8Page</a></li>
+<li><a title="pax8.types.Product" href="#pax8.types.Product">Product</a></li>
+<li><a title="pax8.types.ProductDependency" href="#pax8.types.ProductDependency">ProductDependency</a></li>
+<li><a title="pax8.types.ProductPricing" href="#pax8.types.ProductPricing">ProductPricing</a></li>
+<li><a title="pax8.types.ProductRate" href="#pax8.types.ProductRate">ProductRate</a></li>
+<li><a title="pax8.types.ProvisioningDetail" href="#pax8.types.ProvisioningDetail">ProvisioningDetail</a></li>
+<li><a title="pax8.types.ProvisioningSetting" href="#pax8.types.ProvisioningSetting">ProvisioningSetting</a></li>
+<li><a title="pax8.types.Subscription" href="#pax8.types.Subscription">Subscription</a></li>
+<li><a title="pax8.types.SubscriptionHistory" href="#pax8.types.SubscriptionHistory">SubscriptionHistory</a></li>
+<li><a title="pax8.types.UsageSummary" href="#pax8.types.UsageSummary">UsageSummary</a></li>
+<li><a title="pax8.types.UsageSummaryLine" href="#pax8.types.UsageSummaryLine">UsageSummaryLine</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.types.Pax8Resource.IGNORE_EMPTY"><code class="name">var <span class="ident">IGNORE_EMPTY</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Pax8Resource.JsonDecoder"><code class="name">var <span class="ident">JsonDecoder</span></code></dt>
+<dd>
+<div class="desc"><p>Simple JSON <a href="http://json.org">http://json.org</a> decoder</p>
+<p>Performs the following translations in decoding by default:</p>
+<p>+---------------+-------------------+
+| JSON
+| Python
+|
++===============+===================+
+| object
+| dict
+|
++---------------+-------------------+
+| array
+| list
+|
++---------------+-------------------+
+| string
+| str
+|
++---------------+-------------------+
+| number (int)
+| int
+|
++---------------+-------------------+
+| number (real) | float
+|
++---------------+-------------------+
+| true
+| True
+|
++---------------+-------------------+
+| false
+| False
+|
++---------------+-------------------+
+| null
+| None
+|
++---------------+-------------------+</p>
+<p>It also understands <code>NaN</code>, <code>Infinity</code>, and <code>-Infinity</code> as
+their corresponding <code>float</code> values, which is outside the JSON spec.</p></div>
+</dd>
+<dt id="pax8.types.Pax8Resource.JsonEncoder"><code class="name">var <span class="ident">JsonEncoder</span></code></dt>
+<dd>
+<div class="desc"><p>Extensible JSON <a href="http://json.org">http://json.org</a> encoder for Python data structures.</p>
+<p>Supports the following objects and types by default:</p>
+<p>+-------------------+---------------+
+| Python
+| JSON
+|
++===================+===============+
+| dict
+| object
+|
++-------------------+---------------+
+| list, tuple
+| array
+|
++-------------------+---------------+
+| str
+| string
+|
++-------------------+---------------+
+| int, float
+| number
+|
++-------------------+---------------+
+| True
+| true
+|
++-------------------+---------------+
+| False
+| false
+|
++-------------------+---------------+
+| None
+| null
+|
++-------------------+---------------+</p>
+<p>To extend this to recognize other objects, subclass and implement a
+<code>.default()</code> method with another method that returns a serializable
+object for <code>o</code> if possible, otherwise it should call the superclass
+implementation (to raise <code>TypeError</code>).</p></div>
+</dd>
+<dt id="pax8.types.Pax8Resource.NESTED_TYPES"><code class="name">var <span class="ident">NESTED_TYPES</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Pax8Resource.RESOURCE"><code class="name">var <span class="ident">RESOURCE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="pax8.types.Pax8Resource.deserialize"><code class="name flex">
+<span>def <span class="ident">deserialize</span></span>(<span>jstr: str) ‑> <a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@classmethod
+def deserialize(cls, jstr: str) -&gt; &#34;Pax8Resource&#34;:
+    jsdata = json.loads(jstr, cls=cls.JsonDecoder)
+    return cls.objectify(jsdata)</code></pre>
+</details>
+</dd>
+<dt id="pax8.types.Pax8Resource.objectify"><code class="name flex">
+<span>def <span class="ident">objectify</span></span>(<span>jdict: dict) ‑> <a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@classmethod
+def objectify(cls, jdict: dict) -&gt; &#34;Pax8Resource&#34;:
+    for key, typ in cls.NESTED_TYPES.items():
+        if key in jdict and jdict[key] is not None:
+            if isinstance(typ, type) and issubclass(typ, Pax8Resource):
+                jdict[key] = typ(**jdict[key])
+            elif isinstance(typ, EnumMeta):
+                jdict[key] = typ(jdict[key])
+            elif typ.__name__ == &#34;List&#34; and issubclass(
+                typ.__args__[0], Pax8Resource
+            ):
+                jdict[key] = [typ.__args__[0](**item) for item in jdict[key]]
+
+    return cls(**jdict)</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="pax8.types.Pax8Resource.serialize"><code class="name flex">
+<span>def <span class="ident">serialize</span></span>(<span>self) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def serialize(self) -&gt; str:
+    return json.dumps(dict(self), cls=self.JsonEncoder, sort_keys=True)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pax8.types.Product"><code class="flex name class">
+<span>class <span class="ident">Product</span></span>
+<span>(</span><span>id: str, name: str, vendorName: str, shortDescription: str, sku: str, vendorSku: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Product(id: str, name: str, vendorName: str, shortDescription: str, sku: str, vendorSku: str)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class Product(Pax8Resource):
+    RESOURCE = &#34;products&#34;
+    id: str
+    name: str
+    vendorName: str
+    shortDescription: str
+    sku: str
+    vendorSku: str</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.types.Product.RESOURCE"><code class="name">var <span class="ident">RESOURCE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Product.id"><code class="name">var <span class="ident">id</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Product.name"><code class="name">var <span class="ident">name</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Product.shortDescription"><code class="name">var <span class="ident">shortDescription</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Product.sku"><code class="name">var <span class="ident">sku</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Product.vendorName"><code class="name">var <span class="ident">vendorName</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Product.vendorSku"><code class="name">var <span class="ident">vendorSku</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pax8.types.Pax8Resource.JsonDecoder" href="#pax8.types.Pax8Resource.JsonDecoder">JsonDecoder</a></code></li>
+<li><code><a title="pax8.types.Pax8Resource.JsonEncoder" href="#pax8.types.Pax8Resource.JsonEncoder">JsonEncoder</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pax8.types.ProductDependency"><code class="flex name class">
+<span>class <span class="ident">ProductDependency</span></span>
+<span>(</span><span>name: str, products: List[<a title="pax8.types.Product" href="#pax8.types.Product">Product</a>])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>ProductDependency(name: str, products: List[pax8.types.Product])</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class ProductDependency(Pax8Resource):
+    NESTED_TYPES = {&#34;products&#34;: Product}
+    name: str
+    products: List[Product]</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.types.ProductDependency.NESTED_TYPES"><code class="name">var <span class="ident">NESTED_TYPES</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.ProductDependency.name"><code class="name">var <span class="ident">name</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.ProductDependency.products"><code class="name">var <span class="ident">products</span> : List[<a title="pax8.types.Product" href="#pax8.types.Product">Product</a>]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pax8.types.Pax8Resource.JsonDecoder" href="#pax8.types.Pax8Resource.JsonDecoder">JsonDecoder</a></code></li>
+<li><code><a title="pax8.types.Pax8Resource.JsonEncoder" href="#pax8.types.Pax8Resource.JsonEncoder">JsonEncoder</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pax8.types.ProductPricing"><code class="flex name class">
+<span>class <span class="ident">ProductPricing</span></span>
+<span>(</span><span>billingTerm: <a title="pax8.enums.BillingTerm" href="enums.html#pax8.enums.BillingTerm">BillingTerm</a>, commitmentTerm: str = None, commitmentTermInMonths: int = None, type: <a title="pax8.enums.PricingType" href="enums.html#pax8.enums.PricingType">PricingType</a> = None, unitOfMeasurement: str = None, rates: List[<a title="pax8.types.ProductRate" href="#pax8.types.ProductRate">ProductRate</a>] = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>ProductPricing(billingTerm: pax8.enums.BillingTerm, commitmentTerm: str = None, commitmentTermInMonths: int = None, type: pax8.enums.PricingType = None, unitOfMeasurement: str = None, rates: List[pax8.types.ProductRate] = None)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class ProductPricing(Pax8Resource):
+    RESOURCE = &#34;pricing&#34;
+    NESTED_TYPES = {
+        &#34;billingTerm&#34;: en.BillingTerm,
+        &#34;type&#34;: en.PricingType,
+        &#34;rates&#34;: List[ProductRate],
+    }
+    billingTerm: en.BillingTerm
+    commitmentTerm: str = None
+    commitmentTermInMonths: int = None
+    type: en.PricingType = None
+    unitOfMeasurement: str = None
+    rates: List[ProductRate] = None</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.types.ProductPricing.NESTED_TYPES"><code class="name">var <span class="ident">NESTED_TYPES</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.ProductPricing.RESOURCE"><code class="name">var <span class="ident">RESOURCE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.ProductPricing.billingTerm"><code class="name">var <span class="ident">billingTerm</span> : <a title="pax8.enums.BillingTerm" href="enums.html#pax8.enums.BillingTerm">BillingTerm</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.ProductPricing.commitmentTerm"><code class="name">var <span class="ident">commitmentTerm</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.ProductPricing.commitmentTermInMonths"><code class="name">var <span class="ident">commitmentTermInMonths</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.ProductPricing.rates"><code class="name">var <span class="ident">rates</span> : List[<a title="pax8.types.ProductRate" href="#pax8.types.ProductRate">ProductRate</a>]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.ProductPricing.type"><code class="name">var <span class="ident">type</span> : <a title="pax8.enums.PricingType" href="enums.html#pax8.enums.PricingType">PricingType</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.ProductPricing.unitOfMeasurement"><code class="name">var <span class="ident">unitOfMeasurement</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pax8.types.Pax8Resource.JsonDecoder" href="#pax8.types.Pax8Resource.JsonDecoder">JsonDecoder</a></code></li>
+<li><code><a title="pax8.types.Pax8Resource.JsonEncoder" href="#pax8.types.Pax8Resource.JsonEncoder">JsonEncoder</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pax8.types.ProductRate"><code class="flex name class">
+<span>class <span class="ident">ProductRate</span></span>
+<span>(</span><span>partnerBuyRate: float, suggestedRetailPrice: float, startQuantityRange: int = None, endQuantityRange: int = None, chargeType: <a title="pax8.enums.ChargeType" href="enums.html#pax8.enums.ChargeType">ChargeType</a> = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>ProductRate(partnerBuyRate: float, suggestedRetailPrice: float, startQuantityRange: int = None, endQuantityRange: int = None, chargeType: pax8.enums.ChargeType = None)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class ProductRate(Pax8Resource):
+    NESTED_TYPES = {&#34;chargeType&#34;, en.ChargeType}
+    partnerBuyRate: float
+    suggestedRetailPrice: float
+    startQuantityRange: int = None
+    endQuantityRange: int = None
+    chargeType: en.ChargeType = None</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.types.ProductRate.NESTED_TYPES"><code class="name">var <span class="ident">NESTED_TYPES</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.ProductRate.chargeType"><code class="name">var <span class="ident">chargeType</span> : <a title="pax8.enums.ChargeType" href="enums.html#pax8.enums.ChargeType">ChargeType</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.ProductRate.endQuantityRange"><code class="name">var <span class="ident">endQuantityRange</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.ProductRate.partnerBuyRate"><code class="name">var <span class="ident">partnerBuyRate</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.ProductRate.startQuantityRange"><code class="name">var <span class="ident">startQuantityRange</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.ProductRate.suggestedRetailPrice"><code class="name">var <span class="ident">suggestedRetailPrice</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pax8.types.Pax8Resource.JsonDecoder" href="#pax8.types.Pax8Resource.JsonDecoder">JsonDecoder</a></code></li>
+<li><code><a title="pax8.types.Pax8Resource.JsonEncoder" href="#pax8.types.Pax8Resource.JsonEncoder">JsonEncoder</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pax8.types.ProvisioningDetail"><code class="flex name class">
+<span>class <span class="ident">ProvisioningDetail</span></span>
+<span>(</span><span>label: str, key: str, valueType: <a title="pax8.enums.ProvisioningDetailTypes" href="enums.html#pax8.enums.ProvisioningDetailTypes">ProvisioningDetailTypes</a> = None, description: str = None, possibleValues: list = None, partnerShellTemplateId: int = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>ProvisioningDetail(label: str, key: str, valueType: pax8.enums.ProvisioningDetailTypes = None, description: str = None, possibleValues: list = None, partnerShellTemplateId: int = None)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class ProvisioningDetail(Pax8Resource):
+    IGNORE_EMPTY = [&#34;description&#34;, &#34;possibleValues&#34;, &#34;partnerShellTemplateId&#34;]
+    NESTED_TYPES = {&#34;type&#34;: en.ProvisioningDetailTypes}
+    RESOURCE = &#34;provision-details&#34;
+    label: str
+    key: str
+    valueType: en.ProvisioningDetailTypes = None
+    description: str = None
+    possibleValues: list = None
+    partnerShellTemplateId: int = None</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.types.ProvisioningDetail.IGNORE_EMPTY"><code class="name">var <span class="ident">IGNORE_EMPTY</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.ProvisioningDetail.NESTED_TYPES"><code class="name">var <span class="ident">NESTED_TYPES</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.ProvisioningDetail.RESOURCE"><code class="name">var <span class="ident">RESOURCE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.ProvisioningDetail.description"><code class="name">var <span class="ident">description</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.ProvisioningDetail.key"><code class="name">var <span class="ident">key</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.ProvisioningDetail.label"><code class="name">var <span class="ident">label</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.ProvisioningDetail.partnerShellTemplateId"><code class="name">var <span class="ident">partnerShellTemplateId</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.ProvisioningDetail.possibleValues"><code class="name">var <span class="ident">possibleValues</span> : list</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.ProvisioningDetail.valueType"><code class="name">var <span class="ident">valueType</span> : <a title="pax8.enums.ProvisioningDetailTypes" href="enums.html#pax8.enums.ProvisioningDetailTypes">ProvisioningDetailTypes</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pax8.types.Pax8Resource.JsonDecoder" href="#pax8.types.Pax8Resource.JsonDecoder">JsonDecoder</a></code></li>
+<li><code><a title="pax8.types.Pax8Resource.JsonEncoder" href="#pax8.types.Pax8Resource.JsonEncoder">JsonEncoder</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pax8.types.ProvisioningSetting"><code class="flex name class">
+<span>class <span class="ident">ProvisioningSetting</span></span>
+<span>(</span><span>key: str, value: List[str])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>ProvisioningSetting(key: str, value: List[str])</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class ProvisioningSetting(Pax8Resource):
+    key: str
+    value: List[str]</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.types.ProvisioningSetting.key"><code class="name">var <span class="ident">key</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.ProvisioningSetting.value"><code class="name">var <span class="ident">value</span> : List[str]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pax8.types.Pax8Resource.JsonDecoder" href="#pax8.types.Pax8Resource.JsonDecoder">JsonDecoder</a></code></li>
+<li><code><a title="pax8.types.Pax8Resource.JsonEncoder" href="#pax8.types.Pax8Resource.JsonEncoder">JsonEncoder</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pax8.types.Subscription"><code class="flex name class">
+<span>class <span class="ident">Subscription</span></span>
+<span>(</span><span>companyId: str, productId: str, quantity: str, startDate: datetime.date, createdDate: datetime.date, billingStart: datetime.date, status: <a title="pax8.enums.SubscriptionStatus" href="enums.html#pax8.enums.SubscriptionStatus">SubscriptionStatus</a>, price: int, billingTerm: <a title="pax8.enums.BillingTerm" href="enums.html#pax8.enums.BillingTerm">BillingTerm</a>, commitment: <a title="pax8.types.CommitmentTerm" href="#pax8.types.CommitmentTerm">CommitmentTerm</a> = None, endDate: datetime.date = None, updatedDate: datetime.date = None, id: str = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Subscription(companyId: str, productId: str, quantity: str, startDate: datetime.date, createdDate: datetime.date, billingStart: datetime.date, status: pax8.enums.SubscriptionStatus, price: int, billingTerm: pax8.enums.BillingTerm, commitment: pax8.types.CommitmentTerm = None, endDate: datetime.date = None, updatedDate: datetime.date = None, id: str = None)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class Subscription(Pax8Resource):
+    RESOURCE = &#34;subscriptions&#34;
+    NESTED_TYPES = {
+        &#34;status&#34;: en.SubscriptionStatus,
+        &#34;billingTerm&#34;: en.BillingTerm,
+        &#34;commitment&#34;: CommitmentTerm,
+    }
+    companyId: str
+    productId: str
+    quantity: str
+    startDate: date
+    createdDate: date
+    billingStart: date
+    status: en.SubscriptionStatus
+    price: int
+    billingTerm: en.BillingTerm
+    commitment: CommitmentTerm = None
+    endDate: date = None
+    updatedDate: date = None
+    id: str = None</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.types.Subscription.NESTED_TYPES"><code class="name">var <span class="ident">NESTED_TYPES</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Subscription.RESOURCE"><code class="name">var <span class="ident">RESOURCE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Subscription.billingStart"><code class="name">var <span class="ident">billingStart</span> : datetime.date</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Subscription.billingTerm"><code class="name">var <span class="ident">billingTerm</span> : <a title="pax8.enums.BillingTerm" href="enums.html#pax8.enums.BillingTerm">BillingTerm</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Subscription.commitment"><code class="name">var <span class="ident">commitment</span> : <a title="pax8.types.CommitmentTerm" href="#pax8.types.CommitmentTerm">CommitmentTerm</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Subscription.companyId"><code class="name">var <span class="ident">companyId</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Subscription.createdDate"><code class="name">var <span class="ident">createdDate</span> : datetime.date</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Subscription.endDate"><code class="name">var <span class="ident">endDate</span> : datetime.date</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Subscription.id"><code class="name">var <span class="ident">id</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Subscription.price"><code class="name">var <span class="ident">price</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Subscription.productId"><code class="name">var <span class="ident">productId</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Subscription.quantity"><code class="name">var <span class="ident">quantity</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Subscription.startDate"><code class="name">var <span class="ident">startDate</span> : datetime.date</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Subscription.status"><code class="name">var <span class="ident">status</span> : <a title="pax8.enums.SubscriptionStatus" href="enums.html#pax8.enums.SubscriptionStatus">SubscriptionStatus</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.Subscription.updatedDate"><code class="name">var <span class="ident">updatedDate</span> : datetime.date</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pax8.types.Pax8Resource.JsonDecoder" href="#pax8.types.Pax8Resource.JsonDecoder">JsonDecoder</a></code></li>
+<li><code><a title="pax8.types.Pax8Resource.JsonEncoder" href="#pax8.types.Pax8Resource.JsonEncoder">JsonEncoder</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pax8.types.SubscriptionHistory"><code class="flex name class">
+<span>class <span class="ident">SubscriptionHistory</span></span>
+<span>(</span><span>content: List[<a title="pax8.types.Subscription" href="#pax8.types.Subscription">Subscription</a>])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>SubscriptionHistory(content: List[pax8.types.Subscription])</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class SubscriptionHistory(Pax8Resource):
+    RESOURCE = &#34;history&#34;
+    NESTED_TYPES = {&#34;content&#34;: List[Subscription]}
+    content: List[Subscription]</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.types.SubscriptionHistory.NESTED_TYPES"><code class="name">var <span class="ident">NESTED_TYPES</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.SubscriptionHistory.RESOURCE"><code class="name">var <span class="ident">RESOURCE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.SubscriptionHistory.content"><code class="name">var <span class="ident">content</span> : List[<a title="pax8.types.Subscription" href="#pax8.types.Subscription">Subscription</a>]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pax8.types.Pax8Resource.JsonDecoder" href="#pax8.types.Pax8Resource.JsonDecoder">JsonDecoder</a></code></li>
+<li><code><a title="pax8.types.Pax8Resource.JsonEncoder" href="#pax8.types.Pax8Resource.JsonEncoder">JsonEncoder</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pax8.types.UsageSummary"><code class="flex name class">
+<span>class <span class="ident">UsageSummary</span></span>
+<span>(</span><span>id: str, companyId: str, productId: str, resourceGroup: str, vendorName: str, currentCharges: float, partnerTotal: float, isTrial: bool)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>UsageSummary(id: str, companyId: str, productId: str, resourceGroup: str, vendorName: str, currentCharges: float, partnerTotal: float, isTrial: bool)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class UsageSummary(Pax8Resource):
+    RESOURCE = &#34;usage-summaries&#34;
+    id: str
+    companyId: str
+    productId: str
+    resourceGroup: str
+    vendorName: str
+    currentCharges: float
+    partnerTotal: float
+    isTrial: bool</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.types.UsageSummary.RESOURCE"><code class="name">var <span class="ident">RESOURCE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.UsageSummary.companyId"><code class="name">var <span class="ident">companyId</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.UsageSummary.currentCharges"><code class="name">var <span class="ident">currentCharges</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.UsageSummary.id"><code class="name">var <span class="ident">id</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.UsageSummary.isTrial"><code class="name">var <span class="ident">isTrial</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.UsageSummary.partnerTotal"><code class="name">var <span class="ident">partnerTotal</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.UsageSummary.productId"><code class="name">var <span class="ident">productId</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.UsageSummary.resourceGroup"><code class="name">var <span class="ident">resourceGroup</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.UsageSummary.vendorName"><code class="name">var <span class="ident">vendorName</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pax8.types.Pax8Resource.JsonDecoder" href="#pax8.types.Pax8Resource.JsonDecoder">JsonDecoder</a></code></li>
+<li><code><a title="pax8.types.Pax8Resource.JsonEncoder" href="#pax8.types.Pax8Resource.JsonEncoder">JsonEncoder</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pax8.types.UsageSummaryLine"><code class="flex name class">
+<span>class <span class="ident">UsageSummaryLine</span></span>
+<span>(</span><span>usageSummaryId: str, usageDate: datetime.date, productName: str, productId: str, unitOfMeasure: str, quantity: int, currentCharges: float, currentProfit: float, partnerTotal: float, unitPrice: float, isTrial: bool)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>UsageSummaryLine(usageSummaryId: str, usageDate: datetime.date, productName: str, productId: str, unitOfMeasure: str, quantity: int, currentCharges: float, currentProfit: float, partnerTotal: float, unitPrice: float, isTrial: bool)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class UsageSummaryLine(Pax8Resource):
+    RESOURCE = &#34;usage-lines&#34;
+    usageSummaryId: str
+    usageDate: date
+    productName: str
+    productId: str
+    unitOfMeasure: str
+    quantity: int
+    currentCharges: float
+    currentProfit: float
+    partnerTotal: float
+    unitPrice: float
+    isTrial: bool</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.types.UsageSummaryLine.RESOURCE"><code class="name">var <span class="ident">RESOURCE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.UsageSummaryLine.currentCharges"><code class="name">var <span class="ident">currentCharges</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.UsageSummaryLine.currentProfit"><code class="name">var <span class="ident">currentProfit</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.UsageSummaryLine.isTrial"><code class="name">var <span class="ident">isTrial</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.UsageSummaryLine.partnerTotal"><code class="name">var <span class="ident">partnerTotal</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.UsageSummaryLine.productId"><code class="name">var <span class="ident">productId</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.UsageSummaryLine.productName"><code class="name">var <span class="ident">productName</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.UsageSummaryLine.quantity"><code class="name">var <span class="ident">quantity</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.UsageSummaryLine.unitOfMeasure"><code class="name">var <span class="ident">unitOfMeasure</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.UsageSummaryLine.unitPrice"><code class="name">var <span class="ident">unitPrice</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.UsageSummaryLine.usageDate"><code class="name">var <span class="ident">usageDate</span> : datetime.date</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.types.UsageSummaryLine.usageSummaryId"><code class="name">var <span class="ident">usageSummaryId</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pax8.types.Pax8Resource.JsonDecoder" href="#pax8.types.Pax8Resource.JsonDecoder">JsonDecoder</a></code></li>
+<li><code><a title="pax8.types.Pax8Resource.JsonEncoder" href="#pax8.types.Pax8Resource.JsonEncoder">JsonEncoder</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pax8" href="index.html">pax8</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pax8.types.CommitmentDependency" href="#pax8.types.CommitmentDependency">CommitmentDependency</a></code></h4>
+<ul class="">
+<li><code><a title="pax8.types.CommitmentDependency.allowForEarlyCancellation" href="#pax8.types.CommitmentDependency.allowForEarlyCancellation">allowForEarlyCancellation</a></code></li>
+<li><code><a title="pax8.types.CommitmentDependency.allowForQuantityDecrease" href="#pax8.types.CommitmentDependency.allowForQuantityDecrease">allowForQuantityDecrease</a></code></li>
+<li><code><a title="pax8.types.CommitmentDependency.allowForQuantityIncrease" href="#pax8.types.CommitmentDependency.allowForQuantityIncrease">allowForQuantityIncrease</a></code></li>
+<li><code><a title="pax8.types.CommitmentDependency.autoRenew" href="#pax8.types.CommitmentDependency.autoRenew">autoRenew</a></code></li>
+<li><code><a title="pax8.types.CommitmentDependency.cancellationFeeApplied" href="#pax8.types.CommitmentDependency.cancellationFeeApplied">cancellationFeeApplied</a></code></li>
+<li><code><a title="pax8.types.CommitmentDependency.id" href="#pax8.types.CommitmentDependency.id">id</a></code></li>
+<li><code><a title="pax8.types.CommitmentDependency.isTransferable" href="#pax8.types.CommitmentDependency.isTransferable">isTransferable</a></code></li>
+<li><code><a title="pax8.types.CommitmentDependency.renewalWindowDaysAfterTermEnd" href="#pax8.types.CommitmentDependency.renewalWindowDaysAfterTermEnd">renewalWindowDaysAfterTermEnd</a></code></li>
+<li><code><a title="pax8.types.CommitmentDependency.renewalWindowDaysBeforeTermEnd" href="#pax8.types.CommitmentDependency.renewalWindowDaysBeforeTermEnd">renewalWindowDaysBeforeTermEnd</a></code></li>
+<li><code><a title="pax8.types.CommitmentDependency.term" href="#pax8.types.CommitmentDependency.term">term</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.types.CommitmentTerm" href="#pax8.types.CommitmentTerm">CommitmentTerm</a></code></h4>
+<ul class="">
+<li><code><a title="pax8.types.CommitmentTerm.endDate" href="#pax8.types.CommitmentTerm.endDate">endDate</a></code></li>
+<li><code><a title="pax8.types.CommitmentTerm.id" href="#pax8.types.CommitmentTerm.id">id</a></code></li>
+<li><code><a title="pax8.types.CommitmentTerm.term" href="#pax8.types.CommitmentTerm.term">term</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.types.Company" href="#pax8.types.Company">Company</a></code></h4>
+<ul class="">
+<li><code><a title="pax8.types.Company.IGNORE_EMPTY" href="#pax8.types.Company.IGNORE_EMPTY">IGNORE_EMPTY</a></code></li>
+<li><code><a title="pax8.types.Company.NESTED_TYPES" href="#pax8.types.Company.NESTED_TYPES">NESTED_TYPES</a></code></li>
+<li><code><a title="pax8.types.Company.RESOURCE" href="#pax8.types.Company.RESOURCE">RESOURCE</a></code></li>
+<li><code><a title="pax8.types.Company.address" href="#pax8.types.Company.address">address</a></code></li>
+<li><code><a title="pax8.types.Company.billOnBehalfOfEnabled" href="#pax8.types.Company.billOnBehalfOfEnabled">billOnBehalfOfEnabled</a></code></li>
+<li><code><a title="pax8.types.Company.externalId" href="#pax8.types.Company.externalId">externalId</a></code></li>
+<li><code><a title="pax8.types.Company.id" href="#pax8.types.Company.id">id</a></code></li>
+<li><code><a title="pax8.types.Company.name" href="#pax8.types.Company.name">name</a></code></li>
+<li><code><a title="pax8.types.Company.orderApprovalRequired" href="#pax8.types.Company.orderApprovalRequired">orderApprovalRequired</a></code></li>
+<li><code><a title="pax8.types.Company.phone" href="#pax8.types.Company.phone">phone</a></code></li>
+<li><code><a title="pax8.types.Company.selfServiceAllowed" href="#pax8.types.Company.selfServiceAllowed">selfServiceAllowed</a></code></li>
+<li><code><a title="pax8.types.Company.status" href="#pax8.types.Company.status">status</a></code></li>
+<li><code><a title="pax8.types.Company.website" href="#pax8.types.Company.website">website</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.types.CompanyAddress" href="#pax8.types.CompanyAddress">CompanyAddress</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pax8.types.CompanyAddress.IGNORE_EMPTY" href="#pax8.types.CompanyAddress.IGNORE_EMPTY">IGNORE_EMPTY</a></code></li>
+<li><code><a title="pax8.types.CompanyAddress.city" href="#pax8.types.CompanyAddress.city">city</a></code></li>
+<li><code><a title="pax8.types.CompanyAddress.country" href="#pax8.types.CompanyAddress.country">country</a></code></li>
+<li><code><a title="pax8.types.CompanyAddress.postalCode" href="#pax8.types.CompanyAddress.postalCode">postalCode</a></code></li>
+<li><code><a title="pax8.types.CompanyAddress.stateOrProvince" href="#pax8.types.CompanyAddress.stateOrProvince">stateOrProvince</a></code></li>
+<li><code><a title="pax8.types.CompanyAddress.street" href="#pax8.types.CompanyAddress.street">street</a></code></li>
+<li><code><a title="pax8.types.CompanyAddress.street2" href="#pax8.types.CompanyAddress.street2">street2</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.types.CompanyMSTenantID" href="#pax8.types.CompanyMSTenantID">CompanyMSTenantID</a></code></h4>
+<ul class="">
+<li><code><a title="pax8.types.CompanyMSTenantID.clientId" href="#pax8.types.CompanyMSTenantID.clientId">clientId</a></code></li>
+<li><code><a title="pax8.types.CompanyMSTenantID.tenantId" href="#pax8.types.CompanyMSTenantID.tenantId">tenantId</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.types.Contact" href="#pax8.types.Contact">Contact</a></code></h4>
+<ul class="">
+<li><code><a title="pax8.types.Contact.NESTED_TYPES" href="#pax8.types.Contact.NESTED_TYPES">NESTED_TYPES</a></code></li>
+<li><code><a title="pax8.types.Contact.RESOURCE" href="#pax8.types.Contact.RESOURCE">RESOURCE</a></code></li>
+<li><code><a title="pax8.types.Contact.createdDate" href="#pax8.types.Contact.createdDate">createdDate</a></code></li>
+<li><code><a title="pax8.types.Contact.email" href="#pax8.types.Contact.email">email</a></code></li>
+<li><code><a title="pax8.types.Contact.firstName" href="#pax8.types.Contact.firstName">firstName</a></code></li>
+<li><code><a title="pax8.types.Contact.id" href="#pax8.types.Contact.id">id</a></code></li>
+<li><code><a title="pax8.types.Contact.lastName" href="#pax8.types.Contact.lastName">lastName</a></code></li>
+<li><code><a title="pax8.types.Contact.phone" href="#pax8.types.Contact.phone">phone</a></code></li>
+<li><code><a title="pax8.types.Contact.phoneCountryCallingCode" href="#pax8.types.Contact.phoneCountryCallingCode">phoneCountryCallingCode</a></code></li>
+<li><code><a title="pax8.types.Contact.phoneCountryCode" href="#pax8.types.Contact.phoneCountryCode">phoneCountryCode</a></code></li>
+<li><code><a title="pax8.types.Contact.phoneNumber" href="#pax8.types.Contact.phoneNumber">phoneNumber</a></code></li>
+<li><code><a title="pax8.types.Contact.types" href="#pax8.types.Contact.types">types</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.types.ContactType" href="#pax8.types.ContactType">ContactType</a></code></h4>
+<ul class="">
+<li><code><a title="pax8.types.ContactType.NESTED_TYPES" href="#pax8.types.ContactType.NESTED_TYPES">NESTED_TYPES</a></code></li>
+<li><code><a title="pax8.types.ContactType.primary" href="#pax8.types.ContactType.primary">primary</a></code></li>
+<li><code><a title="pax8.types.ContactType.type" href="#pax8.types.ContactType.type">type</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.types.Dependencies" href="#pax8.types.Dependencies">Dependencies</a></code></h4>
+<ul class="">
+<li><code><a title="pax8.types.Dependencies.NESTED_TYPES" href="#pax8.types.Dependencies.NESTED_TYPES">NESTED_TYPES</a></code></li>
+<li><code><a title="pax8.types.Dependencies.RESOURCE" href="#pax8.types.Dependencies.RESOURCE">RESOURCE</a></code></li>
+<li><code><a title="pax8.types.Dependencies.commitmentDependencies" href="#pax8.types.Dependencies.commitmentDependencies">commitmentDependencies</a></code></li>
+<li><code><a title="pax8.types.Dependencies.productDependencies" href="#pax8.types.Dependencies.productDependencies">productDependencies</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.types.Invoice" href="#pax8.types.Invoice">Invoice</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pax8.types.Invoice.NESTED_TYPES" href="#pax8.types.Invoice.NESTED_TYPES">NESTED_TYPES</a></code></li>
+<li><code><a title="pax8.types.Invoice.RESOURCE" href="#pax8.types.Invoice.RESOURCE">RESOURCE</a></code></li>
+<li><code><a title="pax8.types.Invoice.balance" href="#pax8.types.Invoice.balance">balance</a></code></li>
+<li><code><a title="pax8.types.Invoice.carriedBalance" href="#pax8.types.Invoice.carriedBalance">carriedBalance</a></code></li>
+<li><code><a title="pax8.types.Invoice.companyId" href="#pax8.types.Invoice.companyId">companyId</a></code></li>
+<li><code><a title="pax8.types.Invoice.dueDate" href="#pax8.types.Invoice.dueDate">dueDate</a></code></li>
+<li><code><a title="pax8.types.Invoice.externalId" href="#pax8.types.Invoice.externalId">externalId</a></code></li>
+<li><code><a title="pax8.types.Invoice.id" href="#pax8.types.Invoice.id">id</a></code></li>
+<li><code><a title="pax8.types.Invoice.invoiceDate" href="#pax8.types.Invoice.invoiceDate">invoiceDate</a></code></li>
+<li><code><a title="pax8.types.Invoice.partnerName" href="#pax8.types.Invoice.partnerName">partnerName</a></code></li>
+<li><code><a title="pax8.types.Invoice.status" href="#pax8.types.Invoice.status">status</a></code></li>
+<li><code><a title="pax8.types.Invoice.total" href="#pax8.types.Invoice.total">total</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.types.InvoiceItem" href="#pax8.types.InvoiceItem">InvoiceItem</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pax8.types.InvoiceItem.NESTED_TYPES" href="#pax8.types.InvoiceItem.NESTED_TYPES">NESTED_TYPES</a></code></li>
+<li><code><a title="pax8.types.InvoiceItem.RESOURCE" href="#pax8.types.InvoiceItem.RESOURCE">RESOURCE</a></code></li>
+<li><code><a title="pax8.types.InvoiceItem.amountDue" href="#pax8.types.InvoiceItem.amountDue">amountDue</a></code></li>
+<li><code><a title="pax8.types.InvoiceItem.billedByPax8" href="#pax8.types.InvoiceItem.billedByPax8">billedByPax8</a></code></li>
+<li><code><a title="pax8.types.InvoiceItem.billingFee" href="#pax8.types.InvoiceItem.billingFee">billingFee</a></code></li>
+<li><code><a title="pax8.types.InvoiceItem.billingFeeRate" href="#pax8.types.InvoiceItem.billingFeeRate">billingFeeRate</a></code></li>
+<li><code><a title="pax8.types.InvoiceItem.chargeType" href="#pax8.types.InvoiceItem.chargeType">chargeType</a></code></li>
+<li><code><a title="pax8.types.InvoiceItem.companyId" href="#pax8.types.InvoiceItem.companyId">companyId</a></code></li>
+<li><code><a title="pax8.types.InvoiceItem.companyName" href="#pax8.types.InvoiceItem.companyName">companyName</a></code></li>
+<li><code><a title="pax8.types.InvoiceItem.cost" href="#pax8.types.InvoiceItem.cost">cost</a></code></li>
+<li><code><a title="pax8.types.InvoiceItem.costTotal" href="#pax8.types.InvoiceItem.costTotal">costTotal</a></code></li>
+<li><code><a title="pax8.types.InvoiceItem.currencyCode" href="#pax8.types.InvoiceItem.currencyCode">currencyCode</a></code></li>
+<li><code><a title="pax8.types.InvoiceItem.description" href="#pax8.types.InvoiceItem.description">description</a></code></li>
+<li><code><a title="pax8.types.InvoiceItem.details" href="#pax8.types.InvoiceItem.details">details</a></code></li>
+<li><code><a title="pax8.types.InvoiceItem.endPeriod" href="#pax8.types.InvoiceItem.endPeriod">endPeriod</a></code></li>
+<li><code><a title="pax8.types.InvoiceItem.externalId" href="#pax8.types.InvoiceItem.externalId">externalId</a></code></li>
+<li><code><a title="pax8.types.InvoiceItem.id" href="#pax8.types.InvoiceItem.id">id</a></code></li>
+<li><code><a title="pax8.types.InvoiceItem.offeredBy" href="#pax8.types.InvoiceItem.offeredBy">offeredBy</a></code></li>
+<li><code><a title="pax8.types.InvoiceItem.price" href="#pax8.types.InvoiceItem.price">price</a></code></li>
+<li><code><a title="pax8.types.InvoiceItem.productId" href="#pax8.types.InvoiceItem.productId">productId</a></code></li>
+<li><code><a title="pax8.types.InvoiceItem.productName" href="#pax8.types.InvoiceItem.productName">productName</a></code></li>
+<li><code><a title="pax8.types.InvoiceItem.purchaseOrderNumber" href="#pax8.types.InvoiceItem.purchaseOrderNumber">purchaseOrderNumber</a></code></li>
+<li><code><a title="pax8.types.InvoiceItem.quantity" href="#pax8.types.InvoiceItem.quantity">quantity</a></code></li>
+<li><code><a title="pax8.types.InvoiceItem.rateType" href="#pax8.types.InvoiceItem.rateType">rateType</a></code></li>
+<li><code><a title="pax8.types.InvoiceItem.sku" href="#pax8.types.InvoiceItem.sku">sku</a></code></li>
+<li><code><a title="pax8.types.InvoiceItem.startPeriod" href="#pax8.types.InvoiceItem.startPeriod">startPeriod</a></code></li>
+<li><code><a title="pax8.types.InvoiceItem.subTotal" href="#pax8.types.InvoiceItem.subTotal">subTotal</a></code></li>
+<li><code><a title="pax8.types.InvoiceItem.term" href="#pax8.types.InvoiceItem.term">term</a></code></li>
+<li><code><a title="pax8.types.InvoiceItem.total" href="#pax8.types.InvoiceItem.total">total</a></code></li>
+<li><code><a title="pax8.types.InvoiceItem.type" href="#pax8.types.InvoiceItem.type">type</a></code></li>
+<li><code><a title="pax8.types.InvoiceItem.unitOfMeasure" href="#pax8.types.InvoiceItem.unitOfMeasure">unitOfMeasure</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.types.Order" href="#pax8.types.Order">Order</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pax8.types.Order.NESTED_TYPES" href="#pax8.types.Order.NESTED_TYPES">NESTED_TYPES</a></code></li>
+<li><code><a title="pax8.types.Order.RESOURCE" href="#pax8.types.Order.RESOURCE">RESOURCE</a></code></li>
+<li><code><a title="pax8.types.Order.companyId" href="#pax8.types.Order.companyId">companyId</a></code></li>
+<li><code><a title="pax8.types.Order.createdDate" href="#pax8.types.Order.createdDate">createdDate</a></code></li>
+<li><code><a title="pax8.types.Order.id" href="#pax8.types.Order.id">id</a></code></li>
+<li><code><a title="pax8.types.Order.lineItems" href="#pax8.types.Order.lineItems">lineItems</a></code></li>
+<li><code><a title="pax8.types.Order.objectify" href="#pax8.types.Order.objectify">objectify</a></code></li>
+<li><code><a title="pax8.types.Order.orderedBy" href="#pax8.types.Order.orderedBy">orderedBy</a></code></li>
+<li><code><a title="pax8.types.Order.orderedByUserEmail" href="#pax8.types.Order.orderedByUserEmail">orderedByUserEmail</a></code></li>
+<li><code><a title="pax8.types.Order.orderedByUserId" href="#pax8.types.Order.orderedByUserId">orderedByUserId</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.types.OrderLineItem" href="#pax8.types.OrderLineItem">OrderLineItem</a></code></h4>
+<ul class="">
+<li><code><a title="pax8.types.OrderLineItem.NESTED_TYPES" href="#pax8.types.OrderLineItem.NESTED_TYPES">NESTED_TYPES</a></code></li>
+<li><code><a title="pax8.types.OrderLineItem.billingTerm" href="#pax8.types.OrderLineItem.billingTerm">billingTerm</a></code></li>
+<li><code><a title="pax8.types.OrderLineItem.commitmentTermId" href="#pax8.types.OrderLineItem.commitmentTermId">commitmentTermId</a></code></li>
+<li><code><a title="pax8.types.OrderLineItem.id" href="#pax8.types.OrderLineItem.id">id</a></code></li>
+<li><code><a title="pax8.types.OrderLineItem.lineItemNumber" href="#pax8.types.OrderLineItem.lineItemNumber">lineItemNumber</a></code></li>
+<li><code><a title="pax8.types.OrderLineItem.parentLineItemNumber" href="#pax8.types.OrderLineItem.parentLineItemNumber">parentLineItemNumber</a></code></li>
+<li><code><a title="pax8.types.OrderLineItem.parentSubscriptionId" href="#pax8.types.OrderLineItem.parentSubscriptionId">parentSubscriptionId</a></code></li>
+<li><code><a title="pax8.types.OrderLineItem.productId" href="#pax8.types.OrderLineItem.productId">productId</a></code></li>
+<li><code><a title="pax8.types.OrderLineItem.provisionStartDate" href="#pax8.types.OrderLineItem.provisionStartDate">provisionStartDate</a></code></li>
+<li><code><a title="pax8.types.OrderLineItem.provisioningDetails" href="#pax8.types.OrderLineItem.provisioningDetails">provisioningDetails</a></code></li>
+<li><code><a title="pax8.types.OrderLineItem.quantity" href="#pax8.types.OrderLineItem.quantity">quantity</a></code></li>
+<li><code><a title="pax8.types.OrderLineItem.subscriptionId" href="#pax8.types.OrderLineItem.subscriptionId">subscriptionId</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.types.Pax8Page" href="#pax8.types.Pax8Page">Pax8Page</a></code></h4>
+<ul class="">
+<li><code><a title="pax8.types.Pax8Page.number" href="#pax8.types.Pax8Page.number">number</a></code></li>
+<li><code><a title="pax8.types.Pax8Page.size" href="#pax8.types.Pax8Page.size">size</a></code></li>
+<li><code><a title="pax8.types.Pax8Page.totalElements" href="#pax8.types.Pax8Page.totalElements">totalElements</a></code></li>
+<li><code><a title="pax8.types.Pax8Page.totalPages" href="#pax8.types.Pax8Page.totalPages">totalPages</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.types.Pax8Resource" href="#pax8.types.Pax8Resource">Pax8Resource</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pax8.types.Pax8Resource.IGNORE_EMPTY" href="#pax8.types.Pax8Resource.IGNORE_EMPTY">IGNORE_EMPTY</a></code></li>
+<li><code><a title="pax8.types.Pax8Resource.JsonDecoder" href="#pax8.types.Pax8Resource.JsonDecoder">JsonDecoder</a></code></li>
+<li><code><a title="pax8.types.Pax8Resource.JsonEncoder" href="#pax8.types.Pax8Resource.JsonEncoder">JsonEncoder</a></code></li>
+<li><code><a title="pax8.types.Pax8Resource.NESTED_TYPES" href="#pax8.types.Pax8Resource.NESTED_TYPES">NESTED_TYPES</a></code></li>
+<li><code><a title="pax8.types.Pax8Resource.RESOURCE" href="#pax8.types.Pax8Resource.RESOURCE">RESOURCE</a></code></li>
+<li><code><a title="pax8.types.Pax8Resource.deserialize" href="#pax8.types.Pax8Resource.deserialize">deserialize</a></code></li>
+<li><code><a title="pax8.types.Pax8Resource.objectify" href="#pax8.types.Pax8Resource.objectify">objectify</a></code></li>
+<li><code><a title="pax8.types.Pax8Resource.serialize" href="#pax8.types.Pax8Resource.serialize">serialize</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.types.Product" href="#pax8.types.Product">Product</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pax8.types.Product.RESOURCE" href="#pax8.types.Product.RESOURCE">RESOURCE</a></code></li>
+<li><code><a title="pax8.types.Product.id" href="#pax8.types.Product.id">id</a></code></li>
+<li><code><a title="pax8.types.Product.name" href="#pax8.types.Product.name">name</a></code></li>
+<li><code><a title="pax8.types.Product.shortDescription" href="#pax8.types.Product.shortDescription">shortDescription</a></code></li>
+<li><code><a title="pax8.types.Product.sku" href="#pax8.types.Product.sku">sku</a></code></li>
+<li><code><a title="pax8.types.Product.vendorName" href="#pax8.types.Product.vendorName">vendorName</a></code></li>
+<li><code><a title="pax8.types.Product.vendorSku" href="#pax8.types.Product.vendorSku">vendorSku</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.types.ProductDependency" href="#pax8.types.ProductDependency">ProductDependency</a></code></h4>
+<ul class="">
+<li><code><a title="pax8.types.ProductDependency.NESTED_TYPES" href="#pax8.types.ProductDependency.NESTED_TYPES">NESTED_TYPES</a></code></li>
+<li><code><a title="pax8.types.ProductDependency.name" href="#pax8.types.ProductDependency.name">name</a></code></li>
+<li><code><a title="pax8.types.ProductDependency.products" href="#pax8.types.ProductDependency.products">products</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.types.ProductPricing" href="#pax8.types.ProductPricing">ProductPricing</a></code></h4>
+<ul class="">
+<li><code><a title="pax8.types.ProductPricing.NESTED_TYPES" href="#pax8.types.ProductPricing.NESTED_TYPES">NESTED_TYPES</a></code></li>
+<li><code><a title="pax8.types.ProductPricing.RESOURCE" href="#pax8.types.ProductPricing.RESOURCE">RESOURCE</a></code></li>
+<li><code><a title="pax8.types.ProductPricing.billingTerm" href="#pax8.types.ProductPricing.billingTerm">billingTerm</a></code></li>
+<li><code><a title="pax8.types.ProductPricing.commitmentTerm" href="#pax8.types.ProductPricing.commitmentTerm">commitmentTerm</a></code></li>
+<li><code><a title="pax8.types.ProductPricing.commitmentTermInMonths" href="#pax8.types.ProductPricing.commitmentTermInMonths">commitmentTermInMonths</a></code></li>
+<li><code><a title="pax8.types.ProductPricing.rates" href="#pax8.types.ProductPricing.rates">rates</a></code></li>
+<li><code><a title="pax8.types.ProductPricing.type" href="#pax8.types.ProductPricing.type">type</a></code></li>
+<li><code><a title="pax8.types.ProductPricing.unitOfMeasurement" href="#pax8.types.ProductPricing.unitOfMeasurement">unitOfMeasurement</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.types.ProductRate" href="#pax8.types.ProductRate">ProductRate</a></code></h4>
+<ul class="">
+<li><code><a title="pax8.types.ProductRate.NESTED_TYPES" href="#pax8.types.ProductRate.NESTED_TYPES">NESTED_TYPES</a></code></li>
+<li><code><a title="pax8.types.ProductRate.chargeType" href="#pax8.types.ProductRate.chargeType">chargeType</a></code></li>
+<li><code><a title="pax8.types.ProductRate.endQuantityRange" href="#pax8.types.ProductRate.endQuantityRange">endQuantityRange</a></code></li>
+<li><code><a title="pax8.types.ProductRate.partnerBuyRate" href="#pax8.types.ProductRate.partnerBuyRate">partnerBuyRate</a></code></li>
+<li><code><a title="pax8.types.ProductRate.startQuantityRange" href="#pax8.types.ProductRate.startQuantityRange">startQuantityRange</a></code></li>
+<li><code><a title="pax8.types.ProductRate.suggestedRetailPrice" href="#pax8.types.ProductRate.suggestedRetailPrice">suggestedRetailPrice</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.types.ProvisioningDetail" href="#pax8.types.ProvisioningDetail">ProvisioningDetail</a></code></h4>
+<ul class="">
+<li><code><a title="pax8.types.ProvisioningDetail.IGNORE_EMPTY" href="#pax8.types.ProvisioningDetail.IGNORE_EMPTY">IGNORE_EMPTY</a></code></li>
+<li><code><a title="pax8.types.ProvisioningDetail.NESTED_TYPES" href="#pax8.types.ProvisioningDetail.NESTED_TYPES">NESTED_TYPES</a></code></li>
+<li><code><a title="pax8.types.ProvisioningDetail.RESOURCE" href="#pax8.types.ProvisioningDetail.RESOURCE">RESOURCE</a></code></li>
+<li><code><a title="pax8.types.ProvisioningDetail.description" href="#pax8.types.ProvisioningDetail.description">description</a></code></li>
+<li><code><a title="pax8.types.ProvisioningDetail.key" href="#pax8.types.ProvisioningDetail.key">key</a></code></li>
+<li><code><a title="pax8.types.ProvisioningDetail.label" href="#pax8.types.ProvisioningDetail.label">label</a></code></li>
+<li><code><a title="pax8.types.ProvisioningDetail.partnerShellTemplateId" href="#pax8.types.ProvisioningDetail.partnerShellTemplateId">partnerShellTemplateId</a></code></li>
+<li><code><a title="pax8.types.ProvisioningDetail.possibleValues" href="#pax8.types.ProvisioningDetail.possibleValues">possibleValues</a></code></li>
+<li><code><a title="pax8.types.ProvisioningDetail.valueType" href="#pax8.types.ProvisioningDetail.valueType">valueType</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.types.ProvisioningSetting" href="#pax8.types.ProvisioningSetting">ProvisioningSetting</a></code></h4>
+<ul class="">
+<li><code><a title="pax8.types.ProvisioningSetting.key" href="#pax8.types.ProvisioningSetting.key">key</a></code></li>
+<li><code><a title="pax8.types.ProvisioningSetting.value" href="#pax8.types.ProvisioningSetting.value">value</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.types.Subscription" href="#pax8.types.Subscription">Subscription</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pax8.types.Subscription.NESTED_TYPES" href="#pax8.types.Subscription.NESTED_TYPES">NESTED_TYPES</a></code></li>
+<li><code><a title="pax8.types.Subscription.RESOURCE" href="#pax8.types.Subscription.RESOURCE">RESOURCE</a></code></li>
+<li><code><a title="pax8.types.Subscription.billingStart" href="#pax8.types.Subscription.billingStart">billingStart</a></code></li>
+<li><code><a title="pax8.types.Subscription.billingTerm" href="#pax8.types.Subscription.billingTerm">billingTerm</a></code></li>
+<li><code><a title="pax8.types.Subscription.commitment" href="#pax8.types.Subscription.commitment">commitment</a></code></li>
+<li><code><a title="pax8.types.Subscription.companyId" href="#pax8.types.Subscription.companyId">companyId</a></code></li>
+<li><code><a title="pax8.types.Subscription.createdDate" href="#pax8.types.Subscription.createdDate">createdDate</a></code></li>
+<li><code><a title="pax8.types.Subscription.endDate" href="#pax8.types.Subscription.endDate">endDate</a></code></li>
+<li><code><a title="pax8.types.Subscription.id" href="#pax8.types.Subscription.id">id</a></code></li>
+<li><code><a title="pax8.types.Subscription.price" href="#pax8.types.Subscription.price">price</a></code></li>
+<li><code><a title="pax8.types.Subscription.productId" href="#pax8.types.Subscription.productId">productId</a></code></li>
+<li><code><a title="pax8.types.Subscription.quantity" href="#pax8.types.Subscription.quantity">quantity</a></code></li>
+<li><code><a title="pax8.types.Subscription.startDate" href="#pax8.types.Subscription.startDate">startDate</a></code></li>
+<li><code><a title="pax8.types.Subscription.status" href="#pax8.types.Subscription.status">status</a></code></li>
+<li><code><a title="pax8.types.Subscription.updatedDate" href="#pax8.types.Subscription.updatedDate">updatedDate</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.types.SubscriptionHistory" href="#pax8.types.SubscriptionHistory">SubscriptionHistory</a></code></h4>
+<ul class="">
+<li><code><a title="pax8.types.SubscriptionHistory.NESTED_TYPES" href="#pax8.types.SubscriptionHistory.NESTED_TYPES">NESTED_TYPES</a></code></li>
+<li><code><a title="pax8.types.SubscriptionHistory.RESOURCE" href="#pax8.types.SubscriptionHistory.RESOURCE">RESOURCE</a></code></li>
+<li><code><a title="pax8.types.SubscriptionHistory.content" href="#pax8.types.SubscriptionHistory.content">content</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.types.UsageSummary" href="#pax8.types.UsageSummary">UsageSummary</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pax8.types.UsageSummary.RESOURCE" href="#pax8.types.UsageSummary.RESOURCE">RESOURCE</a></code></li>
+<li><code><a title="pax8.types.UsageSummary.companyId" href="#pax8.types.UsageSummary.companyId">companyId</a></code></li>
+<li><code><a title="pax8.types.UsageSummary.currentCharges" href="#pax8.types.UsageSummary.currentCharges">currentCharges</a></code></li>
+<li><code><a title="pax8.types.UsageSummary.id" href="#pax8.types.UsageSummary.id">id</a></code></li>
+<li><code><a title="pax8.types.UsageSummary.isTrial" href="#pax8.types.UsageSummary.isTrial">isTrial</a></code></li>
+<li><code><a title="pax8.types.UsageSummary.partnerTotal" href="#pax8.types.UsageSummary.partnerTotal">partnerTotal</a></code></li>
+<li><code><a title="pax8.types.UsageSummary.productId" href="#pax8.types.UsageSummary.productId">productId</a></code></li>
+<li><code><a title="pax8.types.UsageSummary.resourceGroup" href="#pax8.types.UsageSummary.resourceGroup">resourceGroup</a></code></li>
+<li><code><a title="pax8.types.UsageSummary.vendorName" href="#pax8.types.UsageSummary.vendorName">vendorName</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.types.UsageSummaryLine" href="#pax8.types.UsageSummaryLine">UsageSummaryLine</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pax8.types.UsageSummaryLine.RESOURCE" href="#pax8.types.UsageSummaryLine.RESOURCE">RESOURCE</a></code></li>
+<li><code><a title="pax8.types.UsageSummaryLine.currentCharges" href="#pax8.types.UsageSummaryLine.currentCharges">currentCharges</a></code></li>
+<li><code><a title="pax8.types.UsageSummaryLine.currentProfit" href="#pax8.types.UsageSummaryLine.currentProfit">currentProfit</a></code></li>
+<li><code><a title="pax8.types.UsageSummaryLine.isTrial" href="#pax8.types.UsageSummaryLine.isTrial">isTrial</a></code></li>
+<li><code><a title="pax8.types.UsageSummaryLine.partnerTotal" href="#pax8.types.UsageSummaryLine.partnerTotal">partnerTotal</a></code></li>
+<li><code><a title="pax8.types.UsageSummaryLine.productId" href="#pax8.types.UsageSummaryLine.productId">productId</a></code></li>
+<li><code><a title="pax8.types.UsageSummaryLine.productName" href="#pax8.types.UsageSummaryLine.productName">productName</a></code></li>
+<li><code><a title="pax8.types.UsageSummaryLine.quantity" href="#pax8.types.UsageSummaryLine.quantity">quantity</a></code></li>
+<li><code><a title="pax8.types.UsageSummaryLine.unitOfMeasure" href="#pax8.types.UsageSummaryLine.unitOfMeasure">unitOfMeasure</a></code></li>
+<li><code><a title="pax8.types.UsageSummaryLine.unitPrice" href="#pax8.types.UsageSummaryLine.unitPrice">unitPrice</a></code></li>
+<li><code><a title="pax8.types.UsageSummaryLine.usageDate" href="#pax8.types.UsageSummaryLine.usageDate">usageDate</a></code></li>
+<li><code><a title="pax8.types.UsageSummaryLine.usageSummaryId" href="#pax8.types.UsageSummaryLine.usageSummaryId">usageSummaryId</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

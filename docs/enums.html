@@ -1,0 +1,1383 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>pax8.enums API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pax8.enums</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from enum import Enum
+
+
+class ResponseType(Enum):
+    OK = 200
+    BAD_REQUEST = 400
+    UNAUTHORIZED = 401
+    FORBIDDEN = 403
+    NOT_FOUND = 404
+    UNPROCESSABLE_ENTITY = 422
+    TOO_MANY_REQUESTS = 429
+    INTERNAL_SERVER_ERROR = 500
+    NOT_IMPLEMENTED = 501
+    BAD_GATEWAY = 502
+    SERVICE_UNAVAILABLE = 503
+    GATEWAY_TIMEOUT = 504
+    VERSION_NOT_SUPPORTED = 505
+    VARIANT_ALSO_NEGOTIATES = 506
+    INSUFFICIENT_STORAGE = 507
+
+
+class SortBy(Enum):
+    pass
+
+
+class SubscriptionSortBy(SortBy):
+    QUANTITY = &#34;quantity&#34;
+    START_DATE = &#34;startDate&#34;
+    END_DATE = &#34;endDate&#34;
+    CREATED_DATE = &#34;createdDate&#34;
+    BILLING_START = &#34;billingStart&#34;
+    PRICE = &#34;price&#34;
+
+
+class InvoiceSortBy(SortBy):
+    INVOICE_DATE = &#34;invoiceDate&#34;
+    DUE_DATE = &#34;dueDate&#34;
+    STATUS = &#34;status&#34;
+    PARTNER_NAME = &#34;partnerName&#34;
+    TOTAL = &#34;total&#34;
+    BALANCE = &#34;balance&#34;
+    CARRIED_BALANCE = &#34;carriedBalance&#34;
+
+
+class UsageSummarySortBy(SortBy):
+    RESOURCE_GROUP = &#34;resourceGroup&#34;
+    CURRENT_CHARGES = &#34;currentCharges&#34;
+    PARTNER_TOTAL = &#34;partnerTotal&#34;
+
+
+class SortDirection(Enum):
+    ASCENDING = &#34;asc&#34;
+    DESCENDING = &#34;desc&#34;
+
+
+class CompanyStatus(Enum):
+    ACTIVE = &#34;Active&#34;
+    INACTIVE = &#34;Inactive&#34;
+    DELETED = &#34;Deleted&#34;
+
+
+class CompanySortBy(SortBy):
+    NAME = &#34;name&#34;
+    CITY = &#34;city&#34;
+    COUNTRY = &#34;country&#34;
+    STATE_OR_PROVINCE = &#34;stateOrProvince&#34;
+    POSTAL_CODE = &#34;postalCode&#34;
+
+
+class ProductSortBy(Enum):
+    NAME = &#34;name&#34;
+    VENDOR = &#34;vendor&#34;
+
+
+class ProvisioningDetailTypes(Enum):
+    MULTIPLE_CHOICE = 1
+    INPUT = 2
+
+
+class BillingTerm(Enum):
+    MONTHLY = &#34;Monthly&#34;
+    ANNUAL = &#34;Annual&#34;
+    TWO_YEAR = &#34;2-Year&#34;
+    THREE_YEAR = &#34;3-Year&#34;
+    ONE_TIME = &#34;One-Time&#34;
+    TRIAL = &#34;Trial&#34;
+    ACTIVATION = &#34;Activation&#34;
+
+
+class PricingType(Enum):
+    FLAT = &#34;Flat&#34;
+    VOLUME = &#34;Volume&#34;
+    TIERED = &#34;Tiered&#34;
+    MARK_UP = &#34;Mark-Up&#34;
+
+
+class ChargeType(Enum):
+    PER_UNIT = &#34;per_unit&#34;
+    FLAT_RATE = &#34;flat_rate&#34;
+
+
+class OrderedBy(Enum):
+    PAX8_PARTNER = &#34;Pax8 Partner&#34;
+    CUSTOMER = &#34;Customer&#34;
+    PAX8 = &#34;Pax8&#34;
+
+
+class SubscriptionStatus(Enum):
+    ACTIVE = &#34;Active&#34;
+    CANCELLED = &#34;Cancelled&#34;
+    PENDING_MANUAL = &#34;PendingManual&#34;
+    PENDING_AUTOMATED = &#34;PendingAutomated&#34;
+    PENDING_CANCEL = &#34;PendingCancel&#34;
+    WAITING_FOR_DETAILS = &#34;WaitingForDetails&#34;
+    TRIAL = &#34;Trial&#34;
+    CONVERTED = &#34;Converted&#34;
+    PENDING_ACTIVATION = &#34;PendingActivation&#34;
+    ACTIVATED = &#34;Activated&#34;
+
+
+class ContactTypes(Enum):
+    BILLING = &#34;Billing&#34;
+    ADMIN = &#34;Admin&#34;
+    TECHNICAL = &#34;Technical&#34;
+
+
+class InvoiceItemType(Enum):
+    REBATE = &#34;rebate&#34;
+    PRORATE = &#34;prorate&#34;
+    SUBSCRIPTION = &#34;subscription&#34;
+    PAYMENT_CREDIT = &#34;payment_credit&#34;
+    ONE_TIME = &#34;one_time&#34;
+    SERVICE_CHARGE = &#34;service_charge&#34;
+    SERVICE_CREDIT = &#34;service_credit&#34;
+    INVOICE_CREDIT = &#34;invoice_credit&#34;
+
+
+class InvoiceItemTerm(Enum):
+    THREE_YEAR = &#34;3 Year&#34;
+    ANNUAL = &#34;Annual&#34;
+    TWO_YEAR = &#34;2 Year&#34;
+    ACTIVATION = &#34;Activation&#34;
+    ONE_TIME = &#34;One Time&#34;
+    ARREARS = &#34;Arrears&#34;
+    TRIAL = &#34;Trial&#34;
+    REBATE = &#34;Rebate&#34;
+    MONTHLY = &#34;Monthly&#34;
+
+
+class InvoiceItemRateTypes(Enum):
+    MARKUP = &#34;markup&#34;
+    FLAT = &#34;Flat&#34;
+    SINGLE = &#34;single&#34;
+    VOLUME = &#34;volume&#34;
+    TIERED = &#34;tiered&#34;
+
+
+class InvoiceItemChargeTypes(Enum):
+    PER_UNIT = &#34;per&#34;
+    FLAT_RATE = &#34;flat&#34;
+
+
+class InvoiceStatus(Enum):
+    UNPAID = &#34;Unpaid&#34;
+    PAID = &#34;Paid&#34;
+    VOID = &#34;Void&#34;
+    CARRIED = &#34;Carried&#34;
+    NOTHING_DUE = &#34;Nothing Due&#34;</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pax8.enums.BillingTerm"><code class="flex name class">
+<span>class <span class="ident">BillingTerm</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>An enumeration.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class BillingTerm(Enum):
+    MONTHLY = &#34;Monthly&#34;
+    ANNUAL = &#34;Annual&#34;
+    TWO_YEAR = &#34;2-Year&#34;
+    THREE_YEAR = &#34;3-Year&#34;
+    ONE_TIME = &#34;One-Time&#34;
+    TRIAL = &#34;Trial&#34;
+    ACTIVATION = &#34;Activation&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.enums.BillingTerm.ACTIVATION"><code class="name">var <span class="ident">ACTIVATION</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.BillingTerm.ANNUAL"><code class="name">var <span class="ident">ANNUAL</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.BillingTerm.MONTHLY"><code class="name">var <span class="ident">MONTHLY</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.BillingTerm.ONE_TIME"><code class="name">var <span class="ident">ONE_TIME</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.BillingTerm.THREE_YEAR"><code class="name">var <span class="ident">THREE_YEAR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.BillingTerm.TRIAL"><code class="name">var <span class="ident">TRIAL</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.BillingTerm.TWO_YEAR"><code class="name">var <span class="ident">TWO_YEAR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="pax8.enums.ChargeType"><code class="flex name class">
+<span>class <span class="ident">ChargeType</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>An enumeration.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ChargeType(Enum):
+    PER_UNIT = &#34;per_unit&#34;
+    FLAT_RATE = &#34;flat_rate&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.enums.ChargeType.FLAT_RATE"><code class="name">var <span class="ident">FLAT_RATE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.ChargeType.PER_UNIT"><code class="name">var <span class="ident">PER_UNIT</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="pax8.enums.CompanySortBy"><code class="flex name class">
+<span>class <span class="ident">CompanySortBy</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>An enumeration.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CompanySortBy(SortBy):
+    NAME = &#34;name&#34;
+    CITY = &#34;city&#34;
+    COUNTRY = &#34;country&#34;
+    STATE_OR_PROVINCE = &#34;stateOrProvince&#34;
+    POSTAL_CODE = &#34;postalCode&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pax8.enums.SortBy" href="#pax8.enums.SortBy">SortBy</a></li>
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.enums.CompanySortBy.CITY"><code class="name">var <span class="ident">CITY</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.CompanySortBy.COUNTRY"><code class="name">var <span class="ident">COUNTRY</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.CompanySortBy.NAME"><code class="name">var <span class="ident">NAME</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.CompanySortBy.POSTAL_CODE"><code class="name">var <span class="ident">POSTAL_CODE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.CompanySortBy.STATE_OR_PROVINCE"><code class="name">var <span class="ident">STATE_OR_PROVINCE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="pax8.enums.CompanyStatus"><code class="flex name class">
+<span>class <span class="ident">CompanyStatus</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>An enumeration.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CompanyStatus(Enum):
+    ACTIVE = &#34;Active&#34;
+    INACTIVE = &#34;Inactive&#34;
+    DELETED = &#34;Deleted&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.enums.CompanyStatus.ACTIVE"><code class="name">var <span class="ident">ACTIVE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.CompanyStatus.DELETED"><code class="name">var <span class="ident">DELETED</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.CompanyStatus.INACTIVE"><code class="name">var <span class="ident">INACTIVE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="pax8.enums.ContactTypes"><code class="flex name class">
+<span>class <span class="ident">ContactTypes</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>An enumeration.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ContactTypes(Enum):
+    BILLING = &#34;Billing&#34;
+    ADMIN = &#34;Admin&#34;
+    TECHNICAL = &#34;Technical&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.enums.ContactTypes.ADMIN"><code class="name">var <span class="ident">ADMIN</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.ContactTypes.BILLING"><code class="name">var <span class="ident">BILLING</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.ContactTypes.TECHNICAL"><code class="name">var <span class="ident">TECHNICAL</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="pax8.enums.InvoiceItemChargeTypes"><code class="flex name class">
+<span>class <span class="ident">InvoiceItemChargeTypes</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>An enumeration.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class InvoiceItemChargeTypes(Enum):
+    PER_UNIT = &#34;per&#34;
+    FLAT_RATE = &#34;flat&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.enums.InvoiceItemChargeTypes.FLAT_RATE"><code class="name">var <span class="ident">FLAT_RATE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.InvoiceItemChargeTypes.PER_UNIT"><code class="name">var <span class="ident">PER_UNIT</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="pax8.enums.InvoiceItemRateTypes"><code class="flex name class">
+<span>class <span class="ident">InvoiceItemRateTypes</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>An enumeration.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class InvoiceItemRateTypes(Enum):
+    MARKUP = &#34;markup&#34;
+    FLAT = &#34;Flat&#34;
+    SINGLE = &#34;single&#34;
+    VOLUME = &#34;volume&#34;
+    TIERED = &#34;tiered&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.enums.InvoiceItemRateTypes.FLAT"><code class="name">var <span class="ident">FLAT</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.InvoiceItemRateTypes.MARKUP"><code class="name">var <span class="ident">MARKUP</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.InvoiceItemRateTypes.SINGLE"><code class="name">var <span class="ident">SINGLE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.InvoiceItemRateTypes.TIERED"><code class="name">var <span class="ident">TIERED</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.InvoiceItemRateTypes.VOLUME"><code class="name">var <span class="ident">VOLUME</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="pax8.enums.InvoiceItemTerm"><code class="flex name class">
+<span>class <span class="ident">InvoiceItemTerm</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>An enumeration.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class InvoiceItemTerm(Enum):
+    THREE_YEAR = &#34;3 Year&#34;
+    ANNUAL = &#34;Annual&#34;
+    TWO_YEAR = &#34;2 Year&#34;
+    ACTIVATION = &#34;Activation&#34;
+    ONE_TIME = &#34;One Time&#34;
+    ARREARS = &#34;Arrears&#34;
+    TRIAL = &#34;Trial&#34;
+    REBATE = &#34;Rebate&#34;
+    MONTHLY = &#34;Monthly&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.enums.InvoiceItemTerm.ACTIVATION"><code class="name">var <span class="ident">ACTIVATION</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.InvoiceItemTerm.ANNUAL"><code class="name">var <span class="ident">ANNUAL</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.InvoiceItemTerm.ARREARS"><code class="name">var <span class="ident">ARREARS</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.InvoiceItemTerm.MONTHLY"><code class="name">var <span class="ident">MONTHLY</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.InvoiceItemTerm.ONE_TIME"><code class="name">var <span class="ident">ONE_TIME</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.InvoiceItemTerm.REBATE"><code class="name">var <span class="ident">REBATE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.InvoiceItemTerm.THREE_YEAR"><code class="name">var <span class="ident">THREE_YEAR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.InvoiceItemTerm.TRIAL"><code class="name">var <span class="ident">TRIAL</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.InvoiceItemTerm.TWO_YEAR"><code class="name">var <span class="ident">TWO_YEAR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="pax8.enums.InvoiceItemType"><code class="flex name class">
+<span>class <span class="ident">InvoiceItemType</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>An enumeration.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class InvoiceItemType(Enum):
+    REBATE = &#34;rebate&#34;
+    PRORATE = &#34;prorate&#34;
+    SUBSCRIPTION = &#34;subscription&#34;
+    PAYMENT_CREDIT = &#34;payment_credit&#34;
+    ONE_TIME = &#34;one_time&#34;
+    SERVICE_CHARGE = &#34;service_charge&#34;
+    SERVICE_CREDIT = &#34;service_credit&#34;
+    INVOICE_CREDIT = &#34;invoice_credit&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.enums.InvoiceItemType.INVOICE_CREDIT"><code class="name">var <span class="ident">INVOICE_CREDIT</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.InvoiceItemType.ONE_TIME"><code class="name">var <span class="ident">ONE_TIME</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.InvoiceItemType.PAYMENT_CREDIT"><code class="name">var <span class="ident">PAYMENT_CREDIT</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.InvoiceItemType.PRORATE"><code class="name">var <span class="ident">PRORATE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.InvoiceItemType.REBATE"><code class="name">var <span class="ident">REBATE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.InvoiceItemType.SERVICE_CHARGE"><code class="name">var <span class="ident">SERVICE_CHARGE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.InvoiceItemType.SERVICE_CREDIT"><code class="name">var <span class="ident">SERVICE_CREDIT</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.InvoiceItemType.SUBSCRIPTION"><code class="name">var <span class="ident">SUBSCRIPTION</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="pax8.enums.InvoiceSortBy"><code class="flex name class">
+<span>class <span class="ident">InvoiceSortBy</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>An enumeration.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class InvoiceSortBy(SortBy):
+    INVOICE_DATE = &#34;invoiceDate&#34;
+    DUE_DATE = &#34;dueDate&#34;
+    STATUS = &#34;status&#34;
+    PARTNER_NAME = &#34;partnerName&#34;
+    TOTAL = &#34;total&#34;
+    BALANCE = &#34;balance&#34;
+    CARRIED_BALANCE = &#34;carriedBalance&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pax8.enums.SortBy" href="#pax8.enums.SortBy">SortBy</a></li>
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.enums.InvoiceSortBy.BALANCE"><code class="name">var <span class="ident">BALANCE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.InvoiceSortBy.CARRIED_BALANCE"><code class="name">var <span class="ident">CARRIED_BALANCE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.InvoiceSortBy.DUE_DATE"><code class="name">var <span class="ident">DUE_DATE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.InvoiceSortBy.INVOICE_DATE"><code class="name">var <span class="ident">INVOICE_DATE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.InvoiceSortBy.PARTNER_NAME"><code class="name">var <span class="ident">PARTNER_NAME</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.InvoiceSortBy.STATUS"><code class="name">var <span class="ident">STATUS</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.InvoiceSortBy.TOTAL"><code class="name">var <span class="ident">TOTAL</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="pax8.enums.InvoiceStatus"><code class="flex name class">
+<span>class <span class="ident">InvoiceStatus</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>An enumeration.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class InvoiceStatus(Enum):
+    UNPAID = &#34;Unpaid&#34;
+    PAID = &#34;Paid&#34;
+    VOID = &#34;Void&#34;
+    CARRIED = &#34;Carried&#34;
+    NOTHING_DUE = &#34;Nothing Due&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.enums.InvoiceStatus.CARRIED"><code class="name">var <span class="ident">CARRIED</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.InvoiceStatus.NOTHING_DUE"><code class="name">var <span class="ident">NOTHING_DUE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.InvoiceStatus.PAID"><code class="name">var <span class="ident">PAID</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.InvoiceStatus.UNPAID"><code class="name">var <span class="ident">UNPAID</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.InvoiceStatus.VOID"><code class="name">var <span class="ident">VOID</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="pax8.enums.OrderedBy"><code class="flex name class">
+<span>class <span class="ident">OrderedBy</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>An enumeration.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class OrderedBy(Enum):
+    PAX8_PARTNER = &#34;Pax8 Partner&#34;
+    CUSTOMER = &#34;Customer&#34;
+    PAX8 = &#34;Pax8&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.enums.OrderedBy.CUSTOMER"><code class="name">var <span class="ident">CUSTOMER</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.OrderedBy.PAX8"><code class="name">var <span class="ident">PAX8</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.OrderedBy.PAX8_PARTNER"><code class="name">var <span class="ident">PAX8_PARTNER</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="pax8.enums.PricingType"><code class="flex name class">
+<span>class <span class="ident">PricingType</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>An enumeration.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PricingType(Enum):
+    FLAT = &#34;Flat&#34;
+    VOLUME = &#34;Volume&#34;
+    TIERED = &#34;Tiered&#34;
+    MARK_UP = &#34;Mark-Up&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.enums.PricingType.FLAT"><code class="name">var <span class="ident">FLAT</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.PricingType.MARK_UP"><code class="name">var <span class="ident">MARK_UP</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.PricingType.TIERED"><code class="name">var <span class="ident">TIERED</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.PricingType.VOLUME"><code class="name">var <span class="ident">VOLUME</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="pax8.enums.ProductSortBy"><code class="flex name class">
+<span>class <span class="ident">ProductSortBy</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>An enumeration.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ProductSortBy(Enum):
+    NAME = &#34;name&#34;
+    VENDOR = &#34;vendor&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.enums.ProductSortBy.NAME"><code class="name">var <span class="ident">NAME</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.ProductSortBy.VENDOR"><code class="name">var <span class="ident">VENDOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="pax8.enums.ProvisioningDetailTypes"><code class="flex name class">
+<span>class <span class="ident">ProvisioningDetailTypes</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>An enumeration.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ProvisioningDetailTypes(Enum):
+    MULTIPLE_CHOICE = 1
+    INPUT = 2</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.enums.ProvisioningDetailTypes.INPUT"><code class="name">var <span class="ident">INPUT</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.ProvisioningDetailTypes.MULTIPLE_CHOICE"><code class="name">var <span class="ident">MULTIPLE_CHOICE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="pax8.enums.ResponseType"><code class="flex name class">
+<span>class <span class="ident">ResponseType</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>An enumeration.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ResponseType(Enum):
+    OK = 200
+    BAD_REQUEST = 400
+    UNAUTHORIZED = 401
+    FORBIDDEN = 403
+    NOT_FOUND = 404
+    UNPROCESSABLE_ENTITY = 422
+    TOO_MANY_REQUESTS = 429
+    INTERNAL_SERVER_ERROR = 500
+    NOT_IMPLEMENTED = 501
+    BAD_GATEWAY = 502
+    SERVICE_UNAVAILABLE = 503
+    GATEWAY_TIMEOUT = 504
+    VERSION_NOT_SUPPORTED = 505
+    VARIANT_ALSO_NEGOTIATES = 506
+    INSUFFICIENT_STORAGE = 507</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.enums.ResponseType.BAD_GATEWAY"><code class="name">var <span class="ident">BAD_GATEWAY</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.ResponseType.BAD_REQUEST"><code class="name">var <span class="ident">BAD_REQUEST</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.ResponseType.FORBIDDEN"><code class="name">var <span class="ident">FORBIDDEN</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.ResponseType.GATEWAY_TIMEOUT"><code class="name">var <span class="ident">GATEWAY_TIMEOUT</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.ResponseType.INSUFFICIENT_STORAGE"><code class="name">var <span class="ident">INSUFFICIENT_STORAGE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.ResponseType.INTERNAL_SERVER_ERROR"><code class="name">var <span class="ident">INTERNAL_SERVER_ERROR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.ResponseType.NOT_FOUND"><code class="name">var <span class="ident">NOT_FOUND</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.ResponseType.NOT_IMPLEMENTED"><code class="name">var <span class="ident">NOT_IMPLEMENTED</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.ResponseType.OK"><code class="name">var <span class="ident">OK</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.ResponseType.SERVICE_UNAVAILABLE"><code class="name">var <span class="ident">SERVICE_UNAVAILABLE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.ResponseType.TOO_MANY_REQUESTS"><code class="name">var <span class="ident">TOO_MANY_REQUESTS</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.ResponseType.UNAUTHORIZED"><code class="name">var <span class="ident">UNAUTHORIZED</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.ResponseType.UNPROCESSABLE_ENTITY"><code class="name">var <span class="ident">UNPROCESSABLE_ENTITY</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.ResponseType.VARIANT_ALSO_NEGOTIATES"><code class="name">var <span class="ident">VARIANT_ALSO_NEGOTIATES</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.ResponseType.VERSION_NOT_SUPPORTED"><code class="name">var <span class="ident">VERSION_NOT_SUPPORTED</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="pax8.enums.SortBy"><code class="flex name class">
+<span>class <span class="ident">SortBy</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>An enumeration.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SortBy(Enum):
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="pax8.enums.CompanySortBy" href="#pax8.enums.CompanySortBy">CompanySortBy</a></li>
+<li><a title="pax8.enums.InvoiceSortBy" href="#pax8.enums.InvoiceSortBy">InvoiceSortBy</a></li>
+<li><a title="pax8.enums.SubscriptionSortBy" href="#pax8.enums.SubscriptionSortBy">SubscriptionSortBy</a></li>
+<li><a title="pax8.enums.UsageSummarySortBy" href="#pax8.enums.UsageSummarySortBy">UsageSummarySortBy</a></li>
+</ul>
+</dd>
+<dt id="pax8.enums.SortDirection"><code class="flex name class">
+<span>class <span class="ident">SortDirection</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>An enumeration.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SortDirection(Enum):
+    ASCENDING = &#34;asc&#34;
+    DESCENDING = &#34;desc&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.enums.SortDirection.ASCENDING"><code class="name">var <span class="ident">ASCENDING</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.SortDirection.DESCENDING"><code class="name">var <span class="ident">DESCENDING</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="pax8.enums.SubscriptionSortBy"><code class="flex name class">
+<span>class <span class="ident">SubscriptionSortBy</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>An enumeration.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SubscriptionSortBy(SortBy):
+    QUANTITY = &#34;quantity&#34;
+    START_DATE = &#34;startDate&#34;
+    END_DATE = &#34;endDate&#34;
+    CREATED_DATE = &#34;createdDate&#34;
+    BILLING_START = &#34;billingStart&#34;
+    PRICE = &#34;price&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pax8.enums.SortBy" href="#pax8.enums.SortBy">SortBy</a></li>
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.enums.SubscriptionSortBy.BILLING_START"><code class="name">var <span class="ident">BILLING_START</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.SubscriptionSortBy.CREATED_DATE"><code class="name">var <span class="ident">CREATED_DATE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.SubscriptionSortBy.END_DATE"><code class="name">var <span class="ident">END_DATE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.SubscriptionSortBy.PRICE"><code class="name">var <span class="ident">PRICE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.SubscriptionSortBy.QUANTITY"><code class="name">var <span class="ident">QUANTITY</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.SubscriptionSortBy.START_DATE"><code class="name">var <span class="ident">START_DATE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="pax8.enums.SubscriptionStatus"><code class="flex name class">
+<span>class <span class="ident">SubscriptionStatus</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>An enumeration.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SubscriptionStatus(Enum):
+    ACTIVE = &#34;Active&#34;
+    CANCELLED = &#34;Cancelled&#34;
+    PENDING_MANUAL = &#34;PendingManual&#34;
+    PENDING_AUTOMATED = &#34;PendingAutomated&#34;
+    PENDING_CANCEL = &#34;PendingCancel&#34;
+    WAITING_FOR_DETAILS = &#34;WaitingForDetails&#34;
+    TRIAL = &#34;Trial&#34;
+    CONVERTED = &#34;Converted&#34;
+    PENDING_ACTIVATION = &#34;PendingActivation&#34;
+    ACTIVATED = &#34;Activated&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.enums.SubscriptionStatus.ACTIVATED"><code class="name">var <span class="ident">ACTIVATED</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.SubscriptionStatus.ACTIVE"><code class="name">var <span class="ident">ACTIVE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.SubscriptionStatus.CANCELLED"><code class="name">var <span class="ident">CANCELLED</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.SubscriptionStatus.CONVERTED"><code class="name">var <span class="ident">CONVERTED</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.SubscriptionStatus.PENDING_ACTIVATION"><code class="name">var <span class="ident">PENDING_ACTIVATION</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.SubscriptionStatus.PENDING_AUTOMATED"><code class="name">var <span class="ident">PENDING_AUTOMATED</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.SubscriptionStatus.PENDING_CANCEL"><code class="name">var <span class="ident">PENDING_CANCEL</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.SubscriptionStatus.PENDING_MANUAL"><code class="name">var <span class="ident">PENDING_MANUAL</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.SubscriptionStatus.TRIAL"><code class="name">var <span class="ident">TRIAL</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.SubscriptionStatus.WAITING_FOR_DETAILS"><code class="name">var <span class="ident">WAITING_FOR_DETAILS</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="pax8.enums.UsageSummarySortBy"><code class="flex name class">
+<span>class <span class="ident">UsageSummarySortBy</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>An enumeration.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class UsageSummarySortBy(SortBy):
+    RESOURCE_GROUP = &#34;resourceGroup&#34;
+    CURRENT_CHARGES = &#34;currentCharges&#34;
+    PARTNER_TOTAL = &#34;partnerTotal&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pax8.enums.SortBy" href="#pax8.enums.SortBy">SortBy</a></li>
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pax8.enums.UsageSummarySortBy.CURRENT_CHARGES"><code class="name">var <span class="ident">CURRENT_CHARGES</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.UsageSummarySortBy.PARTNER_TOTAL"><code class="name">var <span class="ident">PARTNER_TOTAL</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pax8.enums.UsageSummarySortBy.RESOURCE_GROUP"><code class="name">var <span class="ident">RESOURCE_GROUP</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pax8" href="index.html">pax8</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pax8.enums.BillingTerm" href="#pax8.enums.BillingTerm">BillingTerm</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pax8.enums.BillingTerm.ACTIVATION" href="#pax8.enums.BillingTerm.ACTIVATION">ACTIVATION</a></code></li>
+<li><code><a title="pax8.enums.BillingTerm.ANNUAL" href="#pax8.enums.BillingTerm.ANNUAL">ANNUAL</a></code></li>
+<li><code><a title="pax8.enums.BillingTerm.MONTHLY" href="#pax8.enums.BillingTerm.MONTHLY">MONTHLY</a></code></li>
+<li><code><a title="pax8.enums.BillingTerm.ONE_TIME" href="#pax8.enums.BillingTerm.ONE_TIME">ONE_TIME</a></code></li>
+<li><code><a title="pax8.enums.BillingTerm.THREE_YEAR" href="#pax8.enums.BillingTerm.THREE_YEAR">THREE_YEAR</a></code></li>
+<li><code><a title="pax8.enums.BillingTerm.TRIAL" href="#pax8.enums.BillingTerm.TRIAL">TRIAL</a></code></li>
+<li><code><a title="pax8.enums.BillingTerm.TWO_YEAR" href="#pax8.enums.BillingTerm.TWO_YEAR">TWO_YEAR</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.enums.ChargeType" href="#pax8.enums.ChargeType">ChargeType</a></code></h4>
+<ul class="">
+<li><code><a title="pax8.enums.ChargeType.FLAT_RATE" href="#pax8.enums.ChargeType.FLAT_RATE">FLAT_RATE</a></code></li>
+<li><code><a title="pax8.enums.ChargeType.PER_UNIT" href="#pax8.enums.ChargeType.PER_UNIT">PER_UNIT</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.enums.CompanySortBy" href="#pax8.enums.CompanySortBy">CompanySortBy</a></code></h4>
+<ul class="">
+<li><code><a title="pax8.enums.CompanySortBy.CITY" href="#pax8.enums.CompanySortBy.CITY">CITY</a></code></li>
+<li><code><a title="pax8.enums.CompanySortBy.COUNTRY" href="#pax8.enums.CompanySortBy.COUNTRY">COUNTRY</a></code></li>
+<li><code><a title="pax8.enums.CompanySortBy.NAME" href="#pax8.enums.CompanySortBy.NAME">NAME</a></code></li>
+<li><code><a title="pax8.enums.CompanySortBy.POSTAL_CODE" href="#pax8.enums.CompanySortBy.POSTAL_CODE">POSTAL_CODE</a></code></li>
+<li><code><a title="pax8.enums.CompanySortBy.STATE_OR_PROVINCE" href="#pax8.enums.CompanySortBy.STATE_OR_PROVINCE">STATE_OR_PROVINCE</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.enums.CompanyStatus" href="#pax8.enums.CompanyStatus">CompanyStatus</a></code></h4>
+<ul class="">
+<li><code><a title="pax8.enums.CompanyStatus.ACTIVE" href="#pax8.enums.CompanyStatus.ACTIVE">ACTIVE</a></code></li>
+<li><code><a title="pax8.enums.CompanyStatus.DELETED" href="#pax8.enums.CompanyStatus.DELETED">DELETED</a></code></li>
+<li><code><a title="pax8.enums.CompanyStatus.INACTIVE" href="#pax8.enums.CompanyStatus.INACTIVE">INACTIVE</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.enums.ContactTypes" href="#pax8.enums.ContactTypes">ContactTypes</a></code></h4>
+<ul class="">
+<li><code><a title="pax8.enums.ContactTypes.ADMIN" href="#pax8.enums.ContactTypes.ADMIN">ADMIN</a></code></li>
+<li><code><a title="pax8.enums.ContactTypes.BILLING" href="#pax8.enums.ContactTypes.BILLING">BILLING</a></code></li>
+<li><code><a title="pax8.enums.ContactTypes.TECHNICAL" href="#pax8.enums.ContactTypes.TECHNICAL">TECHNICAL</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.enums.InvoiceItemChargeTypes" href="#pax8.enums.InvoiceItemChargeTypes">InvoiceItemChargeTypes</a></code></h4>
+<ul class="">
+<li><code><a title="pax8.enums.InvoiceItemChargeTypes.FLAT_RATE" href="#pax8.enums.InvoiceItemChargeTypes.FLAT_RATE">FLAT_RATE</a></code></li>
+<li><code><a title="pax8.enums.InvoiceItemChargeTypes.PER_UNIT" href="#pax8.enums.InvoiceItemChargeTypes.PER_UNIT">PER_UNIT</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.enums.InvoiceItemRateTypes" href="#pax8.enums.InvoiceItemRateTypes">InvoiceItemRateTypes</a></code></h4>
+<ul class="">
+<li><code><a title="pax8.enums.InvoiceItemRateTypes.FLAT" href="#pax8.enums.InvoiceItemRateTypes.FLAT">FLAT</a></code></li>
+<li><code><a title="pax8.enums.InvoiceItemRateTypes.MARKUP" href="#pax8.enums.InvoiceItemRateTypes.MARKUP">MARKUP</a></code></li>
+<li><code><a title="pax8.enums.InvoiceItemRateTypes.SINGLE" href="#pax8.enums.InvoiceItemRateTypes.SINGLE">SINGLE</a></code></li>
+<li><code><a title="pax8.enums.InvoiceItemRateTypes.TIERED" href="#pax8.enums.InvoiceItemRateTypes.TIERED">TIERED</a></code></li>
+<li><code><a title="pax8.enums.InvoiceItemRateTypes.VOLUME" href="#pax8.enums.InvoiceItemRateTypes.VOLUME">VOLUME</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.enums.InvoiceItemTerm" href="#pax8.enums.InvoiceItemTerm">InvoiceItemTerm</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pax8.enums.InvoiceItemTerm.ACTIVATION" href="#pax8.enums.InvoiceItemTerm.ACTIVATION">ACTIVATION</a></code></li>
+<li><code><a title="pax8.enums.InvoiceItemTerm.ANNUAL" href="#pax8.enums.InvoiceItemTerm.ANNUAL">ANNUAL</a></code></li>
+<li><code><a title="pax8.enums.InvoiceItemTerm.ARREARS" href="#pax8.enums.InvoiceItemTerm.ARREARS">ARREARS</a></code></li>
+<li><code><a title="pax8.enums.InvoiceItemTerm.MONTHLY" href="#pax8.enums.InvoiceItemTerm.MONTHLY">MONTHLY</a></code></li>
+<li><code><a title="pax8.enums.InvoiceItemTerm.ONE_TIME" href="#pax8.enums.InvoiceItemTerm.ONE_TIME">ONE_TIME</a></code></li>
+<li><code><a title="pax8.enums.InvoiceItemTerm.REBATE" href="#pax8.enums.InvoiceItemTerm.REBATE">REBATE</a></code></li>
+<li><code><a title="pax8.enums.InvoiceItemTerm.THREE_YEAR" href="#pax8.enums.InvoiceItemTerm.THREE_YEAR">THREE_YEAR</a></code></li>
+<li><code><a title="pax8.enums.InvoiceItemTerm.TRIAL" href="#pax8.enums.InvoiceItemTerm.TRIAL">TRIAL</a></code></li>
+<li><code><a title="pax8.enums.InvoiceItemTerm.TWO_YEAR" href="#pax8.enums.InvoiceItemTerm.TWO_YEAR">TWO_YEAR</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.enums.InvoiceItemType" href="#pax8.enums.InvoiceItemType">InvoiceItemType</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pax8.enums.InvoiceItemType.INVOICE_CREDIT" href="#pax8.enums.InvoiceItemType.INVOICE_CREDIT">INVOICE_CREDIT</a></code></li>
+<li><code><a title="pax8.enums.InvoiceItemType.ONE_TIME" href="#pax8.enums.InvoiceItemType.ONE_TIME">ONE_TIME</a></code></li>
+<li><code><a title="pax8.enums.InvoiceItemType.PAYMENT_CREDIT" href="#pax8.enums.InvoiceItemType.PAYMENT_CREDIT">PAYMENT_CREDIT</a></code></li>
+<li><code><a title="pax8.enums.InvoiceItemType.PRORATE" href="#pax8.enums.InvoiceItemType.PRORATE">PRORATE</a></code></li>
+<li><code><a title="pax8.enums.InvoiceItemType.REBATE" href="#pax8.enums.InvoiceItemType.REBATE">REBATE</a></code></li>
+<li><code><a title="pax8.enums.InvoiceItemType.SERVICE_CHARGE" href="#pax8.enums.InvoiceItemType.SERVICE_CHARGE">SERVICE_CHARGE</a></code></li>
+<li><code><a title="pax8.enums.InvoiceItemType.SERVICE_CREDIT" href="#pax8.enums.InvoiceItemType.SERVICE_CREDIT">SERVICE_CREDIT</a></code></li>
+<li><code><a title="pax8.enums.InvoiceItemType.SUBSCRIPTION" href="#pax8.enums.InvoiceItemType.SUBSCRIPTION">SUBSCRIPTION</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.enums.InvoiceSortBy" href="#pax8.enums.InvoiceSortBy">InvoiceSortBy</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pax8.enums.InvoiceSortBy.BALANCE" href="#pax8.enums.InvoiceSortBy.BALANCE">BALANCE</a></code></li>
+<li><code><a title="pax8.enums.InvoiceSortBy.CARRIED_BALANCE" href="#pax8.enums.InvoiceSortBy.CARRIED_BALANCE">CARRIED_BALANCE</a></code></li>
+<li><code><a title="pax8.enums.InvoiceSortBy.DUE_DATE" href="#pax8.enums.InvoiceSortBy.DUE_DATE">DUE_DATE</a></code></li>
+<li><code><a title="pax8.enums.InvoiceSortBy.INVOICE_DATE" href="#pax8.enums.InvoiceSortBy.INVOICE_DATE">INVOICE_DATE</a></code></li>
+<li><code><a title="pax8.enums.InvoiceSortBy.PARTNER_NAME" href="#pax8.enums.InvoiceSortBy.PARTNER_NAME">PARTNER_NAME</a></code></li>
+<li><code><a title="pax8.enums.InvoiceSortBy.STATUS" href="#pax8.enums.InvoiceSortBy.STATUS">STATUS</a></code></li>
+<li><code><a title="pax8.enums.InvoiceSortBy.TOTAL" href="#pax8.enums.InvoiceSortBy.TOTAL">TOTAL</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.enums.InvoiceStatus" href="#pax8.enums.InvoiceStatus">InvoiceStatus</a></code></h4>
+<ul class="">
+<li><code><a title="pax8.enums.InvoiceStatus.CARRIED" href="#pax8.enums.InvoiceStatus.CARRIED">CARRIED</a></code></li>
+<li><code><a title="pax8.enums.InvoiceStatus.NOTHING_DUE" href="#pax8.enums.InvoiceStatus.NOTHING_DUE">NOTHING_DUE</a></code></li>
+<li><code><a title="pax8.enums.InvoiceStatus.PAID" href="#pax8.enums.InvoiceStatus.PAID">PAID</a></code></li>
+<li><code><a title="pax8.enums.InvoiceStatus.UNPAID" href="#pax8.enums.InvoiceStatus.UNPAID">UNPAID</a></code></li>
+<li><code><a title="pax8.enums.InvoiceStatus.VOID" href="#pax8.enums.InvoiceStatus.VOID">VOID</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.enums.OrderedBy" href="#pax8.enums.OrderedBy">OrderedBy</a></code></h4>
+<ul class="">
+<li><code><a title="pax8.enums.OrderedBy.CUSTOMER" href="#pax8.enums.OrderedBy.CUSTOMER">CUSTOMER</a></code></li>
+<li><code><a title="pax8.enums.OrderedBy.PAX8" href="#pax8.enums.OrderedBy.PAX8">PAX8</a></code></li>
+<li><code><a title="pax8.enums.OrderedBy.PAX8_PARTNER" href="#pax8.enums.OrderedBy.PAX8_PARTNER">PAX8_PARTNER</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.enums.PricingType" href="#pax8.enums.PricingType">PricingType</a></code></h4>
+<ul class="">
+<li><code><a title="pax8.enums.PricingType.FLAT" href="#pax8.enums.PricingType.FLAT">FLAT</a></code></li>
+<li><code><a title="pax8.enums.PricingType.MARK_UP" href="#pax8.enums.PricingType.MARK_UP">MARK_UP</a></code></li>
+<li><code><a title="pax8.enums.PricingType.TIERED" href="#pax8.enums.PricingType.TIERED">TIERED</a></code></li>
+<li><code><a title="pax8.enums.PricingType.VOLUME" href="#pax8.enums.PricingType.VOLUME">VOLUME</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.enums.ProductSortBy" href="#pax8.enums.ProductSortBy">ProductSortBy</a></code></h4>
+<ul class="">
+<li><code><a title="pax8.enums.ProductSortBy.NAME" href="#pax8.enums.ProductSortBy.NAME">NAME</a></code></li>
+<li><code><a title="pax8.enums.ProductSortBy.VENDOR" href="#pax8.enums.ProductSortBy.VENDOR">VENDOR</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.enums.ProvisioningDetailTypes" href="#pax8.enums.ProvisioningDetailTypes">ProvisioningDetailTypes</a></code></h4>
+<ul class="">
+<li><code><a title="pax8.enums.ProvisioningDetailTypes.INPUT" href="#pax8.enums.ProvisioningDetailTypes.INPUT">INPUT</a></code></li>
+<li><code><a title="pax8.enums.ProvisioningDetailTypes.MULTIPLE_CHOICE" href="#pax8.enums.ProvisioningDetailTypes.MULTIPLE_CHOICE">MULTIPLE_CHOICE</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.enums.ResponseType" href="#pax8.enums.ResponseType">ResponseType</a></code></h4>
+<ul class="">
+<li><code><a title="pax8.enums.ResponseType.BAD_GATEWAY" href="#pax8.enums.ResponseType.BAD_GATEWAY">BAD_GATEWAY</a></code></li>
+<li><code><a title="pax8.enums.ResponseType.BAD_REQUEST" href="#pax8.enums.ResponseType.BAD_REQUEST">BAD_REQUEST</a></code></li>
+<li><code><a title="pax8.enums.ResponseType.FORBIDDEN" href="#pax8.enums.ResponseType.FORBIDDEN">FORBIDDEN</a></code></li>
+<li><code><a title="pax8.enums.ResponseType.GATEWAY_TIMEOUT" href="#pax8.enums.ResponseType.GATEWAY_TIMEOUT">GATEWAY_TIMEOUT</a></code></li>
+<li><code><a title="pax8.enums.ResponseType.INSUFFICIENT_STORAGE" href="#pax8.enums.ResponseType.INSUFFICIENT_STORAGE">INSUFFICIENT_STORAGE</a></code></li>
+<li><code><a title="pax8.enums.ResponseType.INTERNAL_SERVER_ERROR" href="#pax8.enums.ResponseType.INTERNAL_SERVER_ERROR">INTERNAL_SERVER_ERROR</a></code></li>
+<li><code><a title="pax8.enums.ResponseType.NOT_FOUND" href="#pax8.enums.ResponseType.NOT_FOUND">NOT_FOUND</a></code></li>
+<li><code><a title="pax8.enums.ResponseType.NOT_IMPLEMENTED" href="#pax8.enums.ResponseType.NOT_IMPLEMENTED">NOT_IMPLEMENTED</a></code></li>
+<li><code><a title="pax8.enums.ResponseType.OK" href="#pax8.enums.ResponseType.OK">OK</a></code></li>
+<li><code><a title="pax8.enums.ResponseType.SERVICE_UNAVAILABLE" href="#pax8.enums.ResponseType.SERVICE_UNAVAILABLE">SERVICE_UNAVAILABLE</a></code></li>
+<li><code><a title="pax8.enums.ResponseType.TOO_MANY_REQUESTS" href="#pax8.enums.ResponseType.TOO_MANY_REQUESTS">TOO_MANY_REQUESTS</a></code></li>
+<li><code><a title="pax8.enums.ResponseType.UNAUTHORIZED" href="#pax8.enums.ResponseType.UNAUTHORIZED">UNAUTHORIZED</a></code></li>
+<li><code><a title="pax8.enums.ResponseType.UNPROCESSABLE_ENTITY" href="#pax8.enums.ResponseType.UNPROCESSABLE_ENTITY">UNPROCESSABLE_ENTITY</a></code></li>
+<li><code><a title="pax8.enums.ResponseType.VARIANT_ALSO_NEGOTIATES" href="#pax8.enums.ResponseType.VARIANT_ALSO_NEGOTIATES">VARIANT_ALSO_NEGOTIATES</a></code></li>
+<li><code><a title="pax8.enums.ResponseType.VERSION_NOT_SUPPORTED" href="#pax8.enums.ResponseType.VERSION_NOT_SUPPORTED">VERSION_NOT_SUPPORTED</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.enums.SortBy" href="#pax8.enums.SortBy">SortBy</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pax8.enums.SortDirection" href="#pax8.enums.SortDirection">SortDirection</a></code></h4>
+<ul class="">
+<li><code><a title="pax8.enums.SortDirection.ASCENDING" href="#pax8.enums.SortDirection.ASCENDING">ASCENDING</a></code></li>
+<li><code><a title="pax8.enums.SortDirection.DESCENDING" href="#pax8.enums.SortDirection.DESCENDING">DESCENDING</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.enums.SubscriptionSortBy" href="#pax8.enums.SubscriptionSortBy">SubscriptionSortBy</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pax8.enums.SubscriptionSortBy.BILLING_START" href="#pax8.enums.SubscriptionSortBy.BILLING_START">BILLING_START</a></code></li>
+<li><code><a title="pax8.enums.SubscriptionSortBy.CREATED_DATE" href="#pax8.enums.SubscriptionSortBy.CREATED_DATE">CREATED_DATE</a></code></li>
+<li><code><a title="pax8.enums.SubscriptionSortBy.END_DATE" href="#pax8.enums.SubscriptionSortBy.END_DATE">END_DATE</a></code></li>
+<li><code><a title="pax8.enums.SubscriptionSortBy.PRICE" href="#pax8.enums.SubscriptionSortBy.PRICE">PRICE</a></code></li>
+<li><code><a title="pax8.enums.SubscriptionSortBy.QUANTITY" href="#pax8.enums.SubscriptionSortBy.QUANTITY">QUANTITY</a></code></li>
+<li><code><a title="pax8.enums.SubscriptionSortBy.START_DATE" href="#pax8.enums.SubscriptionSortBy.START_DATE">START_DATE</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.enums.SubscriptionStatus" href="#pax8.enums.SubscriptionStatus">SubscriptionStatus</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pax8.enums.SubscriptionStatus.ACTIVATED" href="#pax8.enums.SubscriptionStatus.ACTIVATED">ACTIVATED</a></code></li>
+<li><code><a title="pax8.enums.SubscriptionStatus.ACTIVE" href="#pax8.enums.SubscriptionStatus.ACTIVE">ACTIVE</a></code></li>
+<li><code><a title="pax8.enums.SubscriptionStatus.CANCELLED" href="#pax8.enums.SubscriptionStatus.CANCELLED">CANCELLED</a></code></li>
+<li><code><a title="pax8.enums.SubscriptionStatus.CONVERTED" href="#pax8.enums.SubscriptionStatus.CONVERTED">CONVERTED</a></code></li>
+<li><code><a title="pax8.enums.SubscriptionStatus.PENDING_ACTIVATION" href="#pax8.enums.SubscriptionStatus.PENDING_ACTIVATION">PENDING_ACTIVATION</a></code></li>
+<li><code><a title="pax8.enums.SubscriptionStatus.PENDING_AUTOMATED" href="#pax8.enums.SubscriptionStatus.PENDING_AUTOMATED">PENDING_AUTOMATED</a></code></li>
+<li><code><a title="pax8.enums.SubscriptionStatus.PENDING_CANCEL" href="#pax8.enums.SubscriptionStatus.PENDING_CANCEL">PENDING_CANCEL</a></code></li>
+<li><code><a title="pax8.enums.SubscriptionStatus.PENDING_MANUAL" href="#pax8.enums.SubscriptionStatus.PENDING_MANUAL">PENDING_MANUAL</a></code></li>
+<li><code><a title="pax8.enums.SubscriptionStatus.TRIAL" href="#pax8.enums.SubscriptionStatus.TRIAL">TRIAL</a></code></li>
+<li><code><a title="pax8.enums.SubscriptionStatus.WAITING_FOR_DETAILS" href="#pax8.enums.SubscriptionStatus.WAITING_FOR_DETAILS">WAITING_FOR_DETAILS</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pax8.enums.UsageSummarySortBy" href="#pax8.enums.UsageSummarySortBy">UsageSummarySortBy</a></code></h4>
+<ul class="">
+<li><code><a title="pax8.enums.UsageSummarySortBy.CURRENT_CHARGES" href="#pax8.enums.UsageSummarySortBy.CURRENT_CHARGES">CURRENT_CHARGES</a></code></li>
+<li><code><a title="pax8.enums.UsageSummarySortBy.PARTNER_TOTAL" href="#pax8.enums.UsageSummarySortBy.PARTNER_TOTAL">PARTNER_TOTAL</a></code></li>
+<li><code><a title="pax8.enums.UsageSummarySortBy.RESOURCE_GROUP" href="#pax8.enums.UsageSummarySortBy.RESOURCE_GROUP">RESOURCE_GROUP</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
