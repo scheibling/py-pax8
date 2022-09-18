@@ -1,53 +1,140 @@
-# pytemplate
-Python application/plugin template repository
+# Pax8 Partner API Library
+This is a python implementation of the Pax8 Partner API. It is still somewhat a work in progress, but is usable. Please report any errors you come along under Issues, or submit a pull request, and I'll get it fixed.
 
-[toc]: # Table of Contents
+## Functionality
+The following section gives an overview of the implemented functionality up to this point, and a roadmap of what's still to be implemented.
+There are some differences between the API implementation and the official documentation, see the section Pax8 API Errors for more information.
 
-# Usage
-## requirements.txt
-Requirements for compiling/installing the application itself
+### General
+* Get Access Token
+* Access Token Caching (To Disk)
+* <strike>Access Token Caching (To Redis/Memcache)</strike> (To Do)
+* <strike>Encrypted Access Token Caching</strike> (To Do)
+* <strike>Automatic rate limiting</strike> (To Do)
 
-## requirements-ci.txt
-Additional requirements for the CI/CD flows
+### API Resources
+Struck resources are not yet implemented. Resources marked Experimental are a part of the undocumented Pax8 API, see more information below.
+* <b> ```client.Company ```</b>
+    * ```.list(filter=filters.CompanyFilter)```
+    * ```.get(id: uuid)```
+    * <strike>```.create(company: types.Company)```</strike>
+    * ```.get_ms_tenant_id(id: uuid)``` **EXPERIMENTAL**
+    * ```.list_contacts(id: uuid)```
+    * ```.get_contact(id: uuid, contact_id: uuid)```
+    * <strike>```.create_contact(contact: types.Contact)```</strike>
+    * <strike>```.update_contact(contact: types.Contact)```</strike>	
+    * <strike>```.delete_contact(id: uuid, contact_id: uuid)```</strike>
 
-## setup.py
-Configuration file for the application, installation and CLI entry point
+* <b> ```client.Product ```</b>
+    * ```.list(filter: filters.ProductFilter)```
+    * ```.get(id: uuid)```
+    * ```.list_provisioning_details(id: uuid)```
+    * ```.list_dependencies(id: uuid)```
+    * ```.list_pricing(id: uuid)```
+* <b>```client.Order```</b>
+    * ```.list(filter: filters.OrderFilter)```
+    * ```.get(id: uuid)```
+    * <strike>```.create(order: types.Order)```</strike>
 
-## pyproject.toml
-Additional build instructions
+* <b>```client.Subscription```</b>
+    * ```.list(filter: filters.SubscriptionFilter)```
+    * ```.get(id: uuid)```
+    * ```.get_history(id: uuid)```
+    * <strike>```.update(subscription: types.Subscription)```</strike>
+    * <strike>```.delete(id: uuid)```</strike>
+    * ```.list_usage_summaries(id: uuid, filter: filters.UsageSummaryFilter)```
 
-## .gitpod.yml
-Instructions for building development container @gitpod.io
+* <b>```client.Invoice```</b>
+    * ```.list(filter: filters.InvoiceFilter)```
+    * ```.get(id: uuid)```
+    * ```.list_items(id: uuid, filter: filters.InvoiceItemFilter)```
 
-## tpl.github
-Rename this dir to .github to activate the Github Actions
+* <b>```client.UsageSummary```</b>
+    * ```.list(subscription_id: uuid, filter: filters.UsageSummaryFilter)```
+    * ```.get(id: uuid)```
+    * ```.get_usage_lines(id: uuid, filter: filters.UsageSummaryLineFilter)```
 
-### Linting
-Scans the code for errors/formatting, outputs a HTML report uploaded to Github
+### V3 API Resources (Undocumented APIs)
+There are several undocumented APIs used to implement the functionality of the Pax8 Partner Portal (https://app.pax8.com) that have been implemented into this library, marked Experimental above due to their undocumented nature. These APIs are not guaranteed to be stable, and may change at any time. Use at your own risk.
 
-### Matrix_testing
-Testing on several OSes with several python versions
+If there are any undocumented APIs you would like to see implemented, please open an issue and I'll get to it as soon as I can. You can find the full list of available endpoints here: https://app.pax8.com/p8p/api/v3/
 
-### Testing
-Regular testing on a single OS/version
+## Installation
+### From PyPi
+```bash
+pip3 install pax8
+```
 
-### Publish
-Publish the package to pypi and the documentation to github pages (/docs)
+### From Source
+```bash
+git clone https://github.com/scheibling/py-pax8.git
+cd py-pax8
+python3 setup.py install
+```
 
-## src/pytemplate
-The source code of the application
+## Usage
+### Creating an API token
+To be able to use the API, you must first create a token in the Pax8 Partner Application (https://app.pax8.com). to be able to see the option for doing this, you must first register a partner shell under Tools -> Partner Shells -> Pax8 Partner API Partner Shell. Once this is done, you can create a new client ID and secret under Profile Picture -> Edit Profile -> Developer Apps -> Create.
 
-### __init__.py
-The entry point, can be empty but needs to be present
+### Usage Examples
+#### Importing the library and retrieving resources
+```python
+from pax8 import Pax8Client
+from pax8 import filters
+from pax8 import enums
 
-### __version__.py
-The version information for the package/module
+client = Pax8Client(
+    client_id='your_client_id',
+    client_secret='your_client_secret',
+    cache_token=True,
+    cache_location='~/pax8_token.json'
+)
 
-### cli.py
-The CLI entry point, if usage via the command line is desired
+# List all customers (companies)
+client.Company.list()
 
-### main.py
-The main entry point, example class. No need for using the name main.py
+# List all customers (companies) with pagination and the following options
+# First Page
+# Page Size 10
+# Sort by Name (Ascending)
+# Filter by city = 'New York'
+companies = client.Company.list(
+    filters.CompanyFilter(
+        page=0,
+        size=10,
+        sort=enums.CompanySortBy.NAME,
+        sort_direction=enums.SortDirection.ASCENDING,
+        city='New York'
+    )
+)
 
-## tests
-The tests for the application. With inclusion like src.pytemplate.xyz, the tests need to be run from the project root folder (python3 -m unittest discover tests/)
+# Recursively get all contacts and the MS Partner ID for the companies retrieved above
+for company in companies:
+    print(f'Company: {company.name}')
+    print(f'MS Partner ID: {client.Company.get_ms_tenant_id(company.id)}')
+    print('Contacts:')
+    for contact in client.Company.list_contacts(company.id):
+        print(f'\t{contact.first_name} {contact.last_name} ({contact.phoneNumber})')
+```
+
+
+## Pax8 API Errors
+### Subscriptions
+- Subscriptions does not contain a "commitmentTerm" field as stated in the documentation, but instead contains a "commitment" field
+
+### Orders
+- When an order retrieved from the API and order is placed by the partner, the API returns "Pax8Partner" instead of "Pax8 Partner". When creating a new order, the required value is "Pax8 Partner".
+
+### Contacts
+- Contacts contains an undocumented field "phoneNumber" in addition to the field called "phone".
+- Contacts contains an undocumented field "phoneCountryCode"
+- Contacts contains an undocumented field "phoneCountryCallingcode"
+
+### Invoice
+- InvoiceItem.rateType values are documented as lowercase, but are first-letter-uppercase in the API (at least for Flat, not been able to verify the others)
+
+### Usage Summaries
+- List Usage Summary Lines does not specify any pagination options for the API call, but the API does support pagination.
+
+## Acknowledgements
+- [dkschruteBeets](https://github.com/dkschruteBeets) for the [Powershell implementation of the API](https://github.com/dkschruteBeets/Pax8-API), which was a great reference for this (especially for the undocumented APIs)

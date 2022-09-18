@@ -1,30 +1,15 @@
 from dataclasses import dataclass
 from enum import Enum, EnumMeta
 import json
-from this import d
-from typing import List, Dict
+from typing import List
 from datetime import datetime
 from datetime import date
-
-class ResponseType(Enum):
-    OK=200
-    BAD_REQUEST=400
-    UNAUTHORIZED=401
-    FORBIDDEN=403
-    NOT_FOUND=404
-    UNPROCESSABLE_ENTITY=422
-    TOO_MANY_REQUESTS=429
-    INTERNAL_SERVER_ERROR=500
-    NOT_IMPLEMENTED=501
-    BAD_GATEWAY=502
-    SERVICE_UNAVAILABLE=503
-    GATEWAY_TIMEOUT=504
-    VERSION_NOT_SUPPORTED=505
-    VARIANT_ALSO_NEGOTIATES=506
-    INSUFFICIENT_STORAGE=507
+from . import enums as en
+from . import filters as fi
 
 @dataclass
 class Pax8Resource:
+    IGNORE_EMPTY_ALWAYS=[]
     IGNORE_EMPTY=[]
     NESTED_TYPES={}
     GET_NAME=None
@@ -77,18 +62,6 @@ class Pax8Page(Pax8Resource):
     totalPages: int
     number: int
 
-class SortBy(Enum):
-    pass
-
-class SortDirection(Enum):
-    ASCENDING='asc'
-    DESCENDING='desc'
-
-class CompanyStatus(Enum):
-    ACTIVE = "Active"
-    INACTIVE = "Inactive"
-    DELETED = "Deleted"
-
 @dataclass
 class CompanyAddress(Pax8Resource):
     IGNORE_EMPTY = ['street2', 'stateOrProvince']
@@ -99,48 +72,10 @@ class CompanyAddress(Pax8Resource):
     street2: str = None
     stateOrProvince: str = None
 
-class CompanySortBy(SortBy):
-    NAME='name'
-    CITY='city'
-    COUNTRY='country'
-    STATE_OR_PROVINCE='stateOrProvince'
-    POSTAL_CODE='postalCode'
-
-@dataclass
-class ListFilter(Pax8Resource):
-    IGNORE_EMPTY_ALWAYS = ['page', 'size', 'sort', 'sort_direction']
-    page: int = None
-    size: int = None
-    sort: SortBy = None
-    sort_direction: SortDirection = None
-    
-    def __post_init__(self):
-        self.get_qs = self.__get_qs
-    
-    @staticmethod
-    def get_qs(*args, **kwargs) -> dict:
-        return {}
-    
-    def __get_qs(self) -> dict:
-        return dict(self)
-
-@dataclass
-class CompanyFilter(ListFilter):
-    IGNORE_EMPTY = ['city', 'country', 'stateOrProvince', 'postalCode', 'selfServiceAllowed', 'billOnBehalfOfEnabled', 'orderApprovalRequired', 'status']
-    sort: CompanySortBy = None
-    city: str = None
-    country: str = None
-    stateOrProvince: str = None
-    postalCode: str = None
-    selfServiceAllowed: bool = None
-    billOnBehalfOfEnabled: bool = None
-    orderApprovalRequired: bool = None
-    status: CompanyStatus = None
-
 @dataclass
 class Company(Pax8Resource):
     IGNORE_EMPTY = ['id', 'externalId', 'status']
-    NESTED_TYPES = {'address': CompanyAddress, 'status': CompanyStatus}
+    NESTED_TYPES = {'address': CompanyAddress, 'status': en.CompanyStatus}
     name: str
     address: CompanyAddress
     website: str
@@ -150,17 +85,12 @@ class Company(Pax8Resource):
     phone: str = None
     id: str = None
     externalId: str = None
-    status: CompanyStatus = None
-
-class ProductSortBy(Enum):
-    NAME = "name"
-    VENDOR = "vendor"
+    status: en.CompanyStatus = None
 
 @dataclass
-class ProductFilter(ListFilter):
-    IGNORE_EMPTY = ['vendorName']
-    sort: ProductSortBy = None
-    vendorName: str = None
+class CompanyMSTenantID(Pax8Resource):
+    clientId: str
+    tenantId: str
 
 @dataclass
 class Product(Pax8Resource):
@@ -171,17 +101,13 @@ class Product(Pax8Resource):
     sku: str
     vendorSku: str
 
-class ProvisioningDetailTypes(Enum):
-    MULTIPLE_CHOICE = 1
-    INPUT = 2
-
 @dataclass
 class ProvisioningDetail(Pax8Resource):
     IGNORE_EMPTY = ['description', 'possibleValues', 'partnerShellTemplateId']
-    NESTED_TYPES = {'type': ProvisioningDetailTypes}
+    NESTED_TYPES = {'type': en.ProvisioningDetailTypes}
     label: str
     key: str
-    valueType: ProvisioningDetailTypes
+    valueType: en.ProvisioningDetailTypes = None
     description: str = None
     possibleValues: list = None
     partnerShellTemplateId: int = None
@@ -211,44 +137,28 @@ class Dependencies(Pax8Resource):
     productDependencies: List[ProductDependency]
     commitmentDependencies: List[CommitmentDependency]
 
-class BillingTerm(Enum):
-    MONTHLY = "Monthly"
-    ANNUAL = "Annual"
-    TWO_YEAR = "2-Year"
-    THREE_YEAR = "3-Year"
-    ONE_TIME = "One-Time"
-    TRIAL = "Trial"
-    ACTIVATION = "Activation"
 
-class PricingType(Enum):
-    FLAT = "Flat"
-    VOLUME = "Volume"
-    TIERED = "Tiered"
-    MARK_UP = "Mark-Up" 
-
-class ChargeType(Enum):
-    PER_UNIT = "per_unit"
-    FLAT_RATE = "flat_rate"
 
 @dataclass
 class ProductRate(Pax8Resource):
+    NESTED_TYPES = {'chargeType', en.ChargeType}
     partnerBuyRate: float
     suggestedRetailPrice: float
-    startQuantityRange: int
-    endQuantityRange: int
-    chargeType: ChargeType 
+    startQuantityRange: int = None
+    endQuantityRange: int = None
+    chargeType: en.ChargeType = None
 
 @dataclass
 class ProductPricing(Pax8Resource):
-    billingTerm: BillingTerm
-    type: PricingType
-    unitOfMeasurement: str
-    rates: List[ProductRate]
+    NESTED_TYPES = {"billingTerm": en.BillingTerm, "type": en.PricingType, "rates": List[ProductRate]}
+    billingTerm: en.BillingTerm
+    commitmentTerm: str = None
+    commitmentTermInMonths: int = None
+    type: en.PricingType = None
+    unitOfMeasurement: str = None
+    rates: List[ProductRate] = None
 
-class OrderedBy(Enum):
-    PAX8_PARTNER = "Pax8 Partner"
-    CUSTOMER = "Customer"
-    PAX8 = "Pax8"
+
 
 @dataclass
 class ProvisioningSetting(Pax8Resource):
@@ -257,115 +167,94 @@ class ProvisioningSetting(Pax8Resource):
 
 @dataclass
 class OrderLineItem(Pax8Resource):
+    NESTED_TYPES = {"provisioningDetails": List[ProvisioningDetail]}
+    id: str
     productId: str
     subscriptionId: str
-    commitmentTermId: str
     provisionStartDate: datetime
-    lineItemNumber: int
-    billingTerm: BillingTerm
-    parentSubscriptionId: str
-    parentLineItemNumber: int
+    billingTerm: en.BillingTerm
     quantity: int
-    provisioningDetails: List[ProvisioningDetail]
+    commitmentTermId: str = None
+    lineItemNumber: int = None
+    parentSubscriptionId: str = None
+    parentLineItemNumber: int = None
+    provisioningDetails: List[ProvisioningDetail] = None
+
 
 @dataclass
 class Order(Pax8Resource):
+    '''
+        Added due to inconsistencies in Pax8 API, where creation requires "Pax8 Partner"
+        and retrieval returns "Pax8Partner"
+    '''
+    @classmethod
+    def objectify(self, jdict: dict):
+        if 'orderedBy' in jdict and jdict['orderedBy'] == 'Pax8Partner':
+            jdict['orderedBy'] = 'Pax8 Partner'
+        
+        return super().objectify(jdict)
+    
+    NESTED_TYPES = {"lineItems": List[OrderLineItem], "orderedBy": en.OrderedBy}
     companyId: str
     createdDate: str
     lineItems: List[OrderLineItem]
     id: str = None
-    orderedBy: OrderedBy = None
+    orderedBy: en.OrderedBy = None
     orderedByUserId: str = None
     orderedByUserEmail: str = None
 
-class SubscriptionStatus(Enum):
-    ACTIVE = "Active"
-    CANCELLED = "Cancelled"
-    PENDING_MANUAL = "PendingManual"
-    PENDING_AUTOMATED = "PendingAutomated"
-    PENDING_CANCEL = "PendingCancel"
-    WAITING_FOR_DETAILS = "WaitingForDetails"
-    TRIAL = "Trial"
-    CONVERTED = "Converted"
-    PENDING_ACTIVATION = "PendingActivation"
-    ACTIVATED = "Activated"
 
+@dataclass
 class CommitmentTerm(Pax8Resource):
     id: str
     term: str
     endDate: date
 
+
 @dataclass
 class Subscription(Pax8Resource):
+    NESTED_TYPES = {'status': en.SubscriptionStatus, 'billingTerm': en.BillingTerm, 'commitment': CommitmentTerm}
     companyId: str
     productId: str
     quantity: str
     startDate: date
     createdDate: date
     billingStart: date
-    status: SubscriptionStatus
+    status: en.SubscriptionStatus
     price: int
-    billingTerm: BillingTerm
-    commitmentTerm: CommitmentTerm
+    billingTerm: en.BillingTerm
+    commitment: CommitmentTerm = None
+    endDate: date = None
+    updatedDate: date = None
     id: str = None
-
-class ContactTypes(Enum):
-    BILLING = "Billing"
-    ADMIN = "Admin"
-    TECHNICAL = "Technical"
 
 @dataclass
 class ContactType(Pax8Resource):
-    type: ContactTypes
+    NESTED_TYPES = {"type": en.ContactTypes}
+    type: en.ContactTypes
     primary: bool
-    
+
+
 @dataclass
 class Contact(Pax8Resource):
+    NESTED_TYPES = {"types": List[ContactType]}
     firstName: str
     lastName: str
     email: str
-    phone: str
-    types: List[ContactType]
+    types: List[ContactType] = None
+    phone: str = None
+    phoneNumber: str = None
+    phoneCountryCode: str = None
+    phoneCountryCallingCode: str = None
     id: str = None
     createdDate: date = None
 
-class InvoiceItemType(Enum):
-    REBATE = "rebate"
-    PRORATE = "prorate"
-    SUBSCRIPTION = "subscription"
-    PAYMENT_CREDIT = "payment_credit"
-    ONE_TIME = "one_time"
-    SERVICE_CHARGE = "service_charge"
-    SERVICE_CREDIT = "service_credit"
-    INVOICE_CREDIT = "invoice_credit"
-
-class InvoiceItemTerm(Enum):
-    THREE_YEAR = "3 Year"
-    ANNUAL = "Annual"
-    TWO_YEAR = "2 Year"
-    ACTIVATION = "Activation"
-    ONE_TIME    = "One Time"
-    ARREARS = "Arrears"
-    TRIAL = "Trial"
-    REBATE = "Rebate"
-    MONTHLY = "Monthly"
-
-class InvoiceItemRateTypes(Enum):
-    MARKUP = "markup"
-    FLAT = "flat"
-    SINGLE = "single"
-    VOLUME = "volume"
-    TIERED = "tiered"
-
-class InvoiceItemChargeTypes(Enum):
-    PER_UNIT = "per_unit"
-    FLAT_RATE = "flat_rate"
-
 @dataclass
 class InvoiceItem(Pax8Resource):
+    NESTED_TYPES = {"rateType": en.InvoiceItemRateTypes, "chargeType": en.InvoiceItemChargeTypes}
     id: str
     purchaseOrderNumber: str
-    type: InvoiceItemType
+    type: en.InvoiceItemType
     companyId: str
     externalId: str
     companyName: str
@@ -373,14 +262,13 @@ class InvoiceItem(Pax8Resource):
     endPeriod: date
     quantity: int
     unitOfMeasure: str
-    term: InvoiceItemTerm
+    term: en.InvoiceItemTerm
     sku: str
     description: str
-    details: str
-    rateType: InvoiceItemRateTypes
-    chargeType: InvoiceItemChargeTypes
+    rateType: en.InvoiceItemRateTypes
+    chargeType: en.InvoiceItemChargeTypes
     price: float
-    subtotal: float
+    subTotal: float
     cost: float
     costTotal: float
     offeredBy: str
@@ -392,10 +280,13 @@ class InvoiceItem(Pax8Resource):
     billingFeeRate: float
     amountDue: float
     currencyCode: str
+    details: str = None
 
 @dataclass
 class Invoice(Pax8Resource):
+    NESTED_TYPES = {'status': en.InvoiceStatus}
     id: str
+    status: en.InvoiceStatus
     invoiceDate: date
     dueDate: date
     balance: float
@@ -404,6 +295,7 @@ class Invoice(Pax8Resource):
     partnerName: str
     companyId: str
     externalId: str
+
 
 @dataclass
 class UsageSummary(Pax8Resource):
@@ -417,7 +309,7 @@ class UsageSummary(Pax8Resource):
     isTrial: bool
 
 @dataclass
-class UsageSummaryItem(Pax8Resource):
+class UsageSummaryLine(Pax8Resource):
     usageSummaryId: str
     usageDate: date
     productName: str

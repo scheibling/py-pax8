@@ -3,3 +3,6 @@ class Pax8Exception(Exception):
 
 class UnexpectedResponseException(Pax8Exception):
     pass
+
+class UnableToCacheException(Pax8Exception):
+    pass

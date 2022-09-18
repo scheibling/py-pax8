@@ -131,3 +131,5 @@ dmypy.json
 dist/
 dist/*
 src/*.egg-info
+
+testing.py

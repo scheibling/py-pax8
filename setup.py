@@ -47,10 +47,5 @@ setup(
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Operating System :: OS Independent",
     ],
-    keywords='python template package module cli',
-    entry_points = {
-        'console_scripts': [
-            'pypax=pypax.cli:main'
-        ]
-    }
+    keywords='python pax pax8 partner api'
 )
