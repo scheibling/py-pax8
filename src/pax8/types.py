@@ -91,6 +91,7 @@ class Company(Pax8Resource):
     id: str = None
     externalId: str = None
     status: en.CompanyStatus = None
+    updatedDate: datetime = None # I don't know for sure if this ever returns as none
 
 
 @dataclass
@@ -275,10 +276,13 @@ class Subscription(Pax8Resource):
     status: en.SubscriptionStatus
     price: int
     billingTerm: en.BillingTerm
+    partnerCost: float
     commitment: CommitmentTerm = None
     endDate: date = None
     updatedDate: date = None
     id: str = None
+    currencyCode: str = None
+    
 
 @dataclass
 class SubscriptionHistory(Pax8Resource):
@@ -345,13 +349,15 @@ class Invoice(Pax8Resource):
 class UsageSummary(Pax8Resource):
     RESOURCE = "usage-summaries"
     id: str
-    companyId: str
     productId: str
     resourceGroup: str
     vendorName: str
     currentCharges: float
     partnerTotal: float
     isTrial: bool
+    subscriptionId: str = None
+    companyId: str = None # Not returned when getting usage from Subscription
+    currencyCode: str = None
 
 
 @dataclass

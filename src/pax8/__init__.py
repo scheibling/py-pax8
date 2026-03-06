@@ -167,7 +167,7 @@ class Pax8Client:
             return [
                 self.resource.objectify(item)
                 for item in self.conn.list_nested_resource(
-                    "subscriptions", subscription_id, "usage_summaries", filter.get_qs()
+                    "subscriptions", subscription_id, "usage-summaries", filter.get_qs()
                 )
             ]
 
